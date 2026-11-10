@@ -1,0 +1,2818 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>소망이의 포토폴리오 | SOMANG'S PORTFOLIO.</title>
+<!-- V48: Hahmlet font for invitation foreground only -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#e4c18c;--ink:#0d0e11;--line:rgba(229,216,190,.24)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ink);color:#f3eee5;font-family:Arial,'Malgun Gothic',sans-serif}button{font:inherit}a{color:inherit;text-decoration:none}
+/* 1920 × 950 is a design reference, NOT a forced browser size. */
+.section{min-height:100vh;min-height:100svh;position:relative;overflow:hidden}.container{width:calc(100% - 48px);max-width:1440px;margin-inline:auto}.eyebrow{font-size:11px;letter-spacing:.24em;color:var(--gold);font-weight:600}.topbar{position:absolute;z-index:12;top:0;left:0;right:0;border-bottom:1px solid #ffffff22}.topbar>.container{display:flex;align-items:center;justify-content:space-between;padding:23px 0;font-size:12px;letter-spacing:.12em}.topbar nav{display:flex;gap:24px}.topbar a:hover{color:var(--gold)}
+.intro{display:grid;place-items:center;background:radial-gradient(ellipse at 50% 65%,#333039 0%,#17181d 45%,#0d0e11 79%)}.intro:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 calc(25% - 1px),#ffffff07 25%);pointer-events:none}.hero{text-align:center;position:relative;padding:110px 0 80px}.hero h1{margin:18px 0 20px;font-size:clamp(48px,8.2vw,142px);letter-spacing:-.075em;line-height:.97;font-weight:800}.hero h1 span{display:block;color:#b3a8a1}.hero .sub{color:#c6bdb6;line-height:1.8;font-size:clamp(13px,1.5vw,18px)}.go{display:inline-block;margin-top:32px;border:1px solid #9b886f;padding:15px 24px;letter-spacing:.17em;font-size:12px;transition:background .25s}.go:hover{background:#544332}.hero .bottom{margin-top:50px;color:#817d7e;font-size:11px;letter-spacing:.25em}
+.contents{background:#151416;padding:72px 0 35px}.section-head{text-align:center;padding:8px 0 16px}.section-head h2{font-size:clamp(28px,3vw,48px);letter-spacing:.08em;margin:11px 0 8px}.section-head p{font-size:12px;color:#9d9692;margin:0}
+/* gallery is CSS perspective art direction: no external graphics needed */
+.gallery{position:relative;height:clamp(360px,43vh,490px);overflow:hidden;border:1px solid #655c5550;background:linear-gradient(180deg,#111216 0%,#252327 73%,#0f1014 73.4%,#262124 100%);isolation:isolate;perspective:1100px}.gallery:before{content:"";position:absolute;left:-5%;right:-5%;bottom:26%;border-top:2px solid #746b5a42}.gallery:after{content:"";position:absolute;inset:74% -10% 0;background:repeating-linear-gradient(102deg,transparent 0 133px,#ffffff0a 134px 135px);transform:perspective(430px) rotateX(48deg);transform-origin:top;pointer-events:none}
+.wall-left,.wall-right{position:absolute;top:0;height:74%;width:13%;background:linear-gradient(90deg,#0a0b0f,#272529);opacity:.8}.wall-left{left:0;clip-path:polygon(0 0,100% 10%,100% 100%,0 100%)}.wall-right{right:0;transform:scaleX(-1);clip-path:polygon(0 0,100% 10%,100% 100%,0 100%)}
+.lamp{position:absolute;top:4%;left:50%;transform:translateX(-50%);z-index:7;width:54px;height:16px;border-radius:5px 5px 14px 14px;background:linear-gradient(#c3b7a4,#514e4c);box-shadow:0 2px 6px #000;transition:box-shadow .25s}.lamp:after{content:"";position:absolute;left:13px;top:13px;width:28px;height:5px;border-radius:50%;background:#f8d9a5;box-shadow:0 0 20px 8px #ffdc8a77;transition:opacity .2s}.beam{position:absolute;z-index:1;pointer-events:none;left:50%;top:6%;width:66%;height:73%;transform:translateX(-50%);background:linear-gradient(#f9e4b12a,#eac9900e 70%,transparent);clip-path:polygon(49% 0,51% 0,94% 100%,6% 100%);filter:blur(11px)}.wall-glow{position:absolute;left:50%;top:8%;width:56%;height:72%;transform:translateX(-50%);background:radial-gradient(ellipse,#f9dfa83a 0%,#f8e1ae18 35%,transparent 72%);pointer-events:none;z-index:1}.floor-glow{position:absolute;left:50%;bottom:9%;width:45%;height:40px;transform:translateX(-50%);border-radius:50%;background:#f8d5a72c;filter:blur(19px);pointer-events:none;z-index:1}.beam,.wall-glow,.floor-glow{opacity:0;transition:opacity .45s ease}.gallery.lit .beam,.gallery.lit .wall-glow,.gallery.lit .floor-glow{opacity:1}.gallery:not(.lit) .lamp:after{opacity:0}.gallery:not(.lit) .lamp{box-shadow:0 2px 6px #000}
+.art{position:absolute;z-index:3;top:54%;left:50%;width:clamp(165px,21vw,270px);aspect-ratio:5/7;border:0;padding:clamp(24px,2.2vw,30px) clamp(18px,1.7vw,24px) clamp(24px,2.2vw,28px);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;color:white;background:transparent;box-shadow:0 18px 30px #000c;transition:none;appearance:none;transform:translate(-50%,-50%);overflow:visible;isolation:isolate}.art:before{content:"";position:absolute;inset:7.5% 9.3% 8.7% 9.3%;z-index:0;border-radius:2px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}.art:after{content:"";position:absolute;inset:0;z-index:2;background:url(moving_frame_transparent.png) center/100% 100% no-repeat;pointer-events:none}.art[data-index="0"]:before{background:radial-gradient(circle at 50% 36%,#b57ee4,#6a359c 57%,#272038)}.art[data-index="1"]:before{background:radial-gradient(circle at 50% 38%,#ffd5de,#ba587f 57%,#4f2837)}.art[data-index="2"]:before{background:radial-gradient(circle at 48% 28%,#647b72,#273832 54%,#101717)}.art > *{position:relative;z-index:1}.art .num{font-size:12px;letter-spacing:.18em}.art .name{font-size:clamp(15px,2vw,26px);font-weight:800;letter-spacing:.07em;margin:14px 0 8px;text-align:center}.art .type{font-size:10px;letter-spacing:.12em;text-align:center}.art.center{left:50%;transform:translate(-50%,-50%) scale(1);opacity:1;filter:brightness(1.12);z-index:5;box-shadow:0 15px 38px #000c,0 0 34px #f6d99b36}.art.left{left:13%;transform:translate(-50%,-50%) scale(.67) rotateY(20deg);filter:brightness(.41);opacity:.83}.art.right{left:87%;transform:translate(-50%,-50%) scale(.67) rotateY(-20deg);filter:brightness(.41);opacity:.83}.art.gone-left{left:-28%;transform:translate(-50%,-50%) scale(.35);opacity:0;pointer-events:none}.art.gone-right{left:128%;transform:translate(-50%,-50%) scale(.35);opacity:0;pointer-events:none}.art.center:focus-visible,.art.right:focus-visible,.art.left:focus-visible{outline:3px solid var(--gold);outline-offset:4px}.gallery:not(.lit) .art.center{filter:brightness(.44);box-shadow:0 18px 30px #000b}
+.chapter-label{position:absolute;top:0%;left:0;right:0;text-align:center;z-index:6;font-size:clamp(19px,2.1vw,34px);font-weight:800;letter-spacing:.13em;color:#f5dfb5;text-shadow:0 2px 22px #000,0 0 18px #dbb77b77;pointer-events:none;transition:opacity .3s ease}.gallery.moving .chapter-label{opacity:.35}.gallery-actions{display:flex;align-items:center;justify-content:center;gap:30px;margin:16px 0}.gallery-actions button{padding:12px 22px;min-width:110px;color:#e9ddc9;background:#1c1b1f;border:1px solid #8d7d67;cursor:pointer;font-size:12px;letter-spacing:.14em}.gallery-actions button:hover:not(:disabled){background:#45392d}.gallery-actions button:disabled{opacity:.25;cursor:default}.counter{font-size:12px;letter-spacing:.18em;color:#cab894}.helper{text-align:center;font-size:11px;color:#aaa29a;margin:0 0 14px}
+/* This is still part of CONTENTS, so the contents section can grow with its contents. */
+.detail{border-top:1px solid var(--line);padding:20px 0 10px;display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,5vw,90px);align-items:center}.detail h3{font-size:clamp(24px,3vw,45px);letter-spacing:-.035em;margin:12px 0}.detail p{color:#bfb9b4;line-height:1.8;font-size:14px}.video{aspect-ratio:16/9;border:1px solid #8a7960;background:#1f2026;display:grid;place-items:center;text-align:center;color:#e8dbbf;font-size:15px}.video b{display:block;font-size:36px;font-weight:400;margin-bottom:12px}.video small{color:#99938b}
+.about{display:flex;align-items:center;background:linear-gradient(125deg,#202127,#14161a 58%,#242025)}.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,110px);align-items:center;padding:100px 0}.about h2,.contact h2{font-size:clamp(46px,6vw,96px);letter-spacing:-.06em;line-height:1.02;margin:20px 0}.about p{line-height:1.95;color:#ccc6c0;font-size:clamp(15px,1.4vw,19px)}.skills{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.skills span{padding:9px 13px;border:1px solid #aaa0a055;font-size:12px;color:#e4d4bd}.about-graphic{aspect-ratio:4/5;border:1px solid #bfa77a66;background:radial-gradient(circle at 60% 38%,#a48d6440,#3a3533 42%,#171719 75%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px}.about-graphic strong{font-size:clamp(50px,9vw,140px);letter-spacing:-.12em;color:#e8d7bc}.about-graphic small{letter-spacing:.3em;font-size:10px;color:#b7a995}.contact{display:grid;place-items:center;text-align:center;background:radial-gradient(ellipse at 50% 50%,#2e2a2c,#131417 70%)}.contact .container{padding:90px 0}.contact p{color:#bbb1ab;font-size:15px;line-height:1.9}.contact .email{display:inline-block;margin-top:18px;font-size:clamp(15px,1.4vw,20px);font-weight:400;letter-spacing:.02em;border:0;padding-bottom:0;text-decoration:none;cursor:default}.contact .placeholder{font-size:13px;color:#928a84}.footer-note{position:absolute;bottom:20px;left:0;right:0;text-align:center;font-size:11px;letter-spacing:.15em;color:#827f80}
+@media(max-width:800px){.topbar>.container{gap:14px}.topbar nav{gap:11px;font-size:10px}.container{width:calc(100% - 32px)}.contents{padding-top:48px}.gallery{height:400px}.art{width:180px}.art.left{left:6%}.art.right{left:94%}.art .name{font-size:17px}.detail,.about-inner{grid-template-columns:1fr}.detail{padding:24px 0 32px}.about-inner{padding:95px 0}.about-graphic{max-width:440px;width:100%;margin:auto;aspect-ratio:5/3}.about-graphic strong{font-size:70px}.gallery-actions{gap:12px}.gallery-actions button{min-width:92px;padding:10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* THE EXHIBITION / Fixed original-image gallery backdrop */
+html{scroll-behavior:smooth}body{background:#181719;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:0;background-image:url(somang_gallery_background_1920x950.jpg);background-size:100% 100%;background-position:center;pointer-events:none}
+.section{background:transparent!important;isolation:isolate;z-index:1}
+.intro::before{display:none!important}
+.topbar{background:rgba(13,13,15,.32);backdrop-filter:blur(6px)}
+.intro .hero{z-index:2}
+.hero h1{font-size:clamp(48px,7.5vw,130px);text-shadow:0 6px 38px #000a}
+.hero h1 span{color:#e0d2c2}
+.intro .hero .letter{display:inline-block;opacity:0;transform:translateY(18px);filter:blur(8px);animation:none;animation-delay:calc(.57s + var(--n)*.072s)}
+@keyframes letterReveal{to{opacity:1;transform:translateY(0);filter:blur(0)}}
+.intro .hero .eyebrow,.intro .hero .sub,.intro .hero .go,.intro .hero .bottom{opacity:0;animation:fadeInUp .6s ease forwards;animation-delay:2.12s}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.tv-overlay{position:fixed;inset:0;z-index:80;background:#030304;pointer-events:none;opacity:0;visibility:hidden}
+.tv-overlay.boot{visibility:visible;opacity:1;animation:tvBoot .65s ease-out forwards}
+.tv-overlay.shutdown{visibility:visible;opacity:1;animation:tvOff .66s cubic-bezier(.55,.1,.65,1) forwards}
+.tv-overlay .tv-line{position:absolute;top:50%;left:50%;width:74%;height:2px;transform:translate(-50%,-50%);background:#fff;box-shadow:0 0 16px 6px #fff7;opacity:0}
+.tv-overlay.shutdown .tv-line{animation:lineOff .66s ease-in-out forwards}
+@keyframes tvBoot{0%{clip-path:inset(0 0 0 0);opacity:1}25%{clip-path:inset(49.8% 0);opacity:1}52%{clip-path:inset(46% 0);opacity:1}83%{clip-path:inset(0);opacity:.7}100%{clip-path:inset(0);opacity:0;visibility:hidden}}
+@keyframes tvOff{0%{clip-path:inset(0);opacity:0}17%{clip-path:inset(0);opacity:1}48%{clip-path:inset(46% 0)}75%{clip-path:inset(49.85% 0)}100%{clip-path:inset(50% 50%);opacity:0;visibility:hidden}}
+@keyframes lineOff{0%,40%{opacity:0}70%{opacity:1}100%{opacity:0;width:0}}
+/* Gallery is transparent so the SAME fixed background can be seen through it. */
+.contents{padding-top:94px;padding-bottom:65px}
+.gallery{background:rgba(13,12,15,.06);border:0;height:clamp(350px,44vh,455px)}
+.gallery::before,.gallery::after,.gallery .wall-left,.gallery .wall-right{display:none}
+.gallery .lamp{display:none}
+.gallery .beam{top:3%;height:87%;background:linear-gradient(#f9e4b122,#eac9900a 70%,transparent)}
+.gallery .wall-glow{top:2%;height:88%}
+.gallery .floor-glow{bottom:2%}
+.section-head h2{text-shadow:0 4px 16px #000a}
+.detail{background:rgba(16,15,17,.8);backdrop-filter:blur(14px);padding:clamp(20px,4vw,55px);border:1px solid #ffffff25;border-radius:3px}
+.video{background:rgba(21,20,25,.87)}
+.about{display:flex;align-items:center;min-height:100svh}
+.about::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#11101460,transparent 50%,#11101440);pointer-events:none;z-index:-1}
+.about-inner{position:relative;z-index:3;padding:100px 0 160px}
+.about-graphic{background:rgba(12,11,13,.45);backdrop-filter:blur(5px)}
+.about .reveal{opacity:0;transform:translateY(28px);filter:blur(8px);transition:opacity 1s, transform 1s,filter 1s}
+.about.in-view .reveal{opacity:1;transform:translateY(0);filter:blur(0)}
+.about .reveal.delay1{transition-delay:.6s}.about .reveal.delay2{transition-delay:.85s}.about .reveal.delay3{transition-delay:1.1s}
+/* The carpet is a separate animated FLOOR object, never part of backdrop. */
+.carpet-wrap{position:absolute;left:0;right:0;bottom:0;height:clamp(95px,18vh,210px);z-index:1;overflow:hidden;pointer-events:none;perspective:780px}
+.carpet{position:absolute;inset:0;background:linear-gradient(90deg,#3e0a13 0%,#811c2a 9%,#9a2733 49%,#811c2a 91%,#3e0a13);box-shadow:inset 0 3px 12px #d7687163,0 -5px 25px #0009;clip-path:inset(100% 0 0 0);transform-origin:center bottom;transition:clip-path 1.6s cubic-bezier(.19,.83,.24,1);}
+.carpet::before{content:"";position:absolute;inset:0 3%;border-inline:2px solid #c38d62a9;opacity:.85}
+.about.in-view .carpet{clip-path:inset(0 0 0 0)}
+.carpet-roll{position:absolute;top:0;left:0;right:0;height:17px;border-radius:50%;background:linear-gradient(#d2515e,#741522 66%,#2d080d);box-shadow:0 3px 13px #0009;opacity:0;transform:translateY(160px);transition:transform 1.6s cubic-bezier(.19,.83,.24,1),opacity .18s}
+.about.in-view .carpet-roll{transform:translateY(0);opacity:0;transition:transform 1.6s cubic-bezier(.19,.83,.24,1),opacity .2s 1.4s}
+.contact{min-height:100svh}
+.contact .container{background:rgba(16,15,17,.45);backdrop-filter:blur(4px);padding:70px 20px}
+.contact .reveal{opacity:0;transform:translateY(44px);filter:blur(10px);transition:opacity 1.2s ease,transform 1.2s ease,filter 1.2s ease}
+.contact.in-view .reveal{opacity:1;transform:translateY(0);filter:blur(0)}
+.contact .reveal.delay1{transition-delay:.25s}.contact .reveal.delay2{transition-delay:.5s}.contact .reveal.delay3{transition-delay:.7s}
+@media(max-width:800px){body::before{background-size:cover}.intro .hero{padding-top:135px}.hero h1{font-size:clamp(40px,11vw,84px)}.about-inner{padding:110px 0 135px}.carpet-wrap{height:15vh}.gallery{height:385px}.detail{padding:18px}.topbar nav{gap:10px}}
+@media(prefers-reduced-motion:reduce){.tv-overlay{display:none!important}.intro .hero .letter,.intro .hero .eyebrow,.intro .hero .sub,.intro .hero .go,.intro .hero .bottom{animation:none;opacity:1;transform:none;filter:none}.about .reveal,.contact .reveal{opacity:1;transform:none;filter:none}.carpet,.carpet-roll{transition:none}}
+
+
+/* V2: Correctly align carpet with the FLOOR of the fixed background, not section flow. */
+body::before{z-index:0!important;background-size:100% 100%}
+.section{z-index:1}
+.floor-carpet{position:fixed!important;left:0;bottom:0;width:100%;height:22.5vh;min-height:70px;pointer-events:none;z-index:9;overflow:visible;visibility:hidden;--unroll:0;--front:1;transition:visibility 0s .06s}
+.floor-carpet.is-visible{visibility:visible;transition:none}
+.floor-carpet-surface{position:absolute;inset:0;width:100%;height:100%;clip-path:polygon(10% 100%,90% 100%,69% 0,31% 0);transform-origin:50% 100%;transform:scaleY(var(--unroll));background:repeating-linear-gradient(92deg,transparent 0px,#fff1 1px,transparent 3px,transparent 7px),radial-gradient(ellipse at 50% 88%,#ba3342 0%,#821929 54%,#430b16 100%);box-shadow:0 -8px 15px #10070a;filter:drop-shadow(0 -3px 4px #0009)}
+.floor-carpet-surface::after{content:"";position:absolute;inset:0;clip-path:polygon(0 0,100% 0,100% 100%,0 100%);background:linear-gradient(90deg,transparent 11%,#f0b77891 11.2%,transparent 11.5%,transparent 88.5%,#f0b77891 88.8%,transparent 89%);opacity:.65}
+.floor-carpet-rolledge{position:absolute;left:calc(10% + 21% * var(--unroll));width:calc(80% - 42% * var(--unroll));height:clamp(11px,2.0vh,22px);bottom:calc(100% * var(--unroll) - 7px);border-radius:50% / 42%;transform:scaleY(calc(.55 + .45 * var(--front)));background:linear-gradient(180deg,#d86773 0%,#9b293a 21%,#5e1320 65%,#27080d 100%);box-shadow:0 5px 9px #000b,0 1px 3px #d5657169;opacity:clamp(0,calc(var(--unroll) * 8),1)}
+/* Each letter must be INLINE; the old global h1 span display:block caused separate lines! */
+.intro .hero h1 .letter{display:inline-block!important;white-space:pre;vertical-align:baseline;opacity:0;transform:translate3d(0,22px,0);filter:blur(7px);animation:none;animation-delay:calc(.52s + var(--n)*.072s)}
+.intro .hero h1>span{display:block}
+.intro .hero h1{white-space:nowrap}
+@media(max-width:600px){.intro .hero h1{font-size:clamp(32px,9vw,60px)}.floor-carpet{height:18vh}}
+/* crisp, restrained CRT startup */
+.tv-overlay.boot{background:#000;animation:turnOn .73s ease forwards}
+.tv-overlay.boot .tv-line{animation:turnOnLine .73s ease forwards}
+@keyframes turnOn{0%,15%{opacity:1;visibility:visible}60%{opacity:1}100%{opacity:0;visibility:hidden}}
+@keyframes turnOnLine{0%,12%{opacity:0;width:0;height:2px}27%{opacity:1;width:75%;height:2px}48%{opacity:1;width:100%;height:2px}68%{opacity:.5;width:100%;height:88%}100%{opacity:0;width:100%;height:100%}}
+@media(prefers-reduced-motion:reduce){.floor-carpet{display:none}.intro .hero h1 .letter{animation:none;opacity:1;transform:none;filter:none}}
+
+/* INTRO V3 — reveal is driven by actual timed JS, not delayed CSS on characters */
+.intro{background:transparent!important}
+.intro:before{display:none!important}
+.intro .hero{z-index:2}
+.intro .hero h1{letter-spacing:-.045em;line-height:1.03;min-height:2.06em}
+.intro .hero h1 .title-line{display:block!important;white-space:nowrap}
+.intro .hero h1 .title-line.second{color:#d6cbc0}
+.intro .hero h1 .letter{display:inline-block;animation:none!important;opacity:0;filter:blur(5px);transform:translateY(9px);transition:opacity .82s cubic-bezier(.22,1,.36,1),transform .82s ease-out,filter .82s ease-out;will-change:opacity,filter}
+.intro .hero h1 .letter.shown{opacity:1;filter:blur(0);transform:translateY(0) scale(1)}
+.intro .hero .eyebrow,.intro .hero .sub,.intro .hero .go,.intro .hero .bottom{animation:none!important;opacity:0;transform:translateY(16px);filter:blur(6px);transition:opacity 1.3s ease-in-out,transform 1.3s ease-out,filter 1.3s ease-out}
+.intro .hero .eyebrow.revealed,.intro .hero .sub.revealed,.intro .hero .go.revealed,.intro .hero .bottom.revealed{opacity:1;transform:translateY(0);filter:blur(0)}
+.intro .hero .go{pointer-events:none}
+.intro .hero .go.revealed{pointer-events:auto}
+.tv-overlay.boot{animation:none!important;opacity:1!important;visibility:visible!important;clip-path:none!important;z-index:200}
+.tv-overlay.boot:before,.tv-overlay.boot:after{content:"";position:absolute;left:0;width:100%;height:50.2%;background:#020203;transition:transform .46s cubic-bezier(.3,.63,.4,1);will-change:transform}
+.tv-overlay.boot:before{top:0}.tv-overlay.boot:after{bottom:0}
+.tv-overlay.boot.tv-opening:before{transform:translateY(-101%)}
+.tv-overlay.boot.tv-opening:after{transform:translateY(101%)}
+.tv-overlay.boot .tv-line{display:block;opacity:0;z-index:2;width:0;height:2px;transition:width .16s ease,opacity .24s ease;box-shadow:0 0 13px 3px #fff9,0 0 45px 10px #d0bfaa66}
+.tv-overlay.boot.tv-spark .tv-line{opacity:1;width:90%}
+.tv-overlay.boot.tv-opening .tv-line{opacity:0;width:100%}
+.tv-overlay.boot.tv-finished{opacity:0!important;visibility:hidden!important}
+@media(max-width:650px){.intro .hero h1{font-size:clamp(37px,8vw,66px)}.intro .hero h1 .title-line{white-space:normal}}
+@media(prefers-reduced-motion:reduce){.intro .hero h1 .letter,.intro .hero .eyebrow,.intro .hero .sub,.intro .hero .go,.intro .hero .bottom{transition-duration:.01ms!important}}
+
+
+/* V5: no snap-in: visibility is driven by explicit per-glyph animations. */
+.intro .hero h1 .letter { opacity:0; filter:blur(9px); transform:translateY(13px); transition:none!important; }
+.intro .hero h1 .letter.shown { opacity:1; filter:blur(0); transform:translateY(0); }
+.intro .hero .eyebrow,.intro .hero .sub,.intro .hero .go,.intro .hero .bottom { opacity:0;filter:blur(8px);transform:translateY(14px);transition:none!important; }
+.intro .hero .eyebrow.revealed,.intro .hero .sub.revealed,.intro .hero .go.revealed,.intro .hero .bottom.revealed {opacity:1;filter:blur(0);transform:translateY(0)}
+
+/* V6: smooth, whole-element reveal with top copy appearing first. */
+.intro .hero .eyebrow,.intro .hero #type-title,.intro .hero .sub,.intro .hero .go,.intro .hero .bottom {
+  opacity:0;filter:blur(9px);transform:translateY(16px);
+  animation:none!important;transition:none!important;
+}
+.intro .hero .eyebrow.revealed,.intro .hero #type-title.revealed,.intro .hero .sub.revealed,.intro .hero .go.revealed,.intro .hero .bottom.revealed {
+  opacity:1!important;filter:none!important;transform:none!important;
+}
+.intro .hero #type-title{white-space:normal;min-height:0}
+.intro .hero #type-title>span{display:block}
+@media(prefers-reduced-motion:reduce){.intro .hero .eyebrow,.intro .hero #type-title,.intro .hero .sub,.intro .hero .go,.intro .hero .bottom {opacity:1!important;transform:none!important;filter:none!important}}
+
+/* V7: force TV opening curtain to remain visible long enough to perceive. */
+.tv-overlay.boot.tv-opening:before{transform:translateY(-101%);transition-duration:.68s}
+.tv-overlay.boot.tv-opening:after{transform:translateY(101%);transition-duration:.68s}
+.intro .hero #type-title,.intro .hero .eyebrow,.intro .hero .sub,.intro .hero .go,.intro .hero .bottom{will-change:opacity,filter,transform}
+.intro-replay{position:absolute;right:24px;bottom:22px;z-index:10;background:#161518b8;border:1px solid #ffffff42;color:#e9dfd0;padding:9px 13px;cursor:pointer;font-size:11px;letter-spacing:.08em;border-radius:2px}
+.intro-replay:hover{background:#342d29}
+/* V8: disable legacy opacity animations that previously clashed with the sequence. */
+.intro .hero .eyebrow,.intro .hero #type-title,.intro .hero .sub,.intro .hero .go,.intro .hero .bottom {animation:none!important;transition:none!important;}
+
+/* V11: curtain over FIXED background, and a real SUNO video player. */
+#tv-overlay{display:none!important}
+#curtain-screen{position:fixed;inset:0;z-index:99;pointer-events:none;display:block;background:transparent;overflow:hidden}
+#curtain-screen.finished{display:none}
+#curtain-screen video{display:block;width:100%;height:100%;object-fit:fill}
+.intro .hero .eyebrow,.intro .hero #type-title,.intro .hero .sub,.intro .hero .go,.intro .hero .bottom{opacity:0!important;filter:blur(7px)!important;transform:translateY(11px)!important;animation:none!important;transition:none!important}
+#video.video{position:relative;display:flex;flex-direction:column;align-items:stretch;justify-content:center;overflow:hidden;padding:0;min-width:0;height:auto;aspect-ratio:16/9;border-radius:5px;background:#0d0d10}
+#video .suno-player{width:100%;height:100%;aspect-ratio:16/9;display:block;object-fit:contain;background:#080809;position:relative;z-index:1}
+#video .player-note{position:absolute;bottom:100%;font-size:0;pointer-events:none}
+#video .empty-player{text-align:center;align-self:center}
+.detail{align-items:center}
+@media(max-width:800px){.detail{grid-template-columns:1fr}.detail #video{width:100%}}
+
+/* V13: Real transparent gold frame. Match inner opening to the original 1280x706 video. */
+#video.video:has(.gold-video-frame){aspect-ratio:auto;display:flex;align-items:center;justify-content:center;background:transparent;border:0;overflow:visible;}
+#video .gold-video-frame{position:relative;width:100%;aspect-ratio:1515 / 943;box-sizing:border-box;padding:7.79% 7.79%;display:flex;align-items:stretch;justify-content:stretch;filter:drop-shadow(0 9px 14px rgba(0,0,0,.5));}
+#video .gold-video-frame .suno-player{display:block;width:100%;height:100%;min-height:0;aspect-ratio:1280 / 706;object-fit:contain;background:#090909;border:0;z-index:1;}
+#video .gold-frame-overlay{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none;z-index:2;}
+@media(max-width:800px){#video .gold-video-frame{width:100%;}}
+
+/* V15: frame exactly masks artwork; remove the old rectangular ghost shadow. */
+.art,
+.art.center,
+.art.left,
+.art.right,
+.art.gone-left,
+.art.gone-right,
+.gallery:not(.lit) .art.center {
+  box-shadow:none!important;
+  background:transparent!important;
+}
+.art:before {
+  inset:15.9% 13.8% 12.1% 13.8%;
+  border-radius:0;
+  box-shadow:none;
+}
+.art:after {
+  filter:drop-shadow(0 7px 7px rgba(0,0,0,.38));
+}
+
+/* V16 — ABOUT ME: real uploaded logos, equal cells, ratio-preserving rendering */
+.about-inner{grid-template-columns:minmax(0,1.04fr) minmax(0, .96fr);gap:clamp(36px,5vw,88px)}
+.about .about-copy h2{font-size:clamp(42px,5vw,76px);letter-spacing:-.057em}
+.about .about-lead{color:#e5c593;font-size:clamp(17px,1.55vw,21px);font-weight:600;margin-top:0}
+.about .about-copy p{max-width:650px;font-size:clamp(14px,1.18vw,17px);line-height:1.85}
+.about-strength-title{margin-top:28px}
+.about .skills span{border-color:rgba(219,193,154,.46);background:rgba(16,15,17,.84);box-shadow:0 8px 18px rgba(0,0,0,.24);color:#f1e7d8}
+.tools-panel{min-width:0;padding:clamp(17px,2vw,28px);background:rgba(13,12,15,.57);border:1px solid rgba(221,192,148,.35);box-shadow:0 25px 45px rgba(0,0,0,.12);backdrop-filter:blur(5px)}
+.tools-header{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-bottom:20px}
+.tools-header small{font-size:9px;letter-spacing:.12em;color:#aaa197}
+.tools-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,1.3vw,18px)}
+.tool-card{min-width:0;display:flex;flex-direction:column;align-items:center;gap:12px;padding:17px 5px 12px;border:1px solid rgba(213,196,166,.19);background:rgba(255,255,255,.035);border-radius:3px}
+.tool-icon{height:clamp(56px,6vw,92px);width:100%;display:flex;justify-content:center;align-items:center;padding:4px}
+.tool-icon img{display:block;width:auto;max-width:90%;max-height:100%;object-fit:contain;filter:drop-shadow(0 4px 6px rgba(0,0,0,.22))}
+.kling-card .tool-icon img{max-width:96%;max-height:64%}
+.tool-card span{font-size:clamp(10px,.82vw,13px);color:#ded3c5;text-align:center;white-space:normal}
+.tools-footer{margin-top:22px;text-align:center;letter-spacing:.14em;color:#978d83;font-size:10px}
+.tools-footer span{color:#c9ab7f;padding-inline:5px}
+.about.in-view .tool-card{animation:logoAppear .65s ease both;animation-delay:calc(.8s + var(--item)*.13s)}
+@keyframes logoAppear{from{opacity:0;transform:translateY(13px);filter:blur(3px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+@media(max-width:800px){.about-inner{grid-template-columns:1fr}.tools-panel{width:100%}.tool-icon{height:75px}.tools-grid{gap:10px}}
+@media(prefers-reduced-motion:reduce){.about.in-view .tool-card{animation:none}}
+
+/* V22 ABOUT ME — ONE animation system, replacing conflicting V17–V21 rules. */
+#about .about-copy > * {opacity:0;transform:translateX(-140px);filter:blur(3px);transition:none;animation:none}
+#about .tools-panel {opacity:0;visibility:hidden;transition:none;transform:none;filter:none}
+#about .tool-card {opacity:0;transform:translateY(-180px);animation:none;transition:none;transform-origin:50% 90%}
+#about.about-running .about-copy > * {animation:aboutText22 .72s cubic-bezier(.18,.87,.24,1) both;animation-delay:calc(1.08s + var(--copy-step,0)*.12s)}
+#about.about-running.about-show-tools .tools-panel {opacity:1;visibility:visible}
+#about.about-running.about-drop .tool-card {animation:aboutDrop22 .47s cubic-bezier(.2,.80,.26,1) both;animation-delay:calc(var(--item)*.16s)}
+#about.about-running.about-drop .tool-card:last-child {animation:aboutWobble22 1.05s ease-in-out both;animation-delay:.8s;transform-origin:16% 94%}
+#about.about-complete .about-copy > *,#about.about-complete .tool-card {opacity:1;transform:none;filter:none;animation:none}
+#about.about-complete .tools-panel {opacity:1;visibility:visible;filter:none;transform:none}
+#about .about-copy > :nth-child(1){--copy-step:0}
+#about .about-copy > :nth-child(2){--copy-step:1}
+#about .about-copy > :nth-child(3){--copy-step:2}
+#about .about-copy > :nth-child(4){--copy-step:3}
+#about .about-copy > :nth-child(5){--copy-step:4}
+#about .about-copy > :nth-child(6){--copy-step:5}
+#about .about-copy > :nth-child(7){--copy-step:6}
+@keyframes aboutText22{from{opacity:0;transform:translateX(-140px);filter:blur(3px)}to{opacity:1;transform:translateX(0);filter:none}}
+@keyframes aboutDrop22{0%{opacity:0;transform:translateY(-180px) scale(.96)}12%{opacity:1}58%{transform:translateY(0) scale(1.04,.91)}78%{transform:translateY(-12px) scale(.98,1.03)}91%{transform:translateY(3px)}100%{opacity:1;transform:none}}
+@keyframes aboutWobble22{0%{opacity:0;transform:translateY(-180px)}10%{opacity:1}30%{transform:translateY(0) scale(1.04,.9)}44%{transform:translateY(-8px) rotate(16deg)}57%{transform:rotate(20deg)}73%{transform:translateY(-5px) rotate(-7deg)}87%{transform:rotate(3deg)}100%{opacity:1;transform:none}}
+/* The photographed wall/floor boundary is at approximately 87.4% of the full-frame background. */
+#floor-carpet {position:fixed;top:87.4%;bottom:0;left:0;right:0;height:auto;z-index:9;visibility:hidden;overflow:hidden;pointer-events:none;--progress:0;--roll-visible:0}
+#floor-carpet.carpet-visible {visibility:visible}
+#floor-carpet .velvet-sheet {position:absolute;inset:0;width:100%;height:100%;object-fit:fill;clip-path:inset(var(--conceal,100%) 0 0 0);transform:none;filter:drop-shadow(0 2px 5px #0008)}
+#floor-carpet .carpet-front {position:absolute;bottom:calc(var(--progress)*100% - 12px);left:calc(7% + var(--progress)*20%);width:calc(86% - var(--progress)*40%);height:25px;overflow:hidden;opacity:var(--roll-visible);filter:drop-shadow(0 3px 3px #0009)}
+#floor-carpet .carpet-front img {position:absolute;bottom:0;left:0;width:100%;height:120px;object-fit:fill}
+.floor-carpet-surface,.floor-carpet-rolledge {display:none!important}
+/* This button appears only after the opening event, to avoid interrupting it. */
+#about-replay {position:fixed;z-index:100;right:clamp(14px,3vw,42px);bottom:clamp(18px,3vh,32px);padding:12px 18px;background:#151316ed;color:#f3dcb7;border:1px solid #c7a679;letter-spacing:.1em;font-size:11px;cursor:pointer;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s}
+#about-replay.visible {opacity:1;visibility:visible;pointer-events:auto}
+/* V83: ABOUT animation no longer pins scroll. */
+@media(max-width:800px){#floor-carpet{top:87.4%}#about-replay{right:12px;bottom:12px}}
+@media(prefers-reduced-motion:reduce){#about.about-complete .about-copy > *,#about.about-complete .tool-card{animation:none}#floor-carpet{display:none}}
+
+/* V23: User explicitly requests this sequence. Do not silently suppress it because OS motion-reduction is enabled. */
+@media (prefers-reduced-motion: reduce) {
+  #floor-carpet { display:block!important; }
+  #about.about-running .about-copy > * { animation:aboutText22 .72s cubic-bezier(.18,.87,.24,1) both!important; animation-delay:calc(1.08s + var(--copy-step,0)*.12s)!important; }
+  #about.about-running.about-drop .tool-card { animation:aboutDrop22 .47s cubic-bezier(.2,.80,.26,1) both!important; animation-delay:calc(var(--item)*.16s)!important; }
+  #about.about-running.about-drop .tool-card:last-child { animation:aboutWobble22 1.05s ease-in-out both!important; animation-delay:.8s!important; }
+}
+
+/* V26: Anchor the photo-matched runner to the actual back-wall FLOOR seam.
+   Gallery image is stretched to the viewport (100% 100%); the center seam is y≈845/950=88.9%. */
+#floor-carpet {
+  position:fixed!important;
+  top:89.1%!important;
+  bottom:0!important;
+  left:11%!important;
+  right:11%!important;
+  width:auto!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  z-index:1!important;
+  overflow:hidden!important;
+  isolation:isolate;
+}
+#floor-carpet .velvet-sheet {width:100%;height:100%;object-fit:fill;filter:none;}
+#floor-carpet .carpet-front {max-height:13px;}
+/* Fixed floor art behind ABOUT's headings / text / tools, not across them. */
+.section {position:relative;z-index:2!important}
+@media(max-width:800px){#floor-carpet{left:5%!important;right:5%!important;top:89.1%!important}}
+
+/* V27 — Landscape artwork frame and per-image crossfades, no cropping. */
+.gallery .art{
+ width:clamp(250px,31vw,422px);
+ height:auto;
+ aspect-ratio:1680 / 1186;
+ padding:0;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ background:transparent!important;
+ overflow:visible;
+ box-shadow:none!important;
+ isolation:isolate;
+}
+.gallery .art:before{
+ content:none!important;
+ background:none!important;
+}
+.gallery .art:after{
+ content:"";
+ position:absolute;
+ z-index:4;
+ inset:0;
+ background:url('moving_frame_landscape.png') center / 100% 100% no-repeat;
+ pointer-events:none;
+ filter:drop-shadow(0 8px 9px rgba(0,0,0,.42));
+}
+.gallery .art .art-media{
+ position:absolute;
+ /* Exact inner opening of moving_frame_landscape.png.
+    This removes the left/right imbalance seen in the frame. */
+ top:8.094%;
+ right:5.714%;
+ bottom:8.010%;
+ left:5.655%;
+ z-index:1;
+ background:#18151a;
+ overflow:hidden;
+ display:block;
+}
+.gallery .art .art-media::before{
+ content:"";position:absolute;inset:0;z-index:0;
+ background:var(--placeholder);
+}
+.gallery .art .art-media .art-slide{
+ display:block;
+ position:absolute;
+ inset:0;
+ width:100%;height:100%;
+ object-fit:contain; /* source fully visible, never cropped */
+ opacity:0;
+ transition:opacity 400ms ease-in-out;
+ will-change:opacity;
+ z-index:1;
+}
+.gallery .art .art-media .art-slide.is-active{opacity:1;z-index:2}
+.gallery .art .art-media.is-resetting .art-slide{transition:none!important}
+.gallery .art .art-placeholder-label{
+ position:absolute;
+ inset:8.094% 5.714% 8.010% 5.655%;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ align-items:center;
+ z-index:2;
+ pointer-events:none;
+ text-align:center;
+ padding:8px;
+}
+.gallery .art .art-placeholder-label .num{font-size:11px}
+.gallery .art .art-placeholder-label .name{font-size:clamp(13px,1.6vw,22px);margin:10px 0 6px}
+.gallery .art .art-placeholder-label .type{font-size:9px}
+.gallery .art[data-index="0"] .art-placeholder-label{display:none}
+.gallery .art.center{top:58%}
+.gallery .art.left,.gallery .art.right{top:58%}
+.gallery .art.gone-left,.gallery .art.gone-right{top:58%}
+@media(max-width:800px){
+ .gallery .art{width:clamp(220px,64vw,310px)}
+ .gallery .art.center,.gallery .art.left,.gallery .art.right{top:60%}
+}
+
+/* V29: Four-shot hover previews; supplied originals stay uncropped. */
+.gallery .art[data-index="1"]:not(.has-preview) .art-media{background:radial-gradient(circle at 50% 38%,#ffd5de,#ba587f 57%,#4f2837)}
+.gallery .art[data-index="1"]:not(.has-preview) .art-media .art-slide{display:none}
+.gallery .art[data-index="1"].has-preview .art-placeholder-label{display:none}
+.gallery .art .art-media .art-slide{transition:opacity .4s ease-in-out}
+.gallery .art .art-media .art-slide{object-fit:contain;object-position:center center}
+
+/* V30 targeted repair: LALASWEET fills the exact gallery opening. */
+.gallery .art[data-index="1"] .art-media .art-slide{object-fit:cover;object-position:center}
+
+/* Symmetric frame image opening, and 0.3-second artwork crossfades. */
+.gallery .art .art-media{left:5.655%;right:5.655%;}
+.gallery .art .art-media .art-slide{transition:opacity .3s ease-in-out;object-position:center center;}
+/* Gold frame: keep the native video controls inside the opening.
+   Never transform/scale a native <video> element: doing so clips its control bar. */
+#video.video:has(.gold-video-frame){overflow:hidden}
+#video .gold-video-frame{
+    position:relative;
+    width:100%;
+    aspect-ratio:1516 / 944;
+    box-sizing:border-box;
+    padding:8.05% 7.55% 8.25% 7.55%;
+    display:flex;
+    align-items:stretch;
+    justify-content:stretch;
+    overflow:visible;
+}
+#video .gold-video-frame .gold-viewport{
+    flex:1 1 auto;
+    min-width:0;
+    min-height:0;
+    position:relative;
+    overflow:hidden;
+    background:#090909;
+}
+#video .gold-video-frame .gold-viewport .suno-player{
+    display:block;
+    width:100%;
+    height:100%;
+    aspect-ratio:auto;
+    object-fit:cover !important;
+    object-position:center center;
+    transform-origin:center center;
+    background:#090909;
+    border:0;
+}
+#video .gold-video-frame .gold-viewport .suno-player.player-suno{transform:none;}
+#video .gold-video-frame .gold-viewport .suno-player.player-lalasweet{transform:none;}
+#video .gold-frame-overlay{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    pointer-events:none;
+    z-index:2;
+}
+
+/* Atmospheric dust: chroma-keyed transparent video, isolated to the central light. */
+.gallery .dust-atmosphere{
+  position:absolute;
+  z-index:6;
+  pointer-events:none;
+  left:50%;
+  top:8%;
+  width:min(43%,560px);
+  height:81%;
+  transform:translateX(-50%);
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .5s ease, visibility 0s linear .5s;
+  /* Less dust on the center artwork, stronger but still subtle on both sides.
+     Feather the horizontal outer edges so the video never looks rectangular. */
+  -webkit-mask-image:linear-gradient(to right,
+    transparent 0%, rgba(0,0,0,.28) 10%, rgba(0,0,0,.9) 24%,
+    rgba(0,0,0,.50) 37%, rgba(0,0,0,.20) 50%,
+    rgba(0,0,0,.50) 63%, rgba(0,0,0,.9) 76%,
+    rgba(0,0,0,.28) 90%, transparent 100%);
+  mask-image:linear-gradient(to right,
+    transparent 0%, rgba(0,0,0,.28) 10%, rgba(0,0,0,.9) 24%,
+    rgba(0,0,0,.50) 37%, rgba(0,0,0,.20) 50%,
+    rgba(0,0,0,.50) 63%, rgba(0,0,0,.9) 76%,
+    rgba(0,0,0,.28) 90%, transparent 100%);
+}
+.gallery .dust-atmosphere video{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:.28;
+  /* Warm pale-yellow particles, preserving the source video alpha channel. */
+  filter:brightness(0) saturate(100%) invert(89%) sepia(21%) saturate(550%) hue-rotate(341deg) brightness(106%) contrast(96%);
+  mix-blend-mode:screen;
+  /* Soft vertical fade at the light boundary; combined with the parent's
+     horizontal mask this gives a gentle spotlight-shaped dust field. */
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 18%,#000 81%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0%,#000 18%,#000 81%,transparent 100%);
+  pointer-events:none;
+}
+.gallery.lit:not(.moving) .dust-atmosphere{
+  opacity:1;
+  visibility:visible;
+  transition:opacity .65s ease, visibility 0s;
+}
+.gallery .chapter-label{z-index:7;}
+@media(max-width:800px){.gallery .dust-atmosphere{width:56%;height:75%;top:13%}}
+
+/* V34 — one persistent morphing artwork surface, shared by entry and exit. */
+.gallery.portal-active .art:not(.center){filter:brightness(.27) blur(3px)!important;opacity:.42!important;pointer-events:none}
+.gallery.portal-active .art.center{visibility:hidden!important;pointer-events:none}
+.gallery.portal-active .beam,.gallery.portal-active .wall-glow,.gallery.portal-active .floor-glow{opacity:.06!important;transition:opacity .42s!important}
+.gallery.portal-active .dust-atmosphere{opacity:.5!important;visibility:visible!important}
+.gallery.portal-active .chapter-label{opacity:.42}
+#contents.project-detail-open .gallery-actions,#contents.project-detail-open .helper{opacity:.45;pointer-events:none}
+#contents.project-detail-busy .gallery-actions{pointer-events:none}
+.project-expansion{height:0;opacity:0;visibility:hidden;overflow:hidden;position:relative;transition:height .65s cubic-bezier(.22,.8,.25,1);margin:0}
+.project-expansion.is-open{height:clamp(460px,64vh,640px);visibility:visible}
+.project-expansion-inner{position:absolute;inset:0;display:flex;flex-direction:column;padding:clamp(22px,3vw,42px);color:#eee8e2;min-height:0}
+.project-expansion-top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;flex:none}
+.project-expansion-eyebrow{font-size:11px;letter-spacing:.24em;color:#c4ab85;margin-bottom:9px}
+.project-expansion-title{margin:0;font-size:clamp(23px,3.2vw,43px);font-weight:650;letter-spacing:.045em}
+.project-expansion-close{position:relative;z-index:2;flex:none;width:44px;height:44px;border:1px solid #c6aa815b;color:#f5ead9;background:#221e24;cursor:pointer;font-size:25px;line-height:1}
+.project-expansion-close:hover{background:#514032;border-color:#d7b98a}
+.project-expansion-close:focus-visible,.project-expansion-controls button:focus-visible{outline:2px solid #e8c69b;outline-offset:3px}
+.project-expansion-content{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:20px}
+.project-expansion-stage{font-size:11px;letter-spacing:.25em;color:#b69e7d}
+.project-expansion-page-title{font-size:clamp(27px,4.5vw,58px);font-weight:600;letter-spacing:.065em;line-height:1.15;margin:0}
+.project-expansion-placeholder{font-size:14px;line-height:1.9;color:#aaa4a3;max-width:550px;margin:0}
+.project-expansion-controls{display:flex;align-items:center;justify-content:center;gap:26px;padding-top:19px;border-top:1px solid #bba58436;flex:none}
+.project-expansion-controls button{min-width:112px;padding:11px 18px;border:1px solid #ad9879;background:#262228;color:#f1e6d8;cursor:pointer;letter-spacing:.12em;font-size:12px}
+.project-expansion-controls button:hover:not(:disabled){background:#564338}
+.project-expansion-controls button:disabled{opacity:.26;cursor:default}
+.project-expansion-count{font-size:12px;letter-spacing:.2em;color:#d5b789;min-width:72px;text-align:center}
+.project-expansion-content.page-changing{animation:projectPageFade .27s ease both}
+@keyframes projectPageFade{from{opacity:.36;transform:translateY(7px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+/* No duplicate panels: artwork and content occupy the SAME animated rectangle. */
+.project-portal{position:fixed;inset:0;z-index:2147483000;pointer-events:none;perspective:1200px}
+.project-portal-shade{position:absolute;inset:0;background:rgba(7,6,10,.42);opacity:0;pointer-events:auto}
+.project-portal-frame{position:fixed;overflow:hidden;transform-origin:center center;will-change:left,top,width,height,transform;isolation:isolate;background:linear-gradient(145deg,#26212c,#0b0b10 70%);border:1px solid rgba(218,192,151,.65);box-shadow:0 22px 90px #000b,0 0 50px #c69d6950,inset 0 0 80px #0008}
+.project-portal-art{position:absolute;inset:0;overflow:hidden;background:radial-gradient(ellipse at center,#353044,#09090d);pointer-events:none;opacity:1}
+.project-portal-art-shell{position:absolute;inset:0;z-index:2;background:url('moving_frame_landscape.png') center/100% 100% no-repeat;pointer-events:none;filter:drop-shadow(0 8px 9px rgba(0,0,0,.42))}
+.project-portal-media-clip{position:absolute;top:8.094%;right:5.655%;bottom:8.010%;left:5.655%;z-index:1;overflow:hidden;background:#18151a}
+.project-portal-art-image{position:absolute;inset:0;width:100%;height:100%;display:block}
+.project-portal-content{position:absolute;left:50%;top:50%;width:var(--somang-panel-width,1160px);height:var(--somang-panel-height,640px);transform:translate(-50%,-50%);opacity:0;visibility:hidden;pointer-events:none;overflow:hidden;contain:layout style}
+.project-portal-content.is-interactive{visibility:visible;pointer-events:auto}
+.project-portal-frame .project-expansion-inner{position:absolute;inset:0;background:linear-gradient(145deg,rgba(31,28,37,.98),rgba(10,10,15,.99) 65%);border:1px solid rgba(218,192,151,.45);box-shadow:inset 0 0 70px #0008}
+html.somang-scroll-locked{overflow:hidden!important;scroll-behavior:auto!important;scrollbar-gutter:stable}
+body.somang-scroll-locked{overflow:hidden!important}
+@media(max-width:800px){.project-expansion.is-open{height:480px}.project-expansion-inner{padding:19px}.project-expansion-content{padding:12px}.project-expansion-controls{gap:12px}.project-expansion-controls button{min-width:88px;padding:10px}.project-expansion-page-title{font-size:clamp(25px,7vw,42px)}}
+
+/* V55 — single-page project information over a blurred enlarged frame */
+.project-portal-art .project-portal-media-clip{filter:blur(var(--project-art-blur,0px)) brightness(.76);transform:scale(1.035);transition:none}
+.project-portal-frame .project-expansion-inner{background:linear-gradient(90deg,rgba(8,8,13,.78),rgba(8,8,13,.48) 50%,rgba(8,8,13,.72));border-color:rgba(218,192,151,.48);box-shadow:inset 0 0 95px #0009}
+.project-portal-frame .project-portal-art-shell{filter:blur(var(--project-art-blur,0px)) drop-shadow(0 8px 9px rgba(0,0,0,.42));}
+.project-expansion-content{align-items:flex-start;justify-content:center;text-align:left;gap:0;padding:clamp(20px,4vw,62px);overflow-y:auto;min-height:0}
+.project-overview-label{font-size:12px;letter-spacing:.28em;color:#dbbc8d;margin-bottom:14px;text-shadow:0 2px 12px #000}
+.project-overview-title{font-size:clamp(32px,5vw,66px);font-weight:650;letter-spacing:.02em;line-height:1.12;margin:0 0 19px;color:#fff8ef;text-shadow:0 2px 18px #000c}
+.project-overview-summary{font-size:clamp(14px,1.35vw,18px);line-height:1.85;color:#f2eae1;max-width:730px;margin:0;text-shadow:0 2px 12px #000}
+.project-overview-footer{width:100%;margin-top:clamp(28px,5vh,58px);padding-top:20px;border-top:1px solid #e3bd8354}
+.project-overview-pdf-note{font-size:12px;color:#dfd0bd;margin:0 0 13px}
+.project-overview-pdf-actions{display:flex;gap:12px;flex-wrap:wrap}
+.project-pdf-button{border:1px solid #d5b68b;background:#d4b48a;color:#161215;font-size:13px;letter-spacing:.035em;font-weight:650;padding:13px 22px;min-height:46px;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.project-pdf-button:hover{background:#f0d7b3}
+.project-pdf-button-outline{background:rgba(10,9,13,.5);color:#f6e8d2;border-color:#bb9a6e}
+.project-pdf-button-outline:hover{background:rgba(102,79,55,.7);color:#fff}
+.project-pdf-button:focus-visible{outline:2px solid #f5d4aa;outline-offset:4px}
+.project-pdf-status{min-height:1.4em;margin:9px 0 0;font-size:12px;color:#ebc89d}
+@media(max-width:800px){.project-expansion-content{padding:24px 18px}.project-overview-title{font-size:38px}.project-overview-footer{margin-top:22px}.project-pdf-button{flex:1;min-width:145px;padding:12px}}
+
+
+.project-pdf-embed[hidden]{display:none!important}
+.project-pdf-embed{position:absolute;inset:0;z-index:5;background:#131116;display:flex;flex-direction:column}
+.project-pdf-embed-top{height:51px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;border-bottom:1px solid #bda27c55;color:#eddbc6;font-size:13px;letter-spacing:.07em}
+.project-pdf-embed-top button{border:1px solid #bda27c77;background:#272027;color:#f5eada;cursor:pointer;padding:6px 14px;font-size:14px}
+.project-pdf-embed iframe{width:100%;height:calc(100% - 51px);border:0;background:white}
+/* V56 — keep all detailed controls ABOVE the blurred artwork and frame. */
+.project-portal-frame .project-portal-art{z-index:1}
+.project-portal-frame .project-portal-content{
+ z-index:20;isolation:isolate;display:block;
+ overflow:hidden;contain:none;
+}
+.project-portal-frame .project-expansion-inner{
+ z-index:21;display:flex;flex-direction:column;overflow:hidden;
+ background:linear-gradient(90deg,rgba(8,8,12,.90) 0%,rgba(8,8,12,.78) 54%,rgba(8,8,12,.84) 100%);
+ border:1px solid rgba(230,200,150,.54);
+ color:#fff9f1;
+}
+.project-portal-frame .project-expansion-top{position:relative;z-index:23;flex:none}
+.project-portal-frame .project-expansion-eyebrow{color:#f2d7ac}
+.project-portal-frame .project-expansion-title{color:#fff9f1;text-shadow:0 2px 13px #000}
+.project-portal-frame .project-expansion-close{
+ z-index:30;background:#30251e;color:#fff;border:2px solid #e4c18c;
+ width:52px;height:52px;font-size:30px;flex-shrink:0;
+ box-shadow:0 2px 14px #000b;
+}
+.project-portal-frame .project-expansion-content{position:relative;z-index:22;flex:1;min-height:0;align-items:flex-start}
+.project-portal-frame .project-overview-label{color:#f0d6ad;text-shadow:0 2px 10px #000}
+.project-portal-frame .project-overview-title{color:#fff!important;text-shadow:0 2px 12px #000}
+.project-portal-frame .project-overview-summary{color:#fff5e9!important;text-shadow:0 2px 9px #000}
+.project-portal-frame .project-overview-pdf-note{color:#f2e2cd}
+.project-portal-frame .project-pdf-button{position:relative;z-index:24}
+@media(max-height:650px){.project-portal-frame .project-expansion-inner{padding:16px 28px}.project-portal-frame .project-expansion-content{padding:12px 28px}.project-overview-title{margin-bottom:10px}.project-overview-footer{margin-top:16px;padding-top:12px}}
+
+/* V38 — Gallery wayfinding plaque. HTML/CSS only; no flattened button image. */
+.somang-side-nav{
+ position:fixed;z-index:110;top:50%;right:max(14px,calc((100vw - 1440px)/4 - 70px));
+ transform:translateY(-50%);width:140px;padding:7px;
+ background:linear-gradient(140deg,#9f8665 0%,#443525 13%,#bda37a 49%,#493828 84%,#a88c64 100%);
+ box-shadow:0 0 0 1px #17120f,0 12px 29px #000a,0 0 15px #0007;
+ border:1px solid #c9ab7b;isolation:isolate;
+}
+.somang-side-nav::before{
+ content:"";position:absolute;inset:3px;border:1px solid #292018;pointer-events:none;z-index:2;
+}
+.somang-side-nav::after{
+ content:"";position:absolute;inset:-4px;border:1px solid rgba(182,145,96,.22);pointer-events:none;
+}
+.somang-side-nav-inner{position:relative;background:linear-gradient(115deg,#242020,#191719 75%);padding:8px 5px;}
+.somang-side-nav-inner::before,.somang-side-nav-inner::after{
+ content:"";position:absolute;z-index:2;width:11px;height:11px;pointer-events:none;
+ border-color:#d5b786;border-style:solid;
+}
+.somang-side-nav-inner::before{top:2px;left:2px;border-width:1px 0 0 1px;}
+.somang-side-nav-inner::after{bottom:2px;right:2px;border-width:0 1px 1px 0;}
+.somang-nav-btn{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:7px;
+ border:0;border-bottom:1px solid rgba(188,157,108,.49);border-radius:0;
+ background:transparent;color:#e8dfd3;width:100%;height:76px;cursor:pointer;
+ position:relative;transition:background-color .22s ease,color .22s ease,box-shadow .22s ease;
+ -webkit-tap-highlight-color:transparent;
+}
+.somang-nav-btn:last-child{border-bottom:0;}
+.somang-nav-btn .somang-nav-num{font-family:Georgia,'Times New Roman',serif;font-size:13px;line-height:1;
+ letter-spacing:.19em;color:#c5a779;transition:color .2s ease;}
+.somang-nav-btn .somang-nav-num::before,.somang-nav-btn .somang-nav-num::after{
+ content:"";display:inline-block;vertical-align:middle;width:12px;height:1px;
+ margin:0 5px 3px 2px;background:rgba(192,160,110,.57);
+}
+.somang-nav-btn .somang-nav-label{font-family:Georgia,'Times New Roman',serif;font-size:10px;letter-spacing:.12em;line-height:1;white-space:nowrap;}
+.somang-nav-btn:hover:not(.is-active){background:#585351;color:#f5f0e8;}
+.somang-nav-btn:hover:not(.is-active) .somang-nav-num{color:#ded3c4;}
+.somang-nav-btn.is-active{background:linear-gradient(165deg,#f7e6b7,#ead39b 55%,#dfc082);
+ color:#211b16;box-shadow:inset 0 0 0 1px rgba(255,249,224,.68),0 0 10px rgba(232,194,119,.20);}
+.somang-nav-btn.is-active .somang-nav-num{color:#615039;}
+.somang-nav-btn.is-active .somang-nav-num::before,.somang-nav-btn.is-active .somang-nav-num::after{background:#80694a;}
+.somang-nav-btn:focus-visible{outline:2px solid #f3d6a1;outline-offset:-3px;z-index:3;}
+/* Detail panels are above this guide: remove it while the project is open. */
+body:has(.project-portal) .somang-side-nav{opacity:0;visibility:hidden;pointer-events:none;}
+@media(max-width:1100px){
+ .somang-side-nav{width:58px;right:10px;padding:5px;}
+ .somang-side-nav-inner{padding:6px 3px;}
+ .somang-nav-btn{height:58px;gap:3px;}
+ .somang-nav-btn .somang-nav-label{display:none;}
+ .somang-nav-btn .somang-nav-num::before,.somang-nav-btn .somang-nav-num::after{display:none;}
+}
+@media(max-width:900px){
+ .somang-side-nav{top:auto;bottom:12px;right:50%;transform:translateX(50%);
+ width:min(280px,calc(100vw - 32px));padding:4px;}
+ .somang-side-nav-inner{display:flex;padding:3px;}
+ .somang-nav-btn{height:41px;flex:1;border-bottom:0;border-right:1px solid rgba(188,157,108,.49);}
+ .somang-nav-btn:last-child{border-right:0;}
+}
+@media(prefers-reduced-motion:reduce){.somang-nav-btn{transition:none;}}
+
+
+/* V40 — restrained reflected gallery light; no neon or ornamental image. */
+html.somang-nav-scrolling{scroll-behavior:auto!important;}
+.somang-side-nav{
+ box-shadow:0 0 0 1px #17120f,0 12px 29px #000a,
+            0 0 18px 2px rgba(214,172,101,.15),
+            0 0 39px 8px rgba(195,145,77,.055);
+}
+.somang-side-nav::after{
+ border-color:rgba(214,180,123,.30);
+ box-shadow:0 0 11px rgba(240,189,112,.12);
+}
+.somang-side-nav-inner{background:
+ radial-gradient(ellipse 105% 32% at 50% 0%,rgba(210,161,102,.11),transparent 95%),
+ linear-gradient(115deg,#242020,#191719 75%);
+}
+.somang-nav-btn.is-active{box-shadow:inset 0 0 0 1px rgba(255,249,224,.68),0 0 11px rgba(232,194,119,.23);}
+
+
+/* V43: animated museum welcome and quiet audio controls; original artwork logic is untouched. */
+.intro{isolation:isolate}
+.somang-intro-world{position:absolute;inset:-4%;pointer-events:none;z-index:1;opacity:0;transform:scale(1);transform-origin:50% 52%;background:radial-gradient(ellipse 45% 50% at 50% 38%,rgba(198,158,107,.24),rgba(91,69,61,.065) 60%,transparent 90%);transition:none;overflow:hidden}
+.somang-intro-world:before,.somang-intro-world:after{content:"";position:absolute;top:0;bottom:0;width:22%;border-color:rgba(184,149,110,.13);border-style:solid;box-shadow:inset 0 0 60px rgba(0,0,0,.4)}
+.somang-intro-world:before{left:0;border-width:0 1px 0 0;transform:skewY(-2deg)}
+.somang-intro-world:after{right:0;border-width:0 0 0 1px;transform:skewY(2deg)}
+.somang-intro-glow{position:absolute;top:6%;left:50%;height:58%;width:56%;transform:translateX(-50%);background:radial-gradient(ellipse at 50% 0%,rgba(242,204,150,.22),transparent 73%);filter:blur(28px)}
+.somang-welcome{position:absolute;inset:0;z-index:7;display:flex;justify-content:center;align-items:center;flex-direction:column;pointer-events:none;opacity:0;transform:scale(.9);filter:blur(10px);text-align:center;will-change:opacity,transform,filter}
+.somang-welcome h2{margin:0;color:#f3e9db;font-family:Georgia,'Times New Roman',serif;font-size:clamp(50px,7.1vw,124px);font-weight:400;letter-spacing:.12em;text-shadow:0 0 38px rgba(239,197,140,.21);white-space:nowrap}
+.somang-welcome p{margin:19px 0 0;font-size:clamp(12px,1.3vw,17px);letter-spacing:.36em;color:#d1ba97}
+.intro .topbar,.intro .hero,.intro-replay{z-index:9}
+.somang-music-control{position:fixed;left:clamp(10px,2.2vw,32px);bottom:clamp(12px,2.5vh,26px);z-index:105;display:flex;align-items:center;gap:9px;padding:9px 11px;border:1px solid rgba(204,176,132,.55);background:linear-gradient(125deg,rgba(32,28,30,.96),rgba(14,13,17,.96));color:#eee1d0;box-shadow:0 8px 30px rgba(0,0,0,.33),0 0 14px rgba(216,178,115,.08);border-radius:3px;font:11px Arial,'Malgun Gothic',sans-serif}
+.somang-music-name{display:flex;flex-direction:column;gap:4px;min-width:91px;letter-spacing:.1em}
+.somang-music-name small{font-size:9px;color:#c2ae91;letter-spacing:.03em}
+.somang-music-control button{background:#272127;border:1px solid rgba(200,173,137,.5);color:#f3e0c4;min-width:28px;height:28px;display:grid;place-items:center;cursor:pointer;border-radius:2px;padding:0}
+.somang-music-control button:hover{background:#514032}
+.somang-music-control button:focus-visible{outline:2px solid #e4c18c;outline-offset:2px}
+.somang-music-control .somang-music-replay{font-size:16px}
+.somang-music-control .somang-music-state{color:#cbb89c;font-size:10px;white-space:nowrap}
+.somang-music-control[data-video='true'] .somang-music-state{color:#e4c18c}
+@media(max-width:650px){.somang-music-control{bottom:70px;left:9px;gap:6px;padding:6px}.somang-music-name{min-width:75px;font-size:10px}.somang-welcome h2{font-size:clamp(34px,9vw,65px)}.somang-music-state{max-width:90px;overflow:hidden;text-overflow:ellipsis}}
+
+/* V46 - curtain-completion keyed INTRO, audio gate and isolated scroll lock. */
+.intro .somang-intro-darkness{
+ position:absolute;inset:0;z-index:2;pointer-events:none;
+ background:rgba(3,3,7,.96);opacity:.82;will-change:opacity;
+}
+.intro .somang-intro-dust{
+ position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden;
+ opacity:0;visibility:hidden;transition:opacity .6s ease,visibility 0s linear .6s;
+ -webkit-mask-image:radial-gradient(ellipse 58% 58% at 50% 43%,#000 8%,rgba(0,0,0,.65) 38%,transparent 78%);
+ mask-image:radial-gradient(ellipse 58% 58% at 50% 43%,#000 8%,rgba(0,0,0,.65) 38%,transparent 78%);
+}
+.intro .somang-intro-dust video{
+ display:block;width:100%;height:100%;object-fit:cover;pointer-events:none;
+ filter:brightness(0) saturate(100%) invert(89%) sepia(21%) saturate(550%) hue-rotate(341deg) brightness(106%) contrast(96%);
+}
+.intro .somang-welcome{
+ transform:none;filter:none;
+}
+.intro .somang-welcome h2{
+ font-size:clamp(30px,4vw,65px);letter-spacing:.14em;
+ font-weight:400;text-shadow:0 2px 24px rgba(225,197,150,.18);
+}
+.intro .somang-welcome p{font-size:clamp(11px,1vw,14px);margin:11px 0 0;letter-spacing:.27em}
+@media(max-width:650px){.intro .somang-welcome h2{font-size:clamp(28px,8vw,44px)}}
+/* V80: Fade INTRO dust from invisible at WELCOME to the original .17 opacity by the portfolio title. */
+.intro .somang-intro-dust.is-lit{opacity:.17;visibility:visible;transition:opacity 1.89s linear,visibility 0s}
+.intro .somang-intro-world{border:0!important;outline:0!important;box-shadow:none!important}
+.intro .somang-intro-glow{border:0!important;outline:0!important;box-shadow:none!important}
+/* Flatten the geometric world-side pseudo walls that read as a hard rectangular border. */
+.intro .somang-intro-world::before,.intro .somang-intro-world::after{content:none!important;border:0!important;box-shadow:none!important}
+.somang-intro-audio-gate{position:fixed;inset:0;z-index:110;background:rgba(5,5,8,.86);display:none;align-items:center;justify-content:center;flex-direction:column;gap:16px;text-align:center;color:#e9ddc5;backdrop-filter:blur(8px)}
+.somang-intro-audio-gate.is-visible{display:flex}
+.somang-intro-audio-gate button{padding:17px 30px;background:#342b23;border:1px solid #d5b887;color:#f8ecd9;cursor:pointer;letter-spacing:.16em;font-size:14px}
+.somang-intro-audio-gate p{font-size:12px;color:#b9ad99;margin:0}
+/* V46: isolate the intro lock from ABOUT and project-portal scroll classes. */
+/* V83: INTRO animation no longer locks wheel, keyboard or section navigation. */
+/* Feather the lighting surface on every edge, keeping the existing gallery image unchanged. */
+.intro .somang-intro-world{overflow:visible!important;-webkit-mask-image:radial-gradient(ellipse 68% 73% at 50% 46%,#000 16%,rgba(0,0,0,.65) 53%,transparent 97%);mask-image:radial-gradient(ellipse 68% 73% at 50% 46%,#000 16%,rgba(0,0,0,.65) 53%,transparent 97%)}
+.intro .somang-intro-glow{background:radial-gradient(ellipse at 50% 15%,rgba(242,204,150,.20),rgba(242,204,150,.065) 43%,transparent 77%)}
+
+
+/* V59 — invitation-only refinement: classical cinematic exhibition invitation. */
+.somang-intro-audio-gate{
+  isolation:isolate;overflow:hidden;padding:clamp(22px,5vw,70px);
+  background:#160f0d;backdrop-filter:none;gap:0;
+}
+.somang-intro-audio-gate::before{
+  content:"";position:absolute;inset:-22px;z-index:-2;
+  background:url('somang_invitation_background.png') center center / cover no-repeat;
+  filter:blur(10px) brightness(.46) saturate(.70);transform:scale(1.045);
+  pointer-events:none;
+}
+.somang-intro-audio-gate::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(ellipse at 50% 48%,rgba(64,42,27,.14),rgba(15,10,10,.68) 85%);
+  pointer-events:none;
+}
+.somang-invitation-content{
+  position:relative;z-index:1;box-sizing:border-box;
+  width:min(100%,900px);min-height:clamp(350px,56vh,520px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:clamp(48px,6.5vw,85px) clamp(20px,5vw,76px);
+  background:linear-gradient(155deg,rgba(43,30,25,.91),rgba(24,20,19,.94) 58%,rgba(39,28,23,.91));
+  border:1px solid rgba(205,171,123,.63);
+  box-shadow:0 28px 100px rgba(0,0,0,.44),inset 0 0 0 7px rgba(19,15,13,.52),inset 0 0 0 8px rgba(205,171,123,.18);
+  color:#f5eadb;text-align:center;text-shadow:none;
+}
+.somang-invitation-content::before,
+.somang-invitation-content::after{
+  content:"";display:block;width:min(190px,45%);height:1px;flex:none;
+  background:linear-gradient(90deg,transparent,#c8a979,transparent);
+  pointer-events:none;
+}
+.somang-invitation-content::before{margin-bottom:clamp(30px,5vh,50px)}
+.somang-invitation-content::after{margin-top:clamp(30px,5vh,45px)}
+.somang-intro-audio-gate .somang-invitation-eyebrow,
+.somang-intro-audio-gate .somang-invitation-title,
+.somang-intro-audio-gate .somang-invitation-note,
+.somang-intro-audio-gate #somang-enable-audio{
+  font-family:'Hahmlet',Georgia,'Malgun Gothic',serif;
+}
+.somang-intro-audio-gate .somang-invitation-eyebrow{
+  font-size:clamp(10px,.95vw,13px);font-weight:500;letter-spacing:.21em;
+  color:#cbb189;margin:0 0 clamp(30px,5.5vh,55px);line-height:1.8;
+}
+.somang-intro-audio-gate .somang-invitation-title{
+  font-size:clamp(24px,3.05vw,43px);line-height:1.7;letter-spacing:-.04em;
+  font-weight:500;color:#f8ede0;margin:0 0 clamp(30px,5.5vh,54px);
+  text-wrap:balance;word-break:keep-all;
+}
+.somang-intro-audio-gate #somang-enable-audio{
+  min-width:clamp(168px,19vw,230px);padding:15px 28px;
+  background:rgba(147,111,71,.12);border:1px solid #c6a475;
+  color:#f5e6cd;font-size:clamp(14px,1.18vw,17px);font-weight:600;
+  letter-spacing:.09em;border-radius:0;cursor:pointer;
+  box-shadow:none;transition:background .2s ease,border-color .2s ease;
+}
+.somang-intro-audio-gate #somang-enable-audio:hover{
+  background:rgba(185,142,89,.25);border-color:#edd1a7;
+}
+.somang-intro-audio-gate #somang-enable-audio:focus-visible{
+  outline:2px solid #f3d6a7;outline-offset:4px;
+}
+.somang-intro-audio-gate .somang-invitation-note{
+  font-size:clamp(10px,.91vw,12px);line-height:1.8;letter-spacing:.01em;
+  font-weight:400;color:#b8aa9a;margin:clamp(22px,3.4vh,34px) 0 0;
+}
+@media(max-width:650px){
+  .somang-intro-audio-gate::before{background-size:auto 100%}
+  .somang-invitation-content{min-height:360px;padding:46px 22px}
+  .somang-intro-audio-gate .somang-invitation-eyebrow{letter-spacing:.13em}
+  .somang-intro-audio-gate .somang-invitation-title{font-size:clamp(22px,5.25vw,29px)}
+}
+
+
+/* V54 — viewport-fixed MR.M shares the gallery background coordinates. */
+#somang-mrm-layer{position:fixed;inset:0;width:100vw;height:100vh;height:100dvh;z-index:1;pointer-events:none;overflow:hidden;visibility:visible;--mrm-brightness:.18;--mrm-opacity:.22}
+#somang-mrm-layer video,#somang-mrm-layer img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none;display:block;filter:brightness(var(--mrm-brightness));opacity:var(--mrm-opacity);transform:scale(.72);transform-origin:50% 100%}
+#somang-mrm-layer video{visibility:hidden}
+#somang-mrm-layer.playing #somang-mrm-final,
+#somang-mrm-layer.finished #somang-mrm-final{visibility:visible}
+#somang-mrm-layer:not(.poster) #somang-mrm-poster{visibility:hidden}
+#somang-mrm-layer.poster #somang-mrm-poster{visibility:visible}
+/* Curtain remains foreground: MR.M is fully concealed until curtain finishes. */
+#curtain-screen:not(.finished) ~ #somang-mrm-layer{visibility:hidden!important}
+
+
+/* V57 — concise scenario below the gallery; concept, intent and audience experience inside the framed panel. */
+.project-portal-frame .project-expansion-content{justify-content:flex-start;overflow-y:auto}
+.project-overview-copy{display:grid;gap:16px;max-width:870px;width:100%;margin-top:4px}
+.project-overview-section{padding-left:15px;border-left:2px solid rgba(221,182,129,.62)}
+.project-overview-section h5{margin:0 0 5px;font-size:12px;letter-spacing:.12em;color:#f4d2a2;font-weight:750}
+.project-overview-section h5 span{letter-spacing:0;margin-left:9px;font-size:12px;color:#ead9c5;font-weight:500}
+.project-overview-section p{margin:0;color:#fffaf4;line-height:1.65;font-size:clamp(13px,1.1vw,16px);text-shadow:0 2px 9px #000d}
+.project-overview-footer{margin-top:20px;padding-top:13px}
+.project-portal-frame .project-overview-title{margin-bottom:14px}
+#detail-description{line-height:1.8}
+@media(max-height:720px){.project-overview-copy{gap:10px}.project-overview-section p{line-height:1.5}.project-overview-footer{margin-top:12px}}
+
+/* V61 — PDF-only view: hide the underlying project details while the embedded
+   PDF is open. The PDF's own page scrolling remains available. */
+.project-expansion-inner:has(> .project-pdf-embed:not([hidden])) > .project-expansion-top,
+.project-expansion-inner:has(> .project-pdf-embed:not([hidden])) > .project-expansion-content {
+  display:none!important;
+}
+.project-expansion-inner > .project-pdf-embed:not([hidden]) {
+  z-index:50;
+  overflow:hidden;
+}
+.project-expansion-inner > .project-pdf-embed:not([hidden]) .project-pdf-embed-top {
+  flex:0 0 51px;
+}
+.project-expansion-inner > .project-pdf-embed:not([hidden]) iframe {
+  flex:1 1 auto;
+  min-height:0;
+  height:auto;
+}
+
+/* V67 — keep descriptive section labels until the viewport is genuinely narrow. */
+@media (min-width:1101px) and (max-width:1780px){
+ .somang-side-nav{width:126px;right:12px;padding:6px}
+ .somang-side-nav-inner{padding:7px 4px}
+ .somang-nav-btn{height:68px;gap:5px}
+ .somang-nav-btn .somang-nav-label{display:block;font-size:9px}
+ .somang-nav-btn .somang-nav-num::before,.somang-nav-btn .somang-nav-num::after{display:inline-block;width:8px;margin-inline:3px}
+}
+/* V67 — gallery works as a single exhibition screen. Story and film live in the frame portal. */
+#contents{padding-top:clamp(45px,7vh,74px);padding-bottom:clamp(20px,4vh,40px)}
+#contents>.container{display:flex;flex-direction:column;min-height:calc(100svh - clamp(45px,7vh,74px) - clamp(20px,4vh,40px))}
+#contents .section-head{padding:2px 0 8px}
+#contents .section-head h2{margin:7px 0 5px}
+#contents .gallery{height:clamp(300px,54vh,530px);flex:none}
+#contents .gallery-actions{margin:8px 0}
+#contents .helper{margin-bottom:0;font-size:10px}
+@media(max-height:720px){#contents .gallery{height:clamp(250px,47vh,390px)}#contents .section-head{padding:0}}
+/* Three dedicated pages inside the existing morphing artwork/modal. */
+.project-portal-frame .project-expansion-inner{padding:clamp(14px,2.2vw,30px)}
+.project-portal-frame .project-expansion-content{padding:clamp(12px,2.4vw,30px);overflow:hidden;display:block;flex:1;min-height:0}
+.somang-project-page{width:100%;height:100%;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#967d5d transparent}
+.somang-project-page[hidden]{display:none!important}
+.somang-project-page[data-project-page="0"]{padding:0 clamp(6px,1vw,14px)}
+.somang-project-page-eyebrow{font-size:12px;letter-spacing:.2em;color:#f0d3a8;margin:0 0 20px}
+.somang-project-page .somang-project-story{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:0;width:100%;height:auto;min-height:calc(100% - 45px);border:0;background:none;backdrop-filter:none;padding:clamp(8px,2vw,32px);box-shadow:none}
+.somang-project-story>div{max-width:880px;width:100%}
+.somang-project-story h3{font-size:clamp(30px,4vw,54px);color:#fff4e4;margin:9px 0 20px}
+.somang-project-story p{font-size:clamp(15px,1.45vw,20px);line-height:2;color:#f0e7df;white-space:normal}
+.somang-project-page[data-project-page="1"]{text-align:center}
+.somang-film-title{font-size:clamp(20px,2.6vw,34px);margin:0 0 12px;color:#fff2df}
+.project-portal-frame #video{max-width:min(830px,91%);width:100%;margin:0 auto;max-height:calc(100% - 92px);border:0;background:transparent}
+.project-portal-frame #video.video:has(.gold-video-frame){overflow:visible}
+.project-portal-frame #video .gold-video-frame{width:100%;max-height:100%;}
+.project-portal-frame #video .gold-viewport .suno-player{object-fit:contain!important}
+.somang-project-pager{display:flex;align-items:center;justify-content:center;gap:clamp(22px,4vw,60px);flex:0 0 51px;margin:0 auto;width:min(320px,100%);border-top:1px solid rgba(218,188,147,.34);color:#e4c69c;font-size:12px;letter-spacing:.18em}
+.somang-page-arrow{border:0;background:transparent;color:#f3d8ad;font:400 46px/1 Georgia,serif;min-height:44px;min-width:53px;cursor:pointer;transition:color .15s,transform .15s}
+.somang-page-arrow:hover:not(:disabled){color:#fff;transform:scale(1.08)}
+.somang-page-arrow:disabled{opacity:.22;cursor:default}
+.somang-page-arrow:focus-visible{outline:2px solid #e4c18c;outline-offset:2px}
+.project-expansion-inner:has(> .project-pdf-embed:not([hidden])) > .somang-project-pager{display:none!important}
+@media(max-width:800px){
+ #contents .gallery{height:clamp(270px,45vh,390px)}
+ .project-portal-frame .project-expansion-inner{padding:12px}
+ .project-portal-frame .project-expansion-content{padding:12px}
+ .somang-project-story p{font-size:14px;line-height:1.75}
+ .somang-project-story h3{font-size:28px}
+ .somang-project-page-eyebrow{font-size:10px;margin-bottom:12px}
+ .somang-project-pager{flex-basis:46px}
+ .project-portal-frame #video{max-width:98%;max-height:calc(100% - 72px)}
+}
+/* V69 — add a translucent exhibition card behind the artworks and fit the film page without scrolling. */
+.gallery-stage-card{position:absolute;left:50%;top:56.5%;transform:translate(-50%,-50%);width:min(94%,1380px);height:clamp(250px,70%,388px);border-radius:42px;background:radial-gradient(ellipse at 50% 49%,rgba(255,245,228,.24) 0%,rgba(250,236,212,.14) 24%,rgba(88,76,77,.34) 58%,rgba(14,14,18,.66) 100%);border:1px solid rgba(255,255,255,.30);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),inset 0 0 42px rgba(255,255,255,.05),0 30px 56px rgba(0,0,0,.26);backdrop-filter:blur(10px) saturate(115%);-webkit-backdrop-filter:blur(10px) saturate(115%);pointer-events:none;z-index:2;overflow:hidden}
+.gallery-stage-card::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 48%,rgba(255,236,198,.20),rgba(255,236,198,0) 49%);pointer-events:none}
+.gallery-stage-card::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);background:linear-gradient(90deg,rgba(0,0,0,.26),rgba(255,255,255,.025) 18%,rgba(255,255,255,.07) 50%,rgba(255,255,255,.025) 82%,rgba(0,0,0,.28));pointer-events:none}
+.gallery .art{z-index:5}
+.gallery .art .art-media{border:1px solid rgba(255,255,255,.24);background-color:rgba(25,22,28,.72);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);box-shadow:inset 0 0 0 1px rgba(0,0,0,.10)}
+.gallery .chapter-label{z-index:6}
+.gallery .dust-atmosphere{z-index:3}
+.somang-project-page[data-project-page="1"]{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(8px,1.5vh,14px);padding:0;overflow:hidden;text-align:center}
+.somang-project-page[data-project-page="1"] .somang-project-page-eyebrow{margin:0;flex:none}
+.somang-film-title{margin:0;line-height:1.14;flex:none}
+.project-portal-frame .project-expansion-content{padding:clamp(10px,1.5vw,18px);overflow:hidden;display:block;flex:1;min-height:0}
+.project-portal-frame #video{width:min(1000px,96%);max-width:min(1000px,96%);height:100%;max-height:none;min-height:0;flex:1 1 auto;display:flex;align-items:center;justify-content:center;margin:0 auto;border:0;background:transparent}
+.project-portal-frame #video .gold-video-frame{width:100%;max-height:100%;height:auto;display:flex;align-items:center;justify-content:center}
+.project-portal-frame #video .gold-viewport{width:100%;aspect-ratio:1280 / 706}
+.project-portal-frame #video .gold-viewport .suno-player{width:100%;height:100%;object-fit:contain!important;background:#090909}
+@media(max-width:980px){.gallery-stage-card{width:min(95%,1080px);height:clamp(228px,62%,336px);border-radius:34px}.project-portal-frame #video{width:min(96%,860px);max-width:min(96%,860px)}}
+@media(max-height:760px){.project-portal-frame .project-expansion-inner{padding:12px 16px}.project-portal-frame .project-expansion-content{padding:8px 12px}.somang-project-page[data-project-page="1"]{gap:8px}.somang-film-title{font-size:clamp(18px,2.1vw,26px)}.somang-project-page[data-project-page="1"] .somang-project-page-eyebrow{font-size:10px}}
+@media(max-width:800px){.gallery-stage-card{width:min(96%,760px);height:clamp(188px,58%,272px);border-radius:26px}.project-portal-frame #video{width:98%;max-width:98%}}
+
+/* V72: wide frosted showcase; keep the caption above and the controls below unobstructed. */
+#contents .gallery .gallery-stage-card{
+  width:calc(100% - 12px);
+  max-width:none;
+  height:78%;
+  top:55%;
+  border-radius:clamp(24px,3vw,44px);
+}
+/* Side pagination is independent of the video/frame; keep it inside the modal gutters. */
+.project-portal-frame .project-expansion-inner{position:relative}
+.project-portal-frame .project-expansion-content{padding-inline:clamp(54px,6vw,74px)}
+.project-portal-frame .somang-side-page-arrow{
+  position:absolute;
+  top:52%;
+  transform:translateY(-50%);
+  z-index:35;
+  display:grid;
+  place-items:center;
+  width:44px;
+  height:70px;
+  padding:0;
+  border:0;
+  border-radius:8px;
+  background:rgba(70,65,69,.42);
+  color:#f5dfbf;
+  font:400 56px/1 Georgia,serif;
+  cursor:pointer;
+  text-shadow:0 1px 10px #000;
+  transition:background .2s,opacity .2s;
+}
+.project-portal-frame .somang-side-page-prev{left:8px}
+.project-portal-frame .somang-side-page-next{right:8px}
+.project-portal-frame .somang-side-page-arrow:hover:not(:disabled){background:rgba(111,99,92,.72)}
+.project-portal-frame .somang-side-page-arrow:disabled{opacity:.19;cursor:default}
+.project-portal-frame .somang-side-page-arrow:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.project-expansion-inner:has(> .project-pdf-embed:not([hidden])) > .somang-side-page-arrow{display:none}
+@media(max-width:800px){
+ #contents .gallery .gallery-stage-card{width:calc(100% - 8px);height:76%;top:55%}
+ .project-portal-frame .project-expansion-content{padding-inline:32px}
+ .project-portal-frame .somang-side-page-arrow{width:29px;height:58px;font-size:42px}
+ .project-portal-frame .somang-side-page-prev{left:1px}
+ .project-portal-frame .somang-side-page-next{right:1px}
+}
+@media(max-height:620px){
+ .project-portal-frame .somang-side-page-arrow{top:57%;height:50px}
+}
+
+
+/* V73 layout repair: independent sizing for modal title / content / footer.
+   No size-containment or cyclic container query on the video. */
+.project-portal-frame .project-expansion-inner{
+  display:flex!important;
+  flex-direction:column!important;
+  width:100%;height:100%;
+  overflow:hidden;
+  padding:clamp(12px,1.7vw,22px);
+}
+.project-portal-frame .project-expansion-top{flex:0 0 auto;min-height:0}
+.project-portal-frame .project-expansion-content{
+  display:block!important;
+  flex:1 1 0!important;
+  min-height:0!important;
+  height:auto!important;
+  overflow:hidden!important;
+  padding:clamp(10px,1.5vw,18px) clamp(54px,5vw,68px)!important;
+}
+.project-portal-frame .somang-project-pager{
+  flex:0 0 51px!important;
+  min-height:51px!important;
+  display:flex;
+  margin:0 auto;
+  position:relative;
+  z-index:25;
+}
+.project-portal-frame .somang-project-page{
+  height:100%;
+  min-height:0;
+  max-height:100%;
+  box-sizing:border-box;
+}
+.project-portal-frame .somang-project-page[data-project-page="1"]{
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  align-items:center!important;
+  gap:6px!important;
+  padding:0!important;
+  overflow:hidden!important;
+}
+.project-portal-frame .somang-project-page[data-project-page="1"][hidden]{display:none!important}
+.project-portal-frame .somang-project-page[data-project-page="1"] .somang-project-page-eyebrow{flex:0 0 auto;margin:0;font-size:11px}
+.project-portal-frame .somang-film-title{flex:0 0 auto;margin:0;font-size:clamp(18px,2vw,26px);line-height:1.2}
+/* The video box takes only the remaining vertical space. A frame and its video share one parent. */
+.project-portal-frame .somang-project-page[data-project-page="1"] #video.video{
+  container-type:normal!important;
+  flex:1 1 0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:100%!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:100%!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+  background:transparent!important;
+  border:0!important;
+}
+.project-portal-frame .somang-project-page[data-project-page="1"] #video .gold-video-frame{
+  display:block!important;
+  position:relative!important;
+  flex:0 1 auto!important;
+  box-sizing:border-box!important;
+  width:min(100%, 700px, calc(max(180px, 100svh - 320px) * 1516 / 944))!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:100%!important;
+  aspect-ratio:1516 / 944!important;
+  margin:0 auto!important;
+  padding:0!important;
+  overflow:hidden!important;
+}
+.project-portal-frame .somang-project-page[data-project-page="1"] #video .gold-video-frame .gold-viewport{
+  position:absolute!important;
+  top:8.05%!important;right:7.55%!important;bottom:8.25%!important;left:7.55%!important;
+  width:auto!important;height:auto!important;
+  min-width:0!important;min-height:0!important;
+  flex:none!important;
+  aspect-ratio:auto!important;
+  overflow:hidden!important;
+  display:block!important;
+}
+.project-portal-frame .somang-project-page[data-project-page="1"] #video .gold-viewport .suno-player{
+  display:block!important;
+  width:100%!important;height:100%!important;
+  aspect-ratio:auto!important;
+  object-fit:contain!important;
+  transform:none!important;
+}
+.project-portal-frame .somang-project-page[data-project-page="1"] #video .gold-frame-overlay{
+  position:absolute!important;inset:0!important;
+  width:100%!important;height:100%!important;
+  object-fit:fill!important;
+  z-index:2!important;
+  pointer-events:none!important;
+}
+/* Side arrows occupy the outer gutters, and the glyph is optically centred. */
+.project-portal-frame .somang-side-page-arrow{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:0!important;
+  width:44px;
+  height:68px;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  font-size:54px;
+  line-height:1;
+}
+.project-portal-frame .somang-side-page-arrow span{display:block;line-height:1;transform:translateY(-5px)}
+.project-portal-frame .somang-side-page-arrow:disabled{opacity:.18}
+.project-expansion-inner:has(> .project-pdf-embed:not([hidden])) > .somang-side-page-arrow{display:none!important}
+@media(max-width:800px){
+ .project-portal-frame .project-expansion-content{padding:8px 33px!important}
+ .project-portal-frame .somang-side-page-arrow{width:30px;height:56px;font-size:41px}
+ .project-portal-frame .somang-project-pager{flex-basis:46px!important;min-height:46px!important}
+ .project-portal-frame .somang-project-page[data-project-page="1"] #video .gold-video-frame{
+   width:min(100%,calc(max(150px, 100svh - 260px) * 1516 / 944))!important;
+ }
+}
+@media(max-height:680px){
+ .project-portal-frame .project-expansion-inner{padding:10px!important}
+ .project-portal-frame .project-expansion-content{padding-block:6px!important}
+ .project-portal-frame .somang-project-page[data-project-page="1"] #video .gold-video-frame{
+   width:min(100%,calc(max(140px, 100svh - 225px) * 1516 / 944))!important;
+ }
+}
+
+
+/* V74: borderless frosted gallery card, +10px height, centred on the featured artwork. */
+#contents .gallery .gallery-stage-card{
+  top:58%!important;
+  height:calc(78% + 10px)!important;
+  border:0!important;
+  outline:0!important;
+  box-shadow:0 20px 45px rgba(0,0,0,.18)!important;
+}
+#contents .gallery .gallery-stage-card::after{
+  box-shadow:none!important;
+  border:0!important;
+}
+#contents .gallery .gallery-stage-card::before{border:0!important;box-shadow:none!important}
+/* Keep the middle artwork centred over the frosted card. */
+#contents .gallery .art.center{top:58%!important}
+/* Keep video and gold frame together at a restrained size; the transparent frame is a single overlay. */
+.project-portal-frame .somang-project-page[data-project-page="1"] #video .gold-video-frame{
+  width:min(100%, 700px, calc(max(180px, 100svh - 320px) * 1516 / 944))!important;
+}
+/* True geometrical centre for the chevron SVG; no font baseline offset. */
+.project-portal-frame .somang-side-page-arrow{
+  display:grid!important;
+  place-items:center!important;
+  padding:0!important;
+  text-align:center!important;
+}
+.project-portal-frame .somang-side-page-arrow svg{
+  display:block;
+  width:22px;
+  height:32px;
+  margin:0!important;
+  padding:0!important;
+  transform:none!important;
+  flex:none;
+}
+@media(max-width:800px){
+ #contents .gallery .gallery-stage-card{height:calc(76% + 10px)!important;top:58%!important}
+ .project-portal-frame .somang-side-page-arrow svg{width:18px;height:27px}
+}
+
+
+/* V75 — targeted polish: glass transparency, foreground spotlights and tight framed video. */
+#contents .gallery .gallery-stage-card{
+  background:radial-gradient(ellipse at 50% 48%,
+    rgba(232,218,205,.095) 0%,
+    rgba(134,121,116,.075) 38%,
+    rgba(22,21,26,.26) 100%)!important;
+  -webkit-backdrop-filter:blur(6px) saturate(108%)!important;
+  backdrop-filter:blur(6px) saturate(108%)!important;
+  box-shadow:0 18px 38px rgba(0,0,0,.12)!important;
+  border:0!important;
+}
+#contents .gallery .gallery-stage-card::before{
+  background:radial-gradient(ellipse at 50% 48%,rgba(255,232,188,.075),transparent 61%)!important;
+}
+#contents .gallery .gallery-stage-card::after{
+  background:linear-gradient(90deg,rgba(9,9,14,.12),rgba(255,255,255,.025) 48%,rgba(9,9,14,.12))!important;
+  box-shadow:none!important;
+}
+/* A spotlight must illuminate the front face of the translucent card,
+   while the paintings stay in front of the light wash. */
+#contents .gallery .beam,
+#contents .gallery .wall-glow,
+#contents .gallery .floor-glow{z-index:4!important;pointer-events:none}
+#contents .gallery .gallery-stage-card{z-index:2!important}
+#contents .gallery .art{z-index:5!important}
+/* Small width reduction; video and frame stay linked within one parent. */
+.project-portal-frame .somang-project-page[data-project-page="1"] #video .gold-video-frame{
+  width:min(100%, 660px, calc(max(180px, 100svh - 320px) * 1516 / 944))!important;
+}
+/* Fill the frame opening rather than introducing black bars due to aspect mismatch.
+   Does not zoom the native video element or its controls. */
+.project-portal-frame .somang-project-page[data-project-page="1"] #video .gold-viewport .suno-player{
+  object-fit:cover!important;
+  object-position:center center!important;
+}
+@media(max-width:800px){
+  .project-portal-frame .somang-project-page[data-project-page="1"] #video .gold-video-frame{
+    width:min(100%, 660px, calc(max(150px, 100svh - 260px) * 1516 / 944))!important;
+  }
+}
+@media(max-height:680px){
+  .project-portal-frame .somang-project-page[data-project-page="1"] #video .gold-video-frame{
+    width:min(100%, 660px, calc(max(140px, 100svh - 225px) * 1516 / 944))!important;
+  }
+}
+
+
+/* V78 — the glass backdrop starts 40px ABOVE the 02/04 CONTENTS label.
+   Keep its bottom aligned with the previous card and preserve artwork, light, and controls. */
+#contents .section-head{position:relative;z-index:3}
+#contents .gallery{overflow:visible}
+#contents .gallery .gallery-stage-card{
+  top:calc(-1 * var(--glass-head-offset, 150px))!important;
+  bottom:3%!important;
+  height:auto!important;
+  transform:translateX(-50%)!important;
+}
+
+
+/* V81 — foreground exhibition dust, above artworks but below chapter caption. */
+#contents .gallery .dust-atmosphere{z-index:7!important;pointer-events:none!important}
+#contents .gallery .chapter-label{z-index:8!important}
+
+/* V82 — make the existing portal-entry instruction legible without extra copy. */
+#contents .helper{
+ display:table;
+ margin:12px auto 8px;
+ padding:11px 22px;
+ max-width:calc(100% - 24px);
+ border-radius:5px;
+ border:1px solid rgba(228,193,140,.32);
+ background:rgba(17,15,19,.86);
+ color:#f4dfba;
+ font-size:clamp(12px,.88vw,14px);
+ font-weight:700;
+ line-height:1.55;
+ letter-spacing:.045em;
+ text-align:center;
+ text-shadow:0 1px 8px rgba(0,0,0,.7);
+ box-shadow:0 7px 22px rgba(0,0,0,.24);
+}
+@media(max-width:620px){#contents .helper{padding:9px 13px;font-size:12px}}
+
+
+/* V84 — merged introduction on page 1; film is page 2. Keep all existing portal mechanics. */
+.project-portal-frame .somang-project-page[data-project-page="0"]{
+  padding:2px clamp(6px,1vw,14px) 14px;
+  overflow-x:hidden;
+  overflow-y:auto!important;
+  scrollbar-width:thin;
+}
+.project-portal-frame .somang-merged-introduction{
+  max-width:900px;
+  margin:clamp(20px,3vh,30px) 0 12px;
+  padding:clamp(15px,2vw,22px) 0 0;
+  border-top:1px solid rgba(218,188,147,.32);
+}
+.project-portal-frame .somang-introduction-heading{
+  margin:0 0 12px;
+  font-size:clamp(20px,2.5vw,30px);
+  letter-spacing:.09em;
+  color:#fff5e5;
+  font-weight:700;
+}
+.project-portal-frame .somang-merged-introduction .somang-project-story{
+  display:block;
+  min-height:0;
+  height:auto;
+  margin:0;
+  padding:0!important;
+  border:none!important;
+  background:none!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+}
+.project-portal-frame .somang-merged-introduction .somang-introduction-subtitle{
+  margin:0 0 8px;
+  color:#ecc99b;
+  letter-spacing:.05em;
+  font-size:clamp(13px,1.1vw,16px);
+  font-weight:650;
+}
+.project-portal-frame .somang-merged-introduction #detail-description{
+  margin:0;
+  font-size:clamp(13px,1.1vw,16px);
+  line-height:1.78;
+  color:#f2ece5;
+  max-width:900px;
+  text-shadow:0 2px 8px #0009;
+}
+.project-portal-frame .somang-watch-film-cta{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  min-height:48px;
+  padding:12px 22px;
+  margin:22px 0 8px;
+  border:1px solid rgba(234,200,151,.8);
+  background:rgba(210,170,111,.9);
+  color:#19141a;
+  font-weight:750;
+  font-size:clamp(13px,1.1vw,16px);
+  letter-spacing:.04em;
+  cursor:pointer;
+  transition:background .2s;
+}
+.project-portal-frame .somang-watch-film-cta:hover{background:#f4d6a8}
+.project-portal-frame .somang-watch-film-cta:focus-visible{outline:2px solid white;outline-offset:3px}
+.project-portal-frame .project-overview-footer{margin-top:18px}
+/* Keep 2-page film media geometry from the previously repaired video page. */
+.project-portal-frame .somang-project-page[data-project-page="1"]{overflow:hidden!important}
+
+
+/* V86: short first-entry-only hard scroll hold, independent of animation duration. */
+html.somang-temporary-scroll-hold,body.somang-temporary-scroll-hold{
+ overflow-y:hidden!important;
+ overscroll-behavior:none!important;
+ scroll-behavior:auto!important;
+}
+
+/* V87 — wide, single-view introduction with all copy and PDF controls visible. */
+.project-portal-frame .project-expansion-inner{padding:clamp(12px,1.35vw,22px)!important}
+.project-portal-frame .project-expansion-top{min-height:0;flex:0 0 auto}
+.project-portal-frame .project-expansion-title{font-size:clamp(26px,2.7vw,38px);margin:0}
+.project-portal-frame .project-expansion-content{padding:clamp(9px,1.2vw,18px) clamp(54px,5vw,72px)!important;min-height:0}
+.project-portal-frame .somang-project-page[data-project-page="0"]{overflow:hidden!important;padding:0!important;min-height:0;height:100%}
+.project-portal-frame .somang-project-page[data-project-page="0"] .project-overview-label{margin:0 0 5px;font-size:11px}
+.project-portal-frame .somang-overview-head{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:clamp(8px,1.4vh,18px)}
+.project-portal-frame .somang-overview-head .project-overview-title{margin:0!important;font-size:clamp(31px,3.8vw,58px);line-height:1.05}
+.project-portal-frame .somang-overview-head .somang-watch-film-cta{flex:none;display:inline-flex;margin:0!important;min-height:42px;padding:10px 16px;font-size:clamp(12px,.94vw,15px);white-space:nowrap}
+.project-portal-frame .somang-overview-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(24px,3vw,50px);align-items:start;height:auto;min-height:0}
+.project-portal-frame .somang-overview-main{min-width:0;display:flex;flex-direction:column;gap:clamp(9px,1.5vh,16px)}
+.project-portal-frame .somang-overview-main .project-overview-copy{display:grid;gap:clamp(8px,1.4vh,15px);margin:0;max-width:none}
+.project-portal-frame .project-overview-section{padding-left:10px}
+.project-portal-frame .project-overview-section h5{margin-bottom:3px;font-size:clamp(10px,.9vw,12px)}
+.project-portal-frame .project-overview-section p{font-size:clamp(12px,.98vw,15px);line-height:1.51}
+.project-portal-frame .somang-overview-main .project-overview-footer{margin:0;padding-top:10px;max-width:none}
+.project-portal-frame .somang-overview-main .project-overview-pdf-note{font-size:11px;margin-bottom:8px}
+.project-portal-frame .somang-overview-main .project-overview-pdf-actions{gap:8px}
+.project-portal-frame .somang-overview-main .project-pdf-button{min-height:36px;padding:9px 13px;font-size:12px}
+.project-portal-frame .somang-overview-grid .somang-merged-introduction{margin:0;padding:0 0 0 clamp(14px,2vw,26px);border-top:0;border-left:1px solid rgba(218,188,147,.35);max-width:none;min-width:0}
+.project-portal-frame .somang-overview-grid .somang-introduction-heading{font-size:clamp(19px,1.8vw,27px);letter-spacing:.07em;margin:0 0 15px;line-height:1.15}
+.project-portal-frame .somang-overview-grid #detail-description{font-size:clamp(12px,1vw,15px);line-height:1.7}
+.project-portal-frame .somang-overview-grid .somang-introduction-subtitle{font-size:clamp(12px,.98vw,14px)}
+/* The first LALASWEET image should not disappear while the other images are decoding. */
+.gallery .art[data-index="1"]:not(.has-preview) .art-media .art-slide{display:block!important}
+.gallery .art[data-index="1"]:not(.has-preview) .art-media .art-slide:not(.is-active){opacity:0}
+.gallery .art[data-index="1"] .art-placeholder-label{pointer-events:none}
+@media(max-height:720px) and (min-width:801px){
+ .project-portal-frame .project-expansion-inner{padding:9px 14px!important}
+ .project-portal-frame .project-expansion-content{padding-block:5px!important}
+ .project-portal-frame .somang-overview-head{margin-bottom:7px}
+ .project-portal-frame .somang-overview-main{gap:7px}
+ .project-portal-frame .somang-overview-main .project-overview-copy{gap:6px}
+ .project-portal-frame .project-overview-section p{font-size:12px;line-height:1.37}
+ .project-portal-frame .somang-overview-grid #detail-description{font-size:12px;line-height:1.54}
+ .project-portal-frame .somang-overview-main .project-overview-footer{padding-top:7px}
+ .project-portal-frame .somang-overview-main .project-pdf-button{min-height:32px;padding:7px 11px}
+}
+@media(max-width:800px){
+ /* Small screens cannot fit long prose in two columns; allow internal scrolling only there. */
+ .project-portal-frame .somang-project-page[data-project-page="0"]{overflow-y:auto!important}
+ .project-portal-frame .somang-overview-grid{grid-template-columns:1fr;gap:18px}
+ .project-portal-frame .somang-overview-grid .somang-merged-introduction{padding:12px 0 0;border-left:0;border-top:1px solid rgba(218,188,147,.35)}
+ .project-portal-frame .somang-overview-head{gap:8px;flex-wrap:wrap}
+ .project-portal-frame .somang-overview-head .somang-watch-film-cta{min-height:36px;padding:8px 12px}
+}
+
+
+/* V88 — compact the oversized V87 project portal without reducing its two-column width.
+   The content and footer stay in the same flex column, with less unused vertical space. */
+@media(min-width:801px){
+ .project-portal-frame .project-expansion-content{padding-block:clamp(6px,1.1vh,12px)!important}
+ .project-portal-frame .project-expansion-top{margin-bottom:0}
+ .project-portal-frame .somang-project-pager{flex-basis:45px!important;min-height:45px!important}
+}
+
+
+/* V89 — user-approved 1480×800 centered gallery panel with close-set gutters. */
+@media (min-width:901px) and (min-height:720px){
+ .project-portal-frame .project-expansion-inner{padding:24px 26px 18px!important}
+ .project-portal-frame .project-expansion-top{flex:0 0 88px!important}
+ .project-portal-frame .project-expansion-content{padding:2px 70px 0!important}
+ .project-portal-frame .somang-project-page[data-project-page="0"]{
+   display:grid!important;
+   grid-template-rows:auto minmax(0,1fr) auto;
+   min-height:0!important;height:100%;overflow:hidden!important;
+   padding:0!important;
+ }
+ .project-portal-frame .somang-project-page[data-project-page="0"][hidden]{display:none!important}
+ .project-portal-frame .somang-project-page[data-project-page="0"]>.project-overview-label{margin:0 0 4px!important;font-size:12px}
+ .project-portal-frame .somang-overview-head{margin:0 0 18px!important;align-items:center}
+ .project-portal-frame .somang-overview-head .project-overview-title{font-size:clamp(42px,3.8vw,68px)!important}
+ .project-portal-frame .somang-project-page[data-project-page="0"]{
+  grid-template-rows:auto auto minmax(0,1fr) auto;
+ }
+ .project-portal-frame .somang-overview-grid{
+   grid-column:1;grid-row:3;
+   grid-template-columns:minmax(0,1.07fr) minmax(0,.93fr);
+   gap:34px;align-items:center;min-height:0;height:100%;
+ }
+ .project-portal-frame .somang-overview-main{gap:0}
+ .project-portal-frame .somang-overview-main .project-overview-copy{gap:22px!important}
+ .project-portal-frame .project-overview-section{padding-left:17px}
+ .project-portal-frame .project-overview-section h5{font-size:14px!important;margin-bottom:7px}
+ .project-portal-frame .project-overview-section p{font-size:clamp(13px,.95vw,16px)!important;line-height:1.65!important}
+ .project-portal-frame .somang-overview-grid .somang-merged-introduction{padding-left:28px}
+ .project-portal-frame .somang-overview-grid .somang-introduction-heading{font-size:clamp(22px,1.9vw,30px);margin-bottom:17px}
+ .project-portal-frame .somang-overview-grid #detail-description{font-size:clamp(13px,.98vw,17px);line-height:1.8}
+ .project-portal-frame .somang-overview-grid .somang-introduction-subtitle{font-size:15px;margin-bottom:13px}
+ .project-portal-frame .somang-project-page[data-project-page="0"]>.project-overview-footer{
+   grid-column:1;grid-row:4;align-self:end;margin:10px 0 4px!important;
+   padding-top:17px!important;border-top:1px solid rgba(223,186,137,.43);
+   width:100%;
+ }
+ .project-portal-frame .somang-project-page[data-project-page="0"]>.project-overview-footer .project-overview-pdf-note{font-size:12px;margin-bottom:12px}
+ .project-portal-frame .somang-project-page[data-project-page="0"]>.project-overview-footer .project-pdf-button{min-height:45px;padding:11px 18px;font-size:14px}
+ .project-portal-frame .somang-project-pager{flex-basis:48px!important;min-height:48px!important}
+ .project-portal-frame .somang-side-page-arrow{left:8px;right:auto;width:46px;height:74px;top:52%!important}
+ .project-portal-frame .somang-side-page-next{left:auto;right:8px}
+}
+/* Shorter viewports retain the responsive, scrollable mobile-like fallback. */
+@media(max-height:719px) and (min-width:801px){
+ .project-portal-frame .somang-project-page[data-project-page="0"]{overflow-y:auto!important}
+ .project-portal-frame .somang-project-page[data-project-page="0"]>.project-overview-footer{margin:10px 0 0!important;padding-top:10px}
+}
+@media(max-width:900px){
+ .project-portal-frame .somang-project-page[data-project-page="0"]>.project-overview-footer{margin:12px 0!important;padding-top:12px}
+ .project-portal-frame .somang-project-page[data-project-page="0"]{overflow-y:auto!important}
+}
+
+/* V90 — first-visit preflight indicator reuses the invitation, no new page. */
+.somang-intro-audio-gate .somang-media-status{font-size:12px;letter-spacing:.04em;color:#d9c5a4;line-height:1.6;margin-top:10px}
+.somang-intro-audio-gate button:disabled{cursor:wait;opacity:.55}
+
+/* V91 — cohesive two-view project modal. Side chevrons navigate PROJECTS, not pages. */
+.project-portal-frame .somang-project-pager{display:none!important}
+.project-portal-frame .project-expansion-content{padding-bottom:clamp(14px,2vh,24px)!important}
+.project-portal-frame .somang-overview-head{justify-content:flex-start!important;gap:clamp(22px,3vw,54px)!important}
+.project-portal-frame .somang-overview-head .somang-watch-film-cta{
+  margin:0!important;min-height:56px!important;padding:13px 26px!important;
+  font-size:clamp(14px,1.1vw,17px)!important;letter-spacing:.02em!important;
+}
+/* V92 — film screen follows the requested mock layout: centered video, return button underneath. */
+.project-portal-frame .somang-project-page[data-project-page="1"]{
+ display:flex!important;flex-direction:column!important;align-items:stretch!important;
+ justify-content:flex-start!important;gap:10px!important;
+ height:100%;width:100%;padding:0!important;overflow:hidden!important;text-align:left!important;
+}
+.project-portal-frame .somang-project-page[data-project-page="1"]>.somang-project-page-eyebrow,
+.project-portal-frame .somang-project-page[data-project-page="1"]>.somang-film-title{
+ text-align:left!important;align-self:stretch!important;max-width:none!important;
+}
+.project-portal-frame .somang-film-layout{
+ flex:1 1 0;min-height:0;width:100%;max-width:980px;margin:0 auto;
+ display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;
+ align-items:center;justify-items:center;gap:clamp(14px,2vh,22px);
+ padding-top:clamp(6px,1vh,12px);
+}
+.project-portal-frame .somang-film-layout #video.video{
+ display:flex!important;width:100%!important;max-width:100%!important;
+ height:100%!important;max-height:100%!important;min-height:0!important;
+ flex:initial!important;justify-content:center!important;align-items:center!important;
+}
+.project-portal-frame .somang-film-layout #video .gold-video-frame{
+ width:min(100%,760px,calc(max(220px,100svh - 305px) * 1516 / 944))!important;
+ max-height:100%!important;
+}
+.project-portal-frame .somang-film-return-area{
+ display:flex;justify-content:center;align-items:center;min-width:0;width:100%;
+}
+.project-portal-frame .somang-film-return{
+ display:inline-flex;justify-content:center;align-items:center;gap:10px;
+ min-height:54px;padding:14px 22px;width:auto;max-width:none;
+ border:1px solid #e1bb83;background:#c9a472;color:#201818;
+ font-size:clamp(13px,1.04vw,16px);font-weight:700;letter-spacing:.015em;
+ cursor:pointer;white-space:nowrap;transition:background .18s ease;
+}
+.project-portal-frame .somang-film-return .back-arrow{
+ display:inline-flex;align-items:center;justify-content:center;
+ font-size:1.18em;line-height:1;transform:translateY(-1px);
+}
+.project-portal-frame .somang-film-return:hover{background:#f1d3a6}
+.project-portal-frame .somang-film-return:focus-visible{outline:2px solid white;outline-offset:3px}
+@media(max-width:900px){
+ .project-portal-frame .somang-film-layout{gap:12px;max-width:100%}
+ .project-portal-frame .somang-film-return{min-height:42px;padding:10px 16px}
+ .project-portal-frame .somang-overview-head{flex-wrap:wrap}
+ .project-portal-frame .somang-overview-head .somang-watch-film-cta{min-height:44px!important;padding:10px 15px!important}
+}
+@media(max-height:700px){
+ .project-portal-frame .somang-film-layout{gap:10px;padding-top:0}
+ .project-portal-frame .somang-film-layout #video .gold-video-frame{width:min(100%,620px,calc(max(175px,100svh - 225px) * 1516 / 944))!important}
+ .project-portal-frame .somang-film-return{min-height:42px;padding:10px 14px}
+}
+
+
+/* V93 — Text-only CHAPTER 03 artwork must survive project switching and morph-back. */
+.project-portal-media-clip .project-portal-art-image[hidden],
+.project-portal-media-clip .project-portal-art-placeholder[hidden]{display:none!important}
+.project-portal-art-placeholder{
+ position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;
+ align-items:center;justify-content:center;text-align:center;gap:clamp(3px,.7vw,10px);
+ padding:8px;color:#fff;text-shadow:0 2px 8px #000;
+}
+.project-portal-art-placeholder .num{font-size:clamp(10px,.9vw,13px);letter-spacing:.18em}
+.project-portal-art-placeholder .name{font-size:clamp(14px,2vw,25px);font-weight:800;letter-spacing:.07em}
+.project-portal-art-placeholder .type{font-size:clamp(9px,.75vw,12px);letter-spacing:.11em}
+
+/* V94 — constant watch-button location for SUNO, LALASWEET, and HORROR. */
+.project-portal-frame .somang-overview-head{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  align-items:center!important;
+  justify-content:stretch!important;
+  column-gap:clamp(18px,3vw,50px)!important;
+  width:100%!important;
+}
+.project-portal-frame .somang-overview-head .project-overview-title{
+  min-width:0;max-width:100%;overflow-wrap:keep-all;
+}
+.project-portal-frame .somang-overview-head .somang-watch-film-cta{
+  justify-self:end!important;align-self:center!important;
+  width:clamp(214px,16vw,258px)!important;
+  height:56px!important;min-height:56px!important;
+  padding:12px 16px!important;white-space:nowrap;
+  justify-content:center!important;gap:9px!important;
+}
+@media(max-width:900px){
+  .project-portal-frame .somang-overview-head{column-gap:14px!important;grid-template-columns:minmax(0,1fr) auto!important}
+  .project-portal-frame .somang-overview-head .project-overview-title{font-size:clamp(25px,5vw,44px)!important}
+  .project-portal-frame .somang-overview-head .somang-watch-film-cta{
+    width:auto!important;min-height:42px!important;height:auto!important;
+    padding:10px 12px!important;font-size:12px!important;
+  }
+}
+@media(max-width:540px){
+  .project-portal-frame .somang-overview-head{grid-template-columns:1fr!important;row-gap:10px!important}
+  .project-portal-frame .somang-overview-head .somang-watch-film-cta{justify-self:start!important}
+}
+
+
+/* V95 — invitation as a passive automatic loading screen. */
+.somang-intro-audio-gate .somang-loading-label{
+  display:block;
+  font-family:'Hahmlet',Georgia,'Malgun Gothic',serif;
+  font-size:clamp(13px,1.1vw,16px);
+  font-weight:500;
+  letter-spacing:.08em;
+  color:#e1c69c;
+  margin:0;
+  line-height:1.8;
+}
+.somang-intro-audio-gate .somang-loading-label::after{
+  content:'';
+  display:inline-block;
+  width:12px;
+  height:12px;
+  margin-left:12px;
+  border:1.5px solid rgba(224,196,156,.25);
+  border-top-color:#e0c49c;
+  border-radius:50%;
+  animation:somang-loading-spin 1.1s linear infinite;
+  vertical-align:middle;
+}
+@keyframes somang-loading-spin{to{transform:rotate(360deg)}}
+
+</style>
+</head>
+<body>
+<!-- V38 floating wayfinding / original V37 section markup preserved -->
+<nav class="somang-side-nav" aria-label="고정 섹션 내비게이션">
+ <div class="somang-side-nav-inner">
+  <button class="somang-nav-btn is-active" type="button" data-nav-section="intro" aria-current="location" aria-label="01 INTRO로 이동"><span class="somang-nav-num">01</span><span class="somang-nav-label">INTRO</span></button>
+  <button class="somang-nav-btn" type="button" data-nav-section="contents" aria-label="02 CONTENTS로 이동"><span class="somang-nav-num">02</span><span class="somang-nav-label">CONTENTS</span></button>
+  <button class="somang-nav-btn" type="button" data-nav-section="about" aria-label="03 ABOUT ME로 이동"><span class="somang-nav-num">03</span><span class="somang-nav-label">ABOUT ME</span></button>
+  <button class="somang-nav-btn" type="button" data-nav-section="contact" aria-label="04 CONTACT로 이동"><span class="somang-nav-num">04</span><span class="somang-nav-label">CONTACT</span></button>
+ </div>
+</nav>
+<div class="somang-music-control" id="somang-music-control" aria-label="배경음악 컨트롤러" data-video="false">
+ <div class="somang-music-name"><span>AMBIENT MUSIC</span><small id="somang-music-time">00:00 / 10:00</small></div>
+ <button id="somang-music-toggle" type="button" aria-label="배경음악 재생 또는 일시정지" title="재생 / 일시정지">▶</button>
+ <button id="somang-music-replay" class="somang-music-replay" type="button" aria-label="배경음악 처음부터 다시 재생" title="처음부터 다시 재생">↻</button>
+ <span class="somang-music-state" id="somang-music-state" aria-live="polite">대기 중</span>
+</div>
+<audio id="somang-intro-sfx" src="somang_light_intro_trim6.mp3" preload="auto"></audio>
+<div class="somang-intro-audio-gate" id="somang-intro-audio-gate" role="dialog" aria-modal="true" aria-label="전시관 초대장">
+ <div class="somang-invitation-content">
+  <p class="somang-invitation-eyebrow">SOMANG · PRIVATE EXHIBITION</p>
+  <p class="somang-invitation-title">당신을 소망의 전시관에 초대합니다.</p>
+  <p class="somang-loading-label" id="somang-loading-label" role="status" aria-live="polite">전시관을 준비하고 있습니다…</p>
+  <p class="somang-media-status" id="somang-media-status" role="status" aria-live="polite" hidden></p>
+  <p class="somang-invitation-note">* 웹페이지에 백그라운드 사운드가 포함되어 있습니다.</p>
+ </div>
+</div>
+<audio id="somang-ambient-track" src="somang_ambient_10min.mp3" preload="metadata"></audio>
+<div id="floor-carpet" class="floor-carpet" aria-hidden="true"><img class="velvet-sheet" src="velvet_carpet_flat.png" alt=""><div class="carpet-front"><img src="velvet_carpet_roll.png" alt=""></div></div><button type="button" id="about-replay" class="about-replay" aria-label="자기소개 애니메이션 다시 재생">↻ ABOUT REPLAY</button><div class="tv-overlay boot" id="tv-overlay" aria-hidden="true"><div class="tv-line"></div></div>
+<div id="curtain-screen" aria-hidden="true"><video id="curtain-video" muted playsinline preload="auto"><source src="somang_curtain_transparent.webm" type="video/webm"></video></div>
+<div class="somang-mrm-layer poster" id="somang-mrm-layer" aria-hidden="true"><img id="somang-mrm-poster" src="MrM_Final6_start.png" alt=""><video id="somang-mrm-final" src="MrM_Final6_alpha.webm" muted playsinline preload="auto" disablepictureinpicture></video></div>
+<section class="section intro" id="intro" aria-label="인트로"><div class="somang-intro-world" id="somang-intro-world" aria-hidden="true"><div class="somang-intro-glow"></div></div><div class="somang-intro-darkness" id="somang-intro-darkness" aria-hidden="true"></div><div class="somang-intro-dust" id="somang-intro-dust" aria-hidden="true"><video id="somang-intro-dust-video" src="somang_dust_alpha.webm" muted loop playsinline preload="none"></video></div><div class="somang-welcome" id="somang-welcome" aria-hidden="true"><h2>WELCOME!</h2><p>환영합니다!</p></div><button class="intro-replay" id="replay-intro" type="button">↻ INTRO REPLAY</button>
+ <div class="topbar"><div class="container"><a href="#intro">SOMANG © 2026</a><nav><a href="#contents">CONTENTS</a><a href="#about">ABOUT ME</a><a href="#contact">CONTACT</a></nav></div></div>
+ <div class="container hero"><div class="eyebrow" style="opacity:0!important">CREATIVE VIDEO PORTFOLIO · 2026</div><h1 id="type-title" style="opacity:0!important" aria-label="SOMANG'S PORTFOLIO">SOMANG'S<br><span>PORTFOLIO.</span></h1><p class="sub" style="opacity:0!important">음악과 영상, 아이디어를 하나의 이야기로.<br>시네마틱 디지털 전시관에 오신 것을 환영합니다.</p><a class="go" href="#contents" style="opacity:0!important">ENTER EXHIBITION ↓</a><div class="bottom" style="opacity:0!important">01 / 04 — INTRO</div></div>
+</section>
+<section class="section contents" id="contents" aria-label="콘텐츠 전시관">
+ <div class="container">
+  <div class="section-head"><div class="eyebrow">02 / 04 — CONTENTS</div><h2>THE EXHIBITION</h2><p>마우스로 작품을 선택하거나 PREV / NEXT 버튼을 사용해 보세요. 중앙에는 SUNO부터 시작합니다.</p></div>
+  <div class="gallery lit" id="gallery">
+   <div class="wall-left"></div><div class="wall-right"></div><div class="lamp"></div><div class="beam"></div><div class="wall-glow"></div><div class="floor-glow"></div>
+   <div class="dust-atmosphere" aria-hidden="true"><video id="floating-dust" src="somang_dust_alpha.webm" muted loop playsinline preload="none" disablepictureinpicture></video></div>
+   <div class="gallery-stage-card" aria-hidden="true"></div>
+   <div class="chapter-label" id="chapter">CHAPTER 01 — SUNO</div>
+   <button class="art center" data-index="0" type="button"><span class="art-media" style="--placeholder:radial-gradient(circle at 50% 36%,#b57ee4,#6a359c 57%,#272038)"><img class="art-slide is-active" src="suno_scene_01.jpg" alt="" draggable="false" loading="eager"><img class="art-slide" src="suno_scene_02.jpg" alt="" draggable="false" loading="lazy"><img class="art-slide" src="suno_scene_03.jpg" alt="" draggable="false" loading="lazy"><img class="art-slide" src="suno_scene_04.jpg" alt="" draggable="false" loading="lazy"></span><span class="art-placeholder-label"><span class="num">01</span><span class="name">SUNO</span><span class="type">AI MUSIC AD</span></span></button>
+   <button class="art right" data-index="1" type="button"><span class="art-media" style="--placeholder:radial-gradient(circle at 50% 38%,#ffd5de,#ba587f 57%,#4f2837)"><img class="art-slide is-active" src="lalasweet_scene_01.png" alt="" draggable="false" loading="eager"><img class="art-slide" src="lalasweet_scene_02.png" alt="" draggable="false" loading="eager"><img class="art-slide" src="lalasweet_scene_03.png" alt="" draggable="false" loading="eager"><img class="art-slide" src="lalasweet_scene_04.png" alt="" draggable="false" loading="eager"></span><span class="art-placeholder-label"><span class="num">02</span><span class="name">LALASWEET</span><span class="type">2D ANIMATION AD</span></span></button>
+   <button class="art gone-right" data-index="2" type="button"><span class="art-media" style="--placeholder:radial-gradient(circle at 48% 28%,#647b72,#273832 54%,#101717)"></span><span class="art-placeholder-label"><span class="num">03</span><span class="name">HORROR</span><span class="type">ESCAPE ROOM AD</span></span></button>
+  </div>
+  <div class="gallery-actions"><button id="prev" type="button">← PREV</button><div class="counter" id="counter">01 / 03</div><button id="next" type="button">NEXT →</button></div>
+  <p class="helper">중앙 작품 클릭 시 액자 속 상세 공간으로 진입합니다!</p>
+  <section class="project-expansion" id="project-expansion" aria-label="프로젝트 상세패널" aria-hidden="true" inert>
+    <div class="project-expansion-inner">
+      <div class="project-expansion-top"><div><div class="project-expansion-eyebrow" id="project-expansion-kicker">CHAPTER 01 / SUNO</div><h3 class="project-expansion-title">PROJECT DETAILS</h3></div><button class="project-expansion-close" type="button" id="project-expansion-close" aria-label="상세패널 닫고 전시관으로 돌아가기">×</button></div>
+      <div class="project-expansion-content" id="project-expansion-content" aria-live="polite">
+        <div class="somang-project-page is-current" data-project-page="0" aria-label="기획 정보">
+        <div class="project-overview-label">PROJECT OVERVIEW</div>
+        <div class="somang-overview-head">
+          <h4 class="project-overview-title" id="project-overview-title">SUNO</h4>
+          <button type="button" class="somang-watch-film-cta" id="somang-watch-film-cta"><span aria-hidden="true">▶</span> 광고 영상 감상하기 <span aria-hidden="true">→</span></button>
+        </div>
+        <div class="somang-overview-grid">
+          <div class="somang-overview-main">
+        <div class="project-overview-copy">
+          <div class="project-overview-section"><h5>CONCEPT <span>콘셉트</span></h5><p id="project-overview-concept">콘셉트 내용은 추후 추가할 예정입니다.</p></div>
+          <div class="project-overview-section"><h5>CREATIVE INTENT <span>기획 의도</span></h5><p id="project-overview-intent">기획 의도는 추후 추가할 예정입니다.</p></div>
+          <div class="project-overview-section"><h5>AUDIENCE EXPERIENCE <span>기대하는 감정과 인상</span></h5><p id="project-overview-impact">기대 효과는 추후 추가할 예정입니다.</p></div>
+        </div>
+
+          </div>
+        <section class="somang-merged-introduction" aria-label="영상소개">
+          <h4 class="somang-introduction-heading">PROJECT INTRODUCTION</h4>
+          <div class="detail somang-project-story" id="detail" aria-live="polite">
+            <div><div class="somang-introduction-subtitle" id="detail-title">영상소개 (SUNO)</div><p id="detail-description">음악을 직접 만들고 싶지만 전문 지식의 부족과 반복되는 실패로 고민하던 김순호. 어느 날 친구의 추천으로 AI 음악 생성 플랫폼 SUNO를 접하게 된다. 자신이 상상한 분위기와 장르를 프롬프트에 입력하자, 기대 이상의 음악이 완성된다. 음악이 재생되는 순간, 현실은 설렘 가득한 벚꽃길부터 웅장한 판타지 세계, 화려한 콘서트 무대까지 다채로운 공간으로 전환된다.</p></div>
+          </div>
+        </section>
+        </div>
+        <div class="project-overview-footer">
+          <p class="project-overview-pdf-note" id="project-overview-pdf-note">아래 버튼으로 기획안 PDF를 확인할 수 있습니다.</p>
+          <div class="project-overview-pdf-actions">
+            <button type="button" id="project-pdf-view" class="project-pdf-button"><span aria-hidden="true">▤</span> 전체 기획안 PDF</button>
+            <button type="button" id="project-pdf-large" class="project-pdf-button project-pdf-button-outline"><span aria-hidden="true">↗</span> PDF 크게 보기</button>
+          </div>
+          <p class="project-pdf-status" id="project-pdf-status" role="status" aria-live="polite"></p>
+        </div>
+        </div>
+        <div class="somang-project-page" data-project-page="1" aria-label="영상 감상" hidden>
+          <div class="somang-project-page-eyebrow">02 / WATCH FILM</div>
+          <h4 class="somang-film-title" id="somang-film-title">SUNO · FILM</h4>
+          <div class="somang-film-layout">
+            <div class="video" id="video"><div><b>▶</b>영상 (SUNO)<br><small>영상 없음 · 테스트용</small></div></div>
+            <div class="somang-film-return-area"><button type="button" id="somang-return-overview" class="somang-film-return"><span class="back-arrow" aria-hidden="true">←</span><span>기획 소개로 돌아가기</span></button></div>
+          </div>
+        </div>
+      </div>
+
+      <button class="somang-side-page-arrow somang-side-page-prev" id="somang-side-page-prev" type="button" aria-label="이전 작품 상세보기" title="이전 작품" disabled><svg viewBox="0 0 26 36" width="22" height="32" aria-hidden="true" focusable="false"><path d="M19 5 7 18l12 13" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="somang-side-page-arrow somang-side-page-next" id="somang-side-page-next" type="button" aria-label="다음 작품 상세보기" title="다음 작품"><svg viewBox="0 0 26 36" width="22" height="32" aria-hidden="true" focusable="false"><path d="M7 5l12 13L7 31" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="project-pdf-embed" id="project-pdf-embed" hidden>
+        <div class="project-pdf-embed-top"><span>전체 기획안 PDF</span><button type="button" id="project-pdf-embed-close" aria-label="PDF 뷰어 닫기">× 닫기</button></div>
+        <iframe id="project-pdf-iframe" title="프로젝트 기획안 PDF" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+ </div>
+</section>
+<section class="section about" id="about" aria-label="자기소개">
+  <div class="container about-inner">
+    <div class="about-copy">
+      <div class="eyebrow reveal">03 / 04 — ABOUT ME</div>
+      <h2 class="reveal delay1">IDEAS THAT<br>STAY.</h2>
+      <p class="about-lead reveal delay2">기억에 남는 아이디어, 오래 각인되는 이야기.</p>
+      <p class="reveal delay2">사람들의 기억에 오래 남는 광고와 영상을 만들고자 합니다. 명확한 메시지와 체계적인 스토리텔링, 디테일한 장면 설계를 바탕으로 아이디어를 구체화합니다.</p>
+      <p class="reveal delay2">트렌드와 대중의 선호를 분석하는 것을 즐기며, 나만의 창작 철학과 다양한 제작 도구를 활용해 새로운 영상 경험을 만들어갑니다.</p>
+      <div class="eyebrow about-strength-title reveal delay3">MY STRENGTHS</div>
+      <div class="skills reveal delay3"><span>아이디어 발상</span><span>체계적인 기획</span><span>명확한 스토리텔링</span><span>트렌드 분석</span><span>디테일한 장면 설계</span></div>
+    </div>
+    <div class="tools-panel reveal delay2" aria-label="사용하는 제작 프로그램 및 AI 도구">
+      <div class="tools-header"><div class="eyebrow">TOOLS &amp; CREATIVE AI</div><small>MY CREATIVE TOOLKIT / 06</small></div>
+      <div class="tools-grid">
+        <div class="tool-card" style="--item:0"><div class="tool-icon"><img src="logo_ae.png" alt="" loading="lazy"></div><span>After Effects</span></div>
+        <div class="tool-card" style="--item:1"><div class="tool-icon"><img src="logo_pr.png" alt="" loading="lazy"></div><span>Premiere Pro</span></div>
+        <div class="tool-card" style="--item:2"><div class="tool-icon"><img src="logo_cubase.png" alt="" loading="lazy"></div><span>Cubase</span></div>
+        <div class="tool-card" style="--item:3"><div class="tool-icon"><img src="logo_suno.png" alt="" loading="lazy"></div><span>Suno</span></div>
+        <div class="tool-card kling-card" style="--item:4"><div class="tool-icon"><img src="logo_kling.png" alt="" loading="lazy"></div><span>Kling AI</span></div>
+        <div class="tool-card" style="--item:5"><div class="tool-icon"><img src="logo_openai.png" alt="" loading="lazy"></div><span>OpenAI</span></div>
+      </div>
+      <div class="tools-footer">VIDEO EDITING <span>·</span> SOUND <span>·</span> GENERATIVE AI</div>
+    </div>
+  </div>
+</section>
+<section class="section contact" id="contact" aria-label="연락처"><div class="container"><div class="eyebrow reveal">04 / 04 — CONTACT</div><h2 class="reveal delay1">LET'S CREATE<br>TOGETHER.</h2><p class="reveal delay2">아이디어를 함께 이야기하고 새롭고 창의적인 영상을 만들어 가고 싶습니다.</p><span class="email reveal delay3">E-mail : yoogie123@naver.com</span></div><div class="footer-note">SOMANG © 2026 · PORTFOLIO CONCEPT TEST</div></section>
+<script>
+const sunoVideoData='somang_suno_ad_web.mp4';
+const works=[{name:'SUNO',label:'SUNO'},{name:'LALASWEET',label:'라라스윗'},{name:'HORROR ESCAPE ROOM',label:'공포 방탈출'}];
+const gallery=document.getElementById('gallery'),cards=[...document.querySelectorAll('.art')],prev=document.getElementById('prev'),next=document.getElementById('next');
+let active=0; // CHAPTER 01 SUNO가 처음부터 중앙에 전시됩니다.
+let moving=false,hoverTimer=null;
+let portalState='idle'; // idle / entering / open / leaving
+
+// Transparent dust animation. Only the atmospheric overlay is modified.
+const floatingDust=document.getElementById('floating-dust');
+if(floatingDust){
+  floatingDust.muted=true;
+  floatingDust.defaultMuted=true;
+  floatingDust.loop=true;
+  floatingDust.playbackRate=.4;
+  let dustNearViewport=false;
+  const startDust=()=>{
+    if(!dustNearViewport||document.hidden||!gallery.classList.contains('lit')||gallery.classList.contains('moving'))return;
+    if(floatingDust.paused){
+      const task=floatingDust.play();
+      if(task&&task.catch)task.catch(()=>{});
+    }
+  };
+  if('IntersectionObserver' in window){
+    const dustObserver=new IntersectionObserver(entries=>{
+      dustNearViewport=entries[0]?.isIntersecting===true;
+      if(dustNearViewport)startDust();
+      else floatingDust.pause();
+    },{rootMargin:'180px 0px'});
+    dustObserver.observe(gallery);
+  }else{dustNearViewport=true;startDust();}
+  const observer=new MutationObserver(()=>{
+    if(gallery.classList.contains('moving')||!gallery.classList.contains('lit')){
+      if(!floatingDust.paused)floatingDust.pause();
+    }else{
+      startDust();
+    }
+  });
+  observer.observe(gallery,{attributes:true,attributeFilter:['class']});
+  floatingDust.addEventListener('loadedmetadata',()=>floatingDust.playbackRate=.78);
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden) floatingDust.pause(); else startDust();
+  });
+  startDust();
+}
+
+
+function detail(){
+ const selected=works[active];
+ document.getElementById('detail-title').textContent=`영상소개 (${selected.label})`;
+ document.getElementById('detail-description').textContent=(projectOverviews[active]||projectOverviews[0]).scenario;
+ const host=document.getElementById('video');
+ // Stop and release previous media when switching projects.
+ const prevVideo=host.querySelector('video');if(prevVideo){prevVideo.pause();if(typeof releaseVideoMusic==='function')releaseVideoMusic();prevVideo.removeAttribute('src');prevVideo.load();}
+ host.replaceChildren();
+ const videoSource=active===0?'somang_suno_ad_web.mp4':active===1?'lalasweet_ad.mp4':null;
+ if(videoSource){
+  const frame=document.createElement('div');frame.className='gold-video-frame';
+  const viewport=document.createElement('div');viewport.className='gold-viewport';
+  const player=document.createElement('video');player.className='suno-player';
+  player.classList.add(active===0?'player-suno':'player-lalasweet');
+  player.controls=true;player.playsInline=true;player.preload='metadata';
+  player.src=videoSource;
+  player.setAttribute('aria-label',selected.label+' 광고 영상 재생 및 전체화면');
+  viewport.appendChild(player);
+  frame.appendChild(viewport);
+  const decoration=document.createElement('img');decoration.className='gold-frame-overlay';
+  decoration.src='gold_frame_transparent.png';decoration.alt='';decoration.setAttribute('aria-hidden','true');
+  frame.appendChild(decoration);host.appendChild(frame);
+  player.addEventListener('error',()=>{
+    // The Lalasweet video has not been supplied as a mounted file yet.
+    if(active!==1)return;
+    host.replaceChildren();
+    const inner=document.createElement('div');inner.className='empty-player';
+    inner.innerHTML='<b>▶</b>라라스윗 광고 영상<br><small>이 폴더에 lalasweet_ad.mp4 파일을 추가하면 재생할 수 있습니다.</small>';
+    host.appendChild(inner);
+  },{once:true});
+ }else{
+  const inner=document.createElement('div');inner.className='empty-player';
+  const symbol=document.createElement('b');symbol.textContent='▶';
+  inner.append(symbol,document.createTextNode(`영상 (${selected.label})`),document.createElement('br'));
+  const hint=document.createElement('small');hint.textContent='영상 파일 준비 중';
+  inner.append(hint);host.append(inner);
+ }
+}
+function render(){
+ cards.forEach((el,i)=>{
+  const relative=i-active;
+  const cls=relative===0?'center':relative===-1?'left':relative===1?'right':relative<0?'gone-left':'gone-right';
+  // 위치 상태만 교체: 기존 요소를 제거/재생성하지 않으므로 CSS transition이 실제 이동합니다.
+  el.classList.remove('center','left','right','gone-left','gone-right');
+  el.classList.add('art',cls);
+  el.setAttribute('aria-label',works[i].name+(i===active?' 프로젝트 상세 공간 열기':' 전시 선택'));
+  el.tabIndex=cls.startsWith('gone')?-1:0;
+ });
+ document.getElementById('chapter').textContent=`CHAPTER 0${active+1} — ${works[active].name}`;
+ document.getElementById('counter').textContent=`0${active+1} / 03`;
+ prev.disabled=moving||portalState!=='idle'||active===0;
+ next.disabled=moving||portalState!=='idle'||active===2;
+}
+// 소등 -> 옆 작품이 중앙으로 이동 -> 조명 재점등.
+// 이동 중에는 버튼 중복 입력을 막고, 작품 소개는 도착 시에 바뀝니다.
+function select(index){
+ if(moving||portalState!=='idle'||index<0||index>=works.length)return;
+ if(index===active){openProjectPortal();return;}
+ moving=true;
+ stopAllPreviews();
+ clearTimeout(hoverTimer);
+ gallery.classList.add('moving');
+ gallery.classList.remove('lit');
+ prev.disabled=true; next.disabled=true;
+ const destination=index;
+ // Take actual CSS coordinates of all three EXISTING cards before changing position.
+ const before=cards.map(el=>{
+   const c=getComputedStyle(el);
+   return {left:c.left,transform:c.transform,opacity:c.opacity,filter:c.filter};
+ });
+ // First turn the lamp off, THEN move the physical cards along a visible path.
+ window.setTimeout(async()=>{
+   active=destination;
+   render();
+   // Force layout to resolve final positions before creating keyframe animations.
+   void gallery.offsetWidth;
+   const animations=cards.map((el,i)=>{
+     const c=getComputedStyle(el);
+     const from=before[i];
+     const to={left:c.left,transform:c.transform,opacity:c.opacity,filter:c.filter};
+     return el.animate([from,to],{
+       duration:1350,
+       easing:'cubic-bezier(.25,.75,.17,1)',
+       fill:'both'
+     });
+   });
+   // Wait until the slide has visibly completed before switching the light back on.
+   await Promise.all(animations.map(a=>a.finished.catch(()=>{})));
+   animations.forEach(a=>a.cancel());
+   detail();
+   gallery.classList.remove('moving');
+   gallery.classList.add('lit');
+   moving=false;
+   render();
+ },280);
+}
+
+// V29: Individual work hover slideshows. Only run when all four assets loaded.
+// Reset when the pointer leaves, when a work moves, and when a different card is selected.
+const previewState=new Map();
+function stopPreview(i){
+ const st=previewState.get(i);if(!st)return;
+ clearTimeout(st.delay);clearInterval(st.interval);st.delay=null;st.interval=null;st.index=0;
+ st.media.classList.add('is-resetting');
+ st.slides.forEach((img,n)=>img.classList.toggle('is-active',n===0));
+ void st.media.offsetWidth;
+ requestAnimationFrame(()=>st.media.classList.remove('is-resetting'));
+}
+function stopAllPreviews(){for(const i of previewState.keys())stopPreview(i)}
+function initPreview(i){
+ const card=cards[i],media=card.querySelector('.art-media');if(!media)return;
+ const slides=[...media.querySelectorAll('.art-slide')];if(slides.length<2)return;
+ const st={card,media,slides,index:0,delay:null,interval:null,ready:false};previewState.set(i,st);
+ const verify=()=>{
+  st.ready=slides.every(img=>img.complete&&img.naturalWidth>0);
+  // Show the first image as soon as it loads; do not hide all four while later slides load.
+  card.classList.toggle('has-preview',slides[0].complete&&slides[0].naturalWidth>0);
+ };
+ slides.forEach(img=>{img.addEventListener('load',verify);img.addEventListener('error',verify)});
+ verify();
+ card.addEventListener('pointerenter',event=>{
+  if(event.pointerType==='touch'||moving||portalState!=='idle'||!st.ready)return;
+  stopPreview(i);
+  st.delay=setTimeout(()=>{
+   if(!card.matches(':hover')||moving||portalState!=='idle'||!st.ready)return;
+   st.index=1;
+   st.slides.forEach((img,n)=>img.classList.toggle('is-active',n===st.index));
+   st.interval=setInterval(()=>{
+    if(moving||portalState!=='idle'||!card.matches(':hover')){stopPreview(i);return;}
+    st.index=(st.index+1)%st.slides.length;
+    st.slides.forEach((img,n)=>img.classList.toggle('is-active',n===st.index));
+   },800);
+  },350);
+ });
+ card.addEventListener('pointerleave',()=>stopPreview(i));
+}
+initPreview(0);
+initPreview(1);
+cards.forEach((el,i)=>el.addEventListener('click',()=>select(i)));
+prev.addEventListener('click',()=>select(active-1));next.addEventListener('click',()=>select(active+1));
+// Hover for ~0.65s to change once; staying on a button never auto-advances repeatedly.
+function scheduleHover(btn,step){btn.addEventListener('pointerenter',e=>{if(e.pointerType==='touch')return;clearTimeout(hoverTimer);hoverTimer=setTimeout(()=>select(active+step),650)});btn.addEventListener('pointerleave',()=>clearTimeout(hoverTimer));btn.addEventListener('pointerdown',()=>clearTimeout(hoverTimer));}
+scheduleHover(prev,-1);scheduleHover(next,1);
+document.addEventListener('keydown',e=>{if(['INPUT','TEXTAREA'].includes(document.activeElement.tagName))return;if(portalState==='open'){if(e.key==='Escape'){closeProjectPortal();return;}return;}if(portalState!=='idle')return;if(e.key==='ArrowRight')select(active+1);if(e.key==='ArrowLeft')select(active-1)});
+
+// V55: single-page project overview. PDF sources can be supplied later.
+const projectPanel=document.getElementById('project-expansion');
+const projectPageContent=document.getElementById('project-expansion-content');
+const projectCloseButton=document.getElementById('project-expansion-close');
+const projectPDFView=document.getElementById('project-pdf-view');
+const projectPDFLarge=document.getElementById('project-pdf-large');
+const projectPDFStatus=document.getElementById('project-pdf-status');
+const projectPDFSources=['수노 기획안 포토폴리오-박소망.pdf','라라스윗 기획안 포트폴리오-박소망.pdf',null]; // CHAPTER 03 PDF pending.
+const projectOverviews=[
+ {
+  title:'SUNO',
+  scenario:'음악을 직접 만들고 싶지만 전문 지식의 부족과 반복되는 실패로 고민하던 김순호. 어느 날 친구의 추천으로 AI 음악 생성 플랫폼 SUNO를 접하게 된다. 자신이 상상한 분위기와 장르를 프롬프트에 입력하자, 기대 이상의 음악이 완성된다. 음악이 재생되는 순간, 현실은 설렘 가득한 벚꽃길부터 웅장한 판타지 세계, 화려한 콘서트 무대까지 다채로운 공간으로 전환된다.',
+  concept:'막막한 현실에서 상상 속 세계로. 생성된 AI 음악의 분위기에 맞춰 다채로운 장면과 감정을 시네마틱한 전환으로 표현한다.',
+  intent:'음악 제작 경험이 없어도 자신의 아이디어를 음악으로 만들 수 있다는 메시지를 직관적으로 전달한다.',
+  impact:'음악이 완성되는 순간의 성취감과 상상이 현실처럼 펼쳐지는 설렘을 전달하고, 시청자가 창작에 대한 부담보다 가능성과 기대감을 느끼도록 한다.'
+ },
+ {
+  title:'라라스윗',
+  scenario:'디저트를 누구보다 사랑하는 정라라. 달콤한 디저트 파티를 즐긴 다음 날, 체중계의 숫자에 충격을 받고 다이어트를 결심한다. 하지만 디저트의 유혹을 참지 못해 괴로워하던 순간, 정체불명의 초록색 캐릭터 오스윗이 갑작스럽게 등장한다. 오스윗이 소개한 저당 디저트 브랜드 \'라라스윗\'을 맛본 정라라는 달콤한 만족감을 되찾고, 다이어트 중에도 디저트를 즐길 수 있다는 사실에 기뻐한다.',
+  concept:'정라라와 오스윗 캐릭터를 중심으로 친근한 분위기와 코믹한 연출을 결합한 2D 애니메이션 광고.',
+  intent:'캐릭터의 표정과 상호작용으로 브랜드 메시지를 쉽고 재미있게 전달한다.',
+  impact:'시청자가 브랜드에 친밀감과 즐거움을 느끼고, 캐릭터와 메시지를 기억하도록 한다.'
+ },
+ {
+  title:'공포 방탈출',
+  scenario:'익숙한 공간에서 조금씩 이상 현상이 발견되고, 마지막에 예상하지 못한 반전이 드러나는 공포 방탈출 광고. 상세 시나리오는 추후 추가.',
+  concept:'낮은 화질의 캠코더 영상과 아날로그 호러·드림코어 분위기를 활용한 점진적 불안감.',
+  intent:'갑작스러운 점프스케어보다는 작은 이상 징후와 반전으로 방탈출 테마에 대한 호기심을 유도한다.',
+  impact:'섬뜩함과 긴장, 반전에서 오는 놀라움이 실제 체험에 대한 기대감으로 이어지도록 한다.'
+ }
+];
+function renderProjectPage(){
+ const project=projectOverviews[active]||projectOverviews[0];
+ document.getElementById('project-expansion-kicker').textContent=`CHAPTER 0${active+1} / ${works[active].name}`;
+ document.getElementById('project-overview-title').textContent=project.title;
+ document.getElementById('somang-film-title').textContent=`${project.title} · FILM`;
+ document.getElementById('project-overview-concept').textContent=project.concept;
+ document.getElementById('project-overview-intent').textContent=project.intent;
+ document.getElementById('project-overview-impact').textContent=project.impact;
+ document.getElementById('project-overview-pdf-note').textContent=projectPDFSources[active]?'아래 버튼으로 기획안 PDF를 확인할 수 있습니다.':'전체 기획안 PDF는 추후 연결될 예정입니다.';
+ projectPDFStatus.textContent='';
+ closeProjectPDFEmbed();
+ changeProjectPage(0);
+}
+const projectPages=[...document.querySelectorAll('.somang-project-page')];
+const sideProjectPrev=document.getElementById('somang-side-page-prev');
+const sideProjectNext=document.getElementById('somang-side-page-next');
+let currentProjectPage=0;
+function changeProjectPage(nextPage){
+ const target=Math.max(0,Math.min(1,Number(nextPage)||0));
+ if(currentProjectPage===1&&target!==1){
+  const previousFilm=document.querySelector('#video video');
+  if(previousFilm&&!previousFilm.paused){previousFilm.pause();if(typeof releaseVideoMusic==='function')releaseVideoMusic();}
+ }
+ currentProjectPage=target;
+ projectPages.forEach((page,index)=>{
+  const current=index===target;
+  page.hidden=!current;
+  page.classList.toggle('is-current',current);
+  page.setAttribute('aria-hidden',String(!current));
+ });
+ // The side chevrons switch between artworks, regardless of the current film/introduction page.
+ sideProjectPrev.disabled=active===0;
+ sideProjectNext.disabled=active===works.length-1;
+ projectPageContent.scrollTop=0;
+}
+document.getElementById('somang-watch-film-cta').addEventListener('click',()=>changeProjectPage(1));
+document.getElementById('somang-return-overview').addEventListener('click',()=>changeProjectPage(0));
+function switchPortalProject(step){
+ if(portalState!=='open'||!portal||!projectPDFEmbed.hidden)return;
+ const nextIndex=active+step;
+ if(nextIndex<0||nextIndex>=works.length)return;
+ // Keep the full-size dialog open, but navigate to the next project's introduction.
+ closeProjectPDFEmbed();
+ active=nextIndex;
+ detail();
+ renderProjectPage();
+ render();
+ // Match the shared morph artwork to each project's actual card, including image-less HORROR.
+ syncPortalArtwork(portal,active);
+ portal.frame.setAttribute('aria-label',works[active].label+' 프로젝트 상세');
+}
+sideProjectPrev.addEventListener('click',()=>switchPortalProject(-1));
+sideProjectNext.addEventListener('click',()=>switchPortalProject(1));
+const projectPDFEmbed=document.getElementById('project-pdf-embed');
+const projectPDFIframe=document.getElementById('project-pdf-iframe');
+const projectPDFEmbedClose=document.getElementById('project-pdf-embed-close');
+// V62: A fresh URL plus #page=1 prevents the PDF viewer from restoring a prior page.
+let projectPDFOpenSequence=0;
+function projectPDFStartURL(path){
+ const separator=path.includes('?')?'&':'?';
+ return `${path}${separator}somang_pdf_open=${++projectPDFOpenSequence}#page=1`;
+}
+function closeProjectPDFEmbed(){projectPDFEmbed.hidden=true;projectPDFIframe.removeAttribute('src');}
+function handleProjectPDF(openLarge){
+ const path=projectPDFSources[active];
+ if(!path){projectPDFStatus.textContent='PDF 기획안은 추후 추가될 예정입니다.';return;}
+ if(openLarge){window.open(projectPDFStartURL(path),'_blank','noopener,noreferrer');return;}
+ projectPDFIframe.src=projectPDFStartURL(path);
+ projectPDFEmbed.hidden=false;
+ projectPDFEmbedClose.focus({preventScroll:true});
+}
+projectPDFEmbedClose.addEventListener('click',()=>{closeProjectPDFEmbed();projectPDFView.focus({preventScroll:true})});
+projectPDFView.addEventListener('click',()=>handleProjectPDF(false));
+projectPDFLarge.addEventListener('click',()=>handleProjectPDF(true));
+projectCloseButton.addEventListener('click',closeProjectPortal);
+// V34: the frame is created ONCE and remains the visible panel until closing completes.
+const cinematicEase=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+const cinematicMix=(a,b,t)=>a+(b-a)*t;
+const cinematicClamp=t=>Math.max(0,Math.min(1,t));
+const portalPause=ms=>new Promise(r=>setTimeout(r,ms));
+const portalFrame=()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+function cinematicRAF(duration,draw){return new Promise(resolve=>{let start=null;function step(ts){if(start===null)start=ts;const t=cinematicClamp((ts-start)/duration);draw(t);if(t<1)requestAnimationFrame(step);else resolve()}requestAnimationFrame(step)})}
+let portal=null,portalScrollY=0;
+function portalBounds(){const w=Math.min(innerWidth-28,1480),h=Math.min(innerHeight-24,800);return {left:(innerWidth-w)/2,top:(innerHeight-h)/2,width:w,height:h}}
+function paintPortalBounds(frame,r){for(const k of ['left','top','width','height'])frame.style[k]=r[k]+'px'}
+function portalInterpolate(frame,from,to,t,depth=0){const u=cinematicEase(t);paintPortalBounds(frame,Object.fromEntries(['left','top','width','height'].map(k=>[k,cinematicMix(from[k],to[k],u)])));frame.style.transform=`perspective(1200px) translateZ(${depth*Math.sin(Math.PI*u)}px) rotateY(${Math.sin(Math.PI*u)*-3}deg)`}
+function lockPortalScroll(){portalScrollY=scrollY;document.documentElement.classList.add('somang-scroll-locked');document.body.classList.add('somang-scroll-locked')}
+function unlockPortalScroll(){document.documentElement.classList.remove('somang-scroll-locked');document.body.classList.remove('somang-scroll-locked');window.scrollTo({top:portalScrollY,behavior:'instant'})}
+// V93: mirror either an image-backed card or its text-only placeholder.
+// The same surface is used for modal background AND the return-to-frame animation.
+function syncPortalArtwork(p,index){
+ const selected=cards[index];
+ const media=selected.querySelector('.art-media');
+ const slide=media?.querySelector('.art-slide.is-active')||media?.querySelector('.art-slide');
+ const clip=p.art.querySelector('.project-portal-media-clip');
+ const image=p.art.querySelector('.project-portal-art-image');
+ const placeholder=p.art.querySelector('.project-portal-art-placeholder');
+ if(!clip||!image||!placeholder)return;
+ if(media){
+  // Match the gallery's gradient fallback for the text-only artwork.
+  clip.style.background=slide?getComputedStyle(media).background:(media.style.getPropertyValue('--placeholder')||getComputedStyle(media).background);
+ }
+ if(slide){
+  image.src=slide.currentSrc||slide.src;
+  image.style.objectFit=getComputedStyle(slide).objectFit;
+  image.style.objectPosition=getComputedStyle(slide).objectPosition;
+  image.hidden=false;
+  placeholder.hidden=true;
+ }else{
+  // No source images for CHAPTER 03: don't retain the preceding LALASWEET still.
+  image.hidden=true;
+  image.removeAttribute('src');
+  placeholder.innerHTML='';
+  const originalLabel=selected.querySelector('.art-placeholder-label');
+  if(originalLabel)placeholder.append(...[...originalLabel.children].map(child=>child.cloneNode(true)));
+  placeholder.hidden=false;
+ }
+}
+function makeSharedPortal(){
+ const original=cards[active],rect=original.getBoundingClientRect();
+ const sourceMedia=original.querySelector('.art-media');
+ const sourceSlide=sourceMedia?.querySelector('.art-slide.is-active')||sourceMedia?.querySelector('.art-slide');
+ const layer=document.createElement('div');layer.className='project-portal';
+ const shade=document.createElement('div');shade.className='project-portal-shade';
+ const frame=document.createElement('div');frame.className='project-portal-frame';frame.setAttribute('role','dialog');frame.setAttribute('aria-modal','true');frame.setAttribute('aria-label',works[active].label+' 프로젝트 상세');
+ const art=document.createElement('div');art.className='project-portal-art';
+ const clip=document.createElement('div');clip.className='project-portal-media-clip';
+ const image=document.createElement('img');image.className='project-portal-art-image';image.alt='';
+ if(sourceSlide){
+  image.src=sourceSlide.currentSrc||sourceSlide.src||'';
+  const slideStyle=getComputedStyle(sourceSlide);
+  image.style.objectFit=slideStyle.objectFit;
+  image.style.objectPosition=slideStyle.objectPosition;
+ }
+ if(sourceMedia){
+  const mediaStyle=getComputedStyle(sourceMedia);
+  clip.style.background=mediaStyle.background;
+ }
+ const placeholder=document.createElement('div');placeholder.className='project-portal-art-placeholder';placeholder.hidden=true;
+ const shell=document.createElement('div');shell.className='project-portal-art-shell';
+ clip.append(image,placeholder);art.append(clip,shell);
+ syncPortalArtwork({art},active);
+ const content=document.createElement('div');content.className='project-portal-content';
+ const inner=projectPanel.querySelector('.project-expansion-inner');content.append(inner);
+ frame.append(art,content);layer.append(shade,frame);document.body.append(layer);
+ const from={left:rect.left,top:rect.top,width:rect.width,height:rect.height};paintPortalBounds(frame,from);
+ content.style.opacity='0';content.style.visibility='hidden';art.style.opacity='1';
+ return {layer,shade,frame,art,content,inner,from};
+}
+function restoreSharedPortal(p){if(!p)return;projectPanel.append(p.inner);p.layer.remove();portal=null}
+async function openProjectPortal(){
+ if(portalState!=='idle'||moving||!cards[active].classList.contains('center'))return;
+ portalState='entering';moving=true;stopAllPreviews();clearTimeout(hoverTimer);
+ const section=document.getElementById('contents');section.classList.add('project-detail-busy');
+ renderProjectPage();lockPortalScroll();
+ try{
+  portal=makeSharedPortal();const p=portal;
+  gallery.classList.add('portal-active');gallery.classList.remove('lit');
+  projectPanel.classList.add('is-open');projectPanel.removeAttribute('inert');projectPanel.setAttribute('aria-hidden','false');
+  render();await portalFrame();
+  const target=portalBounds();
+  p.content.style.setProperty('--somang-panel-width',target.width+'px');
+  p.content.style.setProperty('--somang-panel-height',target.height+'px');
+  p.content.style.visibility='visible';
+  p.content.style.opacity='0';
+  p.art.style.opacity='1';
+  await cinematicRAF(760,t=>{
+   const u=cinematicEase(t);
+   portalInterpolate(p.frame,p.from,target,t,26);
+   p.shade.style.opacity=String(.28 + (.78-.28)*u);
+   // Let the frame approach its final size before displaying any text.
+   const reveal=cinematicClamp((t-.68)/.29);
+   const fade=cinematicEase(reveal);
+   p.art.style.opacity='1';
+   p.art.style.setProperty('--project-art-blur',String(9*fade)+'px');
+   p.content.style.opacity=String(fade);
+  });
+  p.frame.style.transform='none';
+  paintPortalBounds(p.frame,target);
+  p.art.style.opacity='1';
+  p.art.style.setProperty('--project-art-blur','9px');
+  p.content.style.opacity='1';
+  p.content.classList.add('is-interactive');
+  await portalPause(80);
+  portalState='open';section.classList.add('project-detail-open');
+ }catch(err){console.error('[SOMANG V36 open]',err);if(portal)restoreSharedPortal(portal);projectPanel.classList.remove('is-open');projectPanel.setAttribute('inert','');projectPanel.setAttribute('aria-hidden','true');gallery.classList.remove('portal-active');gallery.classList.add('lit');unlockPortalScroll();portalState='idle'}
+ finally{moving=false;section.classList.remove('project-detail-busy');render();if(portalState==='open')projectCloseButton.focus({preventScroll:true})}
+}
+async function closeProjectPortal(){
+ if(portalState!=='open'||!portal)return;
+ portalState='leaving';moving=true;const section=document.getElementById('contents');section.classList.add('project-detail-busy');section.classList.remove('project-detail-open');
+ const p=portal;
+ closeProjectPDFEmbed();
+ try{
+  const from={left:p.frame.getBoundingClientRect().left,top:p.frame.getBoundingClientRect().top,width:p.frame.getBoundingClientRect().width,height:p.frame.getBoundingClientRect().height};
+  const to=cards[active].getBoundingClientRect();
+  p.content.classList.remove('is-interactive');
+  // First fade the content OUT at full panel size so labels never rewrap.
+  await cinematicRAF(210,t=>{p.content.style.opacity=String(1-cinematicEase(t))});
+  p.content.style.opacity='0';p.content.style.visibility='hidden';
+  await cinematicRAF(700,t=>{
+   const u=cinematicEase(t);
+   portalInterpolate(p.frame,from,to,t,18);
+   p.shade.style.opacity=String(.78*(1-u));
+   p.art.style.opacity='1';
+   p.art.style.setProperty('--project-art-blur',String(9*(1-cinematicEase(cinematicClamp(t/.55))))+'px');
+  });
+  p.content.style.opacity='0';
+  p.content.style.visibility='hidden';
+  p.art.style.opacity='1';
+ }catch(err){console.error('[SOMANG V36 close]',err)}
+ finally{
+  projectPanel.classList.remove('is-open');projectPanel.setAttribute('inert','');projectPanel.setAttribute('aria-hidden','true');
+  restoreSharedPortal(p);gallery.classList.remove('portal-active');gallery.classList.add('lit');unlockPortalScroll();
+  portalState='idle';moving=false;section.classList.remove('project-detail-busy');render();cards[active].focus({preventScroll:true});
+ }
+}
+// While modal is present, prevent scroll attempts from changing the page position.
+document.addEventListener('wheel',e=>{if(portalState!=='idle'&&!e.target.closest('.project-expansion-content'))e.preventDefault()},{passive:false});
+document.addEventListener('touchmove',e=>{if(portalState!=='idle'&&!e.target.closest('.project-expansion-content'))e.preventDefault()},{passive:false});
+window.addEventListener('resize',()=>{if(portalState==='open'&&portal){const b=portalBounds();paintPortalBounds(portal.frame,b);portal.content.style.setProperty('--somang-panel-width',b.width+'px');portal.content.style.setProperty('--somang-panel-height',b.height+'px')}});
+
+render();
+detail();
+
+// V43 intro controller: keyed curtain -> WELCOME camera push -> original title reveal.
+// One run token cancels ALL previous timers/animation frames including Replay.
+const introElements=['.eyebrow','#type-title','.sub','.go','.bottom'].map(q=>document.querySelector('.intro .hero '+q));
+const curtainScreen=document.getElementById('curtain-screen');
+const curtainVideo=document.getElementById('curtain-video');
+const introWorld=document.getElementById('somang-intro-world');
+const welcome=document.getElementById('somang-welcome');
+const lightSound=document.getElementById('somang-intro-sfx');
+const ambient=document.getElementById('somang-ambient-track');
+const musicPanel=document.getElementById('somang-music-control');
+const musicToggle=document.getElementById('somang-music-toggle');
+const musicReplay=document.getElementById('somang-music-replay');
+const musicState=document.getElementById('somang-music-state');
+const musicTime=document.getElementById('somang-music-time');
+let introRun=0,introTimers=[],introFrames=[];
+// V97: wall-clock timestamps allow a tab returning from the background to catch up,
+// without restarting the opening or changing the visitor's navigation position.
+let introWallStart=0,introLightWallStart=0;
+let titleReady=false, musicWanted=true, musicEnded=false, musicSuspendedForVideo=false, musicWasActiveForVideo=false;
+function introAfter(ms,cb){introTimers.push(setTimeout(cb,ms));}
+function setIntroValue(el,op,blur=0,y=0){if(!el)return;el.style.setProperty('opacity',String(op),'important');el.style.setProperty('filter',`blur(${blur}px)`,'important');el.style.setProperty('transform',`translateY(${y}px)`,'important');}
+function fadeIntro(el,duration,run){if(!el||run!==introRun)return;const start=performance.now();function tick(now){if(run!==introRun)return;const x=Math.min(1,(now-start)/duration),v=x*x*(3-2*x);setIntroValue(el,v,(1-v)*7,(1-v)*11);if(x<1)introFrames.push(requestAnimationFrame(tick));else if(el.classList.contains('go'))el.style.pointerEvents='auto';}introFrames.push(requestAnimationFrame(tick));}
+function timeText(sec){return String(Math.floor(sec/60)).padStart(2,'0')+':'+String(Math.floor(sec%60)).padStart(2,'0')}
+function updateMusicUI(){
+ const playing=!ambient.paused&&!ambient.ended;
+ musicToggle.textContent=playing?'Ⅱ':'▶';
+ musicToggle.setAttribute('aria-label',playing?'배경음악 일시정지':'배경음악 재생');
+ musicPanel.dataset.video=String(musicSuspendedForVideo);
+ musicState.textContent=musicSuspendedForVideo?'영상 재생 중':playing?'재생 중':musicEnded?'재생 완료':!titleReady?'인트로 진행 중':musicWanted?'재생 가능':'일시정지';
+ musicTime.textContent=timeText(Math.min(600,ambient.currentTime||0))+' / 10:00';
+}
+async function startMusic(restart=false){
+ if(restart){ambient.pause();ambient.currentTime=0;musicEnded=false;}
+ if(!musicWanted||!titleReady||musicSuspendedForVideo||musicEnded){updateMusicUI();return;}
+ try{await ambient.play()}catch(e){/* user activation required: controls remain usable */}
+ updateMusicUI();
+}
+musicToggle.addEventListener('click',()=>{
+ if(!ambient.paused){musicWanted=false;ambient.pause();}
+ else{musicWanted=true;if(musicEnded){ambient.currentTime=0;musicEnded=false;}startMusic();}
+ updateMusicUI();
+});
+musicReplay.addEventListener('click',()=>{musicWanted=true;titleReady=true;musicEnded=false;startMusic(true)});
+ambient.addEventListener('timeupdate',updateMusicUI);
+ambient.addEventListener('play',updateMusicUI);
+ambient.addEventListener('pause',updateMusicUI);
+ambient.addEventListener('ended',()=>{musicEnded=true;ambient.pause();updateMusicUI()});
+// Capture non-bubbling native video events so every dynamically rebuilt advertisement works.
+document.addEventListener('play',e=>{
+ if(!e.target.matches?.('#video video'))return;
+ if(!musicSuspendedForVideo){musicWasActiveForVideo=!ambient.paused && !ambient.ended;}
+ musicSuspendedForVideo=true;ambient.pause();updateMusicUI();
+},true);
+function releaseVideoMusic(){
+ if(!musicSuspendedForVideo)return;
+ musicSuspendedForVideo=false;
+ const shouldResume=musicWasActiveForVideo&&musicWanted&&!musicEnded;
+ musicWasActiveForVideo=false;
+ if(shouldResume)startMusic();else updateMusicUI();
+}
+document.addEventListener('pause',e=>{if(e.target.matches?.('#video video'))releaseVideoMusic()},true);
+document.addEventListener('ended',e=>{if(e.target.matches?.('#video video'))releaseVideoMusic()},true);
+// V46 INTRO: media completion triggers the lighting sequence; all jobs are run-token guarded.
+// The relative sound cues below are PORTED from V45 (6500-5500 and 8000-5500 ms).
+// Exact click alignment requires the actual MP3 file; no waveform is bundled in this HTML.
+const introDarkness=document.getElementById('somang-intro-darkness');
+const introDust=document.getElementById('somang-intro-dust');
+const introDustVideo=document.getElementById('somang-intro-dust-video');
+// V53: MR.M is a single continuous 6s movie; no A/B blend or jump.
+const mrmLayer=document.getElementById('somang-mrm-layer');
+const mrmVideo=document.getElementById('somang-mrm-final');
+// V90: first-visit media preflight. Start the cinematic opening ONLY once
+// curtain, MR.M and light audio are sufficiently buffered. Waiting happens
+// on the invitation, not in the middle of the light / character sequence.
+const introMediaStatus=document.getElementById('somang-media-status');
+const introMedia=[curtainVideo,mrmVideo,lightSound];
+let introMediaPrepared=false;
+let introMediaPreparing=null;
+function videoFullyBuffered(video){
+ if(video.error)return false;
+ const duration=video.duration;
+ if(!Number.isFinite(duration)||duration<=0)return false;
+ for(let i=0;i<video.buffered.length;i++){
+  if(video.buffered.start(i)<=.12&&video.buffered.end(i)>=duration-.12)return true;
+ }
+ return false;
+}
+// V94: Do not require EVERY byte of the curtain and MP3 to be downloaded before entry.
+// MR.M stays fully buffered to preserve the smooth character animation verified in V90.
+// The curtain and audio can continue buffering during the curtain sequence.
+function mediaBufferedThrough(media,seconds){
+ if(media.error || media.readyState < HTMLMediaElement.HAVE_CURRENT_DATA)return false;
+ const duration=media.duration;
+ if(!Number.isFinite(duration)||duration<=0)return false;
+ const need=Math.min(duration-.12,seconds);
+ for(let i=0;i<media.buffered.length;i++){
+  if(media.buffered.start(i)<=.12 && media.buffered.end(i)>=need)return true;
+ }
+ return false;
+}
+function introMediaReady(){
+ return videoFullyBuffered(mrmVideo)
+   &&mediaBufferedThrough(curtainVideo,2.8)
+   &&mediaBufferedThrough(lightSound,1.8);
+}
+function setIntroMediaStatus(message){
+ if(!introMediaStatus)return;
+ introMediaStatus.hidden=!message;
+ introMediaStatus.textContent=message||'';
+}
+function prepareIntroMedia(){
+ if(introMediaPrepared&&introMediaReady())return Promise.resolve(true);
+ if(introMediaPreparing)return introMediaPreparing;
+ introMediaPreparing=new Promise(resolve=>{
+  const events=['progress','loadedmetadata','loadeddata','canplay','canplaythrough','error','abort'];
+  let finished=false;
+  const finish=ok=>{
+   if(finished)return;
+   finished=true;
+   clearInterval(timer);
+   introMedia.forEach(media=>events.forEach(name=>media.removeEventListener(name,check)));
+   introMediaPrepared=ok;
+   introMediaPreparing=null;
+   resolve(ok);
+  };
+  const check=()=>{
+   if(introMediaReady()){finish(true);return;}
+   if(introMedia.some(media=>media.error))finish(false);
+  };
+  introMedia.forEach(media=>{
+   media.preload='auto';
+   events.forEach(name=>media.addEventListener(name,check));
+   if(media.networkState===HTMLMediaElement.NETWORK_EMPTY||media.error){
+    try{media.load()}catch(e){}
+   }
+  });
+  // Never trigger unsynchronised playback just because a deadline expires.
+  // If buffering fails, the invitation remains usable for an explicit retry.
+  let visibleTime=0,lastCheck=performance.now();
+  const timer=setInterval(()=>{
+   const now=performance.now();
+   if(!document.hidden)visibleTime+=Math.min(1000,now-lastCheck);
+   lastCheck=now;
+   if(visibleTime>=18000)finish(false);
+  },250);
+  check();
+ });
+ return introMediaPreparing;
+}
+let mrmStartedRun=-1,mrmPlaybackFailed=false,mrmBuffering=false;
+mrmVideo.addEventListener('waiting',()=>{mrmBuffering=true});
+mrmVideo.addEventListener('stalled',()=>{mrmBuffering=true});
+mrmVideo.addEventListener('playing',()=>{mrmBuffering=false});
+function resetMrM(){
+ mrmStartedRun=-1;mrmPlaybackFailed=false;mrmBuffering=false;
+ mrmVideo.pause();mrmVideo.onended=null;
+ try{mrmVideo.currentTime=0}catch(e){}
+ mrmLayer.className='somang-mrm-layer poster';
+}
+function startMrM(run){
+ if(run!==introRun||mrmStartedRun===run)return;
+ mrmStartedRun=run;
+ mrmVideo.pause();
+ try{mrmVideo.currentTime=0}catch(e){}
+ mrmLayer.className='somang-mrm-layer playing';
+ mrmVideo.onended=()=>{
+  if(run!==introRun)return;
+  mrmVideo.pause();
+  // Retain the final Ta-da pose: never loop and never reset to the beginning.
+  mrmLayer.className='somang-mrm-layer finished';
+ };
+ const playing=mrmVideo.play();
+ if(playing?.catch)playing.catch(()=>{
+  if(run===introRun){mrmPlaybackFailed=true;mrmLayer.className='somang-mrm-layer poster';}
+ });
+}
+
+const audioGate=document.getElementById('somang-intro-audio-gate');
+
+introDustVideo.playbackRate=.75;
+let introAudioUnlocked=false;
+let introMediaRetrying=false;
+// V85: A short, one-time scroll hold for the first INTRO and first ABOUT entrance.
+// REPLAY never locks scrolling. This is independent of the animation run timers.
+let timedScrollHold=null, timedScrollHoldTimer=0;
+function releaseTimedScrollHold(){
+ clearTimeout(timedScrollHoldTimer);
+ timedScrollHoldTimer=0;
+ timedScrollHold=null;
+ document.documentElement.classList.remove('somang-temporary-scroll-hold');
+ document.body.classList.remove('somang-temporary-scroll-hold');
+}
+function beginTimedScrollHold(duration,targetSection){
+ releaseTimedScrollHold();
+ // Lock at the target section after arrival, never during a navigation transition.
+ if(targetSection){
+  const position=targetSection.getBoundingClientRect().top+window.scrollY;
+  window.scrollTo({top:Math.round(position),behavior:'instant'});
+ }
+ const hold={y:window.scrollY};
+ timedScrollHold=hold;
+ document.documentElement.classList.add('somang-temporary-scroll-hold');
+ document.body.classList.add('somang-temporary-scroll-hold');
+ timedScrollHoldTimer=setTimeout(()=>{
+  if(timedScrollHold===hold)releaseTimedScrollHold();
+ },duration);
+}
+function stopHeldScroll(e){
+ if(!timedScrollHold)return;
+ if(e.cancelable)e.preventDefault();
+ e.stopImmediatePropagation();
+}
+window.addEventListener('wheel',stopHeldScroll,{capture:true,passive:false});
+window.addEventListener('touchmove',stopHeldScroll,{capture:true,passive:false});
+window.addEventListener('keydown',e=>{
+ if(!timedScrollHold)return;
+ const target=e.target;
+ if(target&&(/^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)||target.isContentEditable))return;
+ if(['ArrowUp','ArrowDown','PageUp','PageDown','Home','End',' '].includes(e.key))stopHeldScroll(e);
+ },{capture:true});
+// Keep clicking a navigation button from jumping sections during the brief hold.
+document.addEventListener('click',e=>{
+ if(!timedScrollHold||!e.target.closest?.('.somang-nav-btn'))return;
+ stopHeldScroll(e);
+ },{capture:true});
+window.addEventListener('scroll',()=>{
+ if(!timedScrollHold)return;
+ if(Math.abs(window.scrollY-timedScrollHold.y)>1){
+  window.scrollTo({top:timedScrollHold.y,behavior:'instant'});
+ }
+ },{passive:true});
+let introHasPlayedOnce=false;
+const easeIntro=t=>t*t*(3-2*t); // Original reveal easing preserved.
+function introLock(){/* INTRO is no longer locked for its full duration. */}
+function introUnlock(run){/* No long-duration lock to release. */}
+function setGalleryLight(brightness){
+ const b=Math.max(0,Math.min(1,brightness));
+ introDarkness.style.opacity=String(.84-.72*b);
+ introWorld.style.opacity=String(.12+.88*b);
+ if(mrmLayer){
+  mrmLayer.style.setProperty('--mrm-brightness',String(.18+.82*b));
+  mrmLayer.style.setProperty('--mrm-opacity',String(.22+.78*b));
+ }
+}
+function showWelcome(run){
+ if(run!==introRun)return;
+ // V80: start playing the existing dust at WELCOME with zero visibility,
+ // then fade to its existing .17 opacity over WELCOME (1.5s) + title lead-in (.39s).
+ introDustVideo.pause();
+ try{introDustVideo.currentTime=0}catch(e){}
+ introDustVideo.playbackRate=.75;
+ introDust.classList.remove('is-lit');
+ // Commit the zero-opacity state so the browser always animates from 0, including REPLAY.
+ void introDust.offsetWidth;
+ introDust.classList.add('is-lit');
+ const dustPlayback=introDustVideo.play();
+ if(dustPlayback?.catch)dustPlayback.catch(()=>{});
+ welcome.dataset.sequence='playing';
+ welcome.dataset.started=String(performance.now());
+ let began=performance.now();
+ function tick(now){
+  if(run!==introRun)return;
+  const elapsed=now-began;
+  const appearance=easeIntro(Math.min(1,elapsed/380));
+  const exit=easeIntro(Math.max(0,Math.min(1,(elapsed-1000)/500)));
+  welcome.style.opacity=String(appearance*(1-exit));
+  // Exit upward, not downward. No large camera jump.
+  welcome.style.transform=`translateY(${-Math.round(exit*36)}px)`;
+  welcome.style.filter='none';
+  if(elapsed<1500)introFrames.push(requestAnimationFrame(tick));
+  else{welcome.style.opacity='0';welcome.dataset.sequence='done';startTitleReveal(run)}
+ }
+ introFrames.push(requestAnimationFrame(tick));
+}
+function runLightSequence(run){
+ if(run!==introRun)return;
+ introLightWallStart=Date.now();
+ // V88: audio and pulses share the audio clock, now at 5/3 speed (2.5s -> 1.5s real time).
+ const pulses=[[0,.22],[170,.02],[360,.45],[550,.02],[750,.3],
+               [930,.04],[1210,.57],[1480,.02],[1760,.34],[1980,.02],
+               [2240,.14],[2410,.02]];
+ let pulseIndex=1,switched=false,stopped=false,welcomePending=false,welcomeShown=false;
+ setGalleryLight(pulses[0][1]); // first flash exactly at lighting sequence start
+ // MR.M's wave begins near media time 1.3s; start at .4s to align it to WELCOME at ~1.7s.
+ introAfter(400,()=>{if(run===introRun)startMrM(run)});
+ const audioStart=performance.now();
+ function stable(){
+  if(switched||run!==introRun)return;
+  switched=true;
+  setGalleryLight(1);
+  // V88: the light comes on at 1.5s. Begin WELCOME with MR.M's hand wave.
+  // A short deadline keeps the text from disappearing if video loading stalls.
+  welcomePending=true;
+ }
+ function tick(now){
+  if(run!==introRun)return;
+  // Prefer media playback clock while actually playing; use elapsed wall time only
+  // when the media clock is unavailable, to avoid a frozen INTRO on codec errors.
+  const elapsed=!lightSound.paused&&Number.isFinite(lightSound.currentTime)&&lightSound.currentTime>0
+   ?lightSound.currentTime*1000 : now-audioStart;
+  while(pulseIndex<pulses.length&&elapsed>=pulses[pulseIndex][0]){
+   setGalleryLight(pulses[pulseIndex][1]);pulseIndex++;
+  }
+  if(elapsed>=2500)stable(); // 1.5 seconds at 5/3 playback rate.
+  if(switched&&welcomePending&&!welcomeShown){
+   const videoWaveStarted=!mrmPlaybackFailed&&!mrmBuffering&&!mrmVideo.paused
+    &&!mrmVideo.seeking&&mrmVideo.readyState>=HTMLMediaElement.HAVE_CURRENT_DATA
+    &&mrmVideo.currentTime>=1.3;
+   // The wave's ACTUAL video time governs WELCOME; no 2-second wall-clock shortcut.
+   // Fall back only if the player has genuinely failed or stopped responding.
+   if((videoWaveStarted&&elapsed>=2500)||(mrmPlaybackFailed&&elapsed>=2700)) {
+    welcomePending=false;welcomeShown=true;showWelcome(run);
+   }
+  }
+  if(elapsed>=3550&&!stopped){
+   stopped=true;lightSound.pause();try{lightSound.currentTime=0}catch(e){}
+  }
+  // Keep checking the video clock even after the short light SFX finishes.
+  // A last-resort accessibility fallback prevents an infinite blank title.
+  if(!welcomeShown&&now-audioStart>=12000){
+   welcomeShown=true;showWelcome(run);
+   if(mrmVideo.paused||mrmVideo.readyState<HTMLMediaElement.HAVE_CURRENT_DATA){
+    mrmLayer.className='somang-mrm-layer poster';
+   }
+  }
+  if(!welcomeShown)introFrames.push(requestAnimationFrame(tick));
+ }
+ introFrames.push(requestAnimationFrame(tick));
+}
+function startTitleReveal(run){
+ if(run!==introRun)return;
+ introAfter(50,()=>fadeIntro(introElements[0],400,run));
+ introAfter(390,()=>{
+  if(run!==introRun)return;
+  // The dust fade started at WELCOME and now reaches its original base opacity.
+  fadeIntro(introElements[1],650,run);
+ });
+ introAfter(800,()=>fadeIntro(introElements[2],620,run));
+ introAfter(1270,()=>fadeIntro(introElements[3],400,run));
+ introAfter(1330,()=>fadeIntro(introElements[4],400,run));
+ introAfter(1770,()=>{
+  if(run!==introRun)return;
+  titleReady=true;introUnlock(run);updateMusicUI();if(musicWanted)startMusic();
+ });
+}
+function introShowGate(run){
+ if(run!==introRun)return;
+ introTimers.forEach(clearTimeout);introFrames.forEach(cancelAnimationFrame);
+ introTimers=[];introFrames=[];
+ introLock();
+ lightSound.pause();try{lightSound.currentTime=0}catch(e){}
+ curtainVideo.pause();curtainScreen.classList.remove('finished');
+ introDustVideo.pause();introDust.classList.remove('is-lit');
+ resetMrM();
+ setGalleryLight(0);audioGate.classList.add('is-visible');
+}
+async function playIntro(){
+ const run=++introRun;
+ introWallStart=Date.now();introLightWallStart=0;
+ if(!introHasPlayedOnce){
+  introHasPlayedOnce=true;
+  beginTimedScrollHold(2000,document.getElementById('intro'));
+ }
+ introTimers.forEach(clearTimeout);introFrames.forEach(cancelAnimationFrame);
+ introTimers=[];introFrames=[];
+ introLock();
+ audioGate.classList.remove('is-visible');
+ titleReady=false;
+ welcome.dataset.sequence='';welcome.style.opacity='0';
+ welcome.style.transform='translateY(0)';welcome.style.filter='none';
+ introWorld.style.transform='none';
+ setGalleryLight(0);
+ introElements.forEach(el=>{setIntroValue(el,0,7,11);if(el&&el.classList.contains('go'))el.style.pointerEvents='none'});
+ ambient.pause();ambient.currentTime=0;musicEnded=false;musicSuspendedForVideo=false;musicWasActiveForVideo=false;updateMusicUI();
+ lightSound.pause();try{lightSound.currentTime=0}catch(e){}
+ resetMrM();
+ introDust.classList.remove('is-lit');introDustVideo.pause();
+ try{introDustVideo.currentTime=0}catch(e){}
+ curtainScreen.classList.remove('finished');
+ curtainVideo.pause();curtainVideo.playbackRate=.85;
+ try{curtainVideo.currentTime=0}catch(e){}
+ // Start the curtain immediately. MR.M buffers in parallel during the curtain,
+ // instead of delaying the entire opening by up to 12 seconds on a cold visit.
+ let finished=false;
+ async function finishCurtain(){
+  if(finished||run!==introRun)return;
+  finished=true;
+  curtainVideo.onended=null;curtainVideo.onerror=null;
+  curtainScreen.classList.add('finished');setGalleryLight(0);
+  // Full preflight completed before starting the curtain; no time-limited
+  // mid-animation media wait that can force unsynchronised playback.
+  if(run!==introRun)return;
+  lightSound.pause();
+  lightSound.playbackRate=5/3;
+  lightSound.preservesPitch=true;
+  lightSound.currentTime=0;
+  let playing;
+  try{playing=lightSound.play()}catch(e){runLightSequence(run);return}
+  if(playing&&playing.then)playing.then(()=>{if(run===introRun)runLightSequence(run)}).catch(()=>{if(run===introRun)runLightSequence(run)});
+  else runLightSequence(run);
+ }
+ curtainVideo.onended=finishCurtain;
+ curtainVideo.onerror=()=>{if(run===introRun)finishCurtain()};
+ let playing;
+ try{playing=curtainVideo.play()}catch(e){introAfter(0,finishCurtain)}
+ if(playing&&playing.catch)playing.catch(()=>{if(run===introRun)finishCurtain()});
+ // Watchdog is a fallback ONLY for missing/stalled media, not the regular timing.
+ introAfter(8000,()=>{if(run===introRun&&!finished)finishCurtain()});
+}
+if('scrollRestoration' in history)history.scrollRestoration='manual';
+// V83: No forced page pinning on startup. The invitation remains the initial visual overlay.
+// V95: The invitation is an automatic loading screen, not a click-to-enter gate.
+// Keep the original invitation headline; start only after the required media is ready.
+const introLoadingLabel=document.getElementById('somang-loading-label');
+// V96 — a hidden tab can throttle video but not all timers equally.
+// Do not launch the cinematic timeline until the tab is actually visible.
+function waitForVisibleIntroTab(){
+ if(!document.hidden)return Promise.resolve();
+ return new Promise(resolve=>{
+  const check=()=>{
+   if(document.hidden)return;
+   document.removeEventListener('visibilitychange',check);
+   resolve();
+  };
+  document.addEventListener('visibilitychange',check);
+ });
+}
+async function bootIntroWithSound(){
+ await waitForVisibleIntroTab();
+ try{
+  lightSound.volume=.001;
+  await lightSound.play();
+  lightSound.pause();lightSound.currentTime=0;lightSound.volume=1;
+  introAudioUnlocked=true;
+ }catch(e){
+  // Browsers may deny unmuted autoplay. Never strand the visitor on the loading screen.
+  lightSound.pause();try{lightSound.currentTime=0}catch(err){}
+  lightSound.volume=1;
+  introAudioUnlocked=false;
+ }
+ await waitForVisibleIntroTab();
+ playIntro();
+}
+async function ensureIntroPrepared(){
+ if(introMediaReady()){introMediaPrepared=true;return true;}
+ audioGate.classList.add('is-visible');
+ setIntroMediaStatus('');
+ const ready=await prepareIntroMedia();
+ if(!ready){
+  setIntroMediaStatus('연결 상태를 확인하고 다시 준비하고 있습니다…');
+  return false;
+ }
+ setIntroMediaStatus('');
+ return true;
+}
+(async()=>{
+ audioGate.classList.add('is-visible');
+ if(introLoadingLabel)introLoadingLabel.textContent='전시관을 준비하고 있습니다…';
+ for(let attempt=0;attempt<3;attempt++){
+  await waitForVisibleIntroTab();
+  if(await ensureIntroPrepared()){
+   if(introLoadingLabel)introLoadingLabel.textContent='전시관 입장을 시작합니다…';
+   await bootIntroWithSound();
+   return;
+  }
+  if(attempt<2)await new Promise(resolve=>setTimeout(resolve,1500));
+ }
+ setIntroMediaStatus('영상 연결이 지연되고 있습니다. 잠시 후 페이지를 새로고침해 주세요.');
+})();
+// V97 — Background tabs may throttle rAF, timers, and transparent WebM decoding.
+// Do not restart or pause the cinematic timeline on tab hide. On tab return,
+// reconcile media and DOM to the time that should already have elapsed.
+let introHiddenAt=0;
+function completeIntroAtElapsedTime(){
+ // Cancel only the obsolete scheduled work; do NOT call playIntro() or reset media.
+ ++introRun;
+ introTimers.forEach(clearTimeout);introFrames.forEach(cancelAnimationFrame);
+ introTimers=[];introFrames=[];
+ curtainVideo.onended=null;curtainVideo.onerror=null;curtainVideo.pause();
+ curtainScreen.classList.add('finished');
+ lightSound.pause();
+ setGalleryLight(1);
+ welcome.style.opacity='0';welcome.style.transform='translateY(-36px)';
+ welcome.dataset.sequence='done';
+ introElements.forEach(el=>{
+  setIntroValue(el,1,0,0);
+  if(el&&el.classList.contains('go'))el.style.pointerEvents='auto';
+ });
+ titleReady=true;
+ introDust.classList.add('is-lit');
+ if(introDustVideo.paused){const p=introDustVideo.play();if(p?.catch)p.catch(()=>{});}
+ mrmVideo.onended=null;mrmVideo.pause();
+ const duration=Number.isFinite(mrmVideo.duration)&&mrmVideo.duration>0?mrmVideo.duration:6;
+ try{mrmVideo.currentTime=Math.max(0,duration-0.06)}catch(e){}
+ mrmLayer.className='somang-mrm-layer finished';
+ releaseTimedScrollHold();updateMusicUI();if(musicWanted)startMusic();
+}
+function reconcileIntroOnTabReturn(){
+ if(document.hidden||introRun===0||!introWallStart)return;
+ const elapsed=Date.now()-introWallStart;
+ const curtainMs=Number.isFinite(curtainVideo.duration)&&curtainVideo.duration>0
+  ?curtainVideo.duration*1000/(curtainVideo.playbackRate||.85):5500;
+ const lightElapsed=introLightWallStart?Date.now()-introLightWallStart:Math.max(0,elapsed-curtainMs);
+ // Both the six-second actor video and the post-WELCOME titles should have
+ // finished in the time spent away; show the correct END pose, not frame 0.
+ if(elapsed>=curtainMs+6800 || (introLightWallStart&&lightElapsed>=6800)){
+  completeIntroAtElapsedTime();return;
+ }
+ // Short tab visits: retain the current timeline and catch up media playback.
+ if(!curtainScreen.classList.contains('finished')){
+  const t=Math.min(Math.max(0,elapsed/1000*(curtainVideo.playbackRate||.85)),
+   Math.max(0,(curtainVideo.duration||6)-.06));
+  if(Number.isFinite(t)&&t>curtainVideo.currentTime+.12){try{curtainVideo.currentTime=t}catch(e){}}
+  if(curtainVideo.paused){const p=curtainVideo.play();if(p?.catch)p.catch(()=>{});}
+ }else if(mrmStartedRun===introRun && !mrmLayer.classList.contains('finished')){
+  const target=Math.min(Math.max(0,(lightElapsed-400)/1000),
+   Math.max(0,(mrmVideo.duration||6)-.06));
+  if(target>mrmVideo.currentTime+.12){try{mrmVideo.currentTime=target}catch(e){}}
+  if(mrmVideo.paused){const p=mrmVideo.play();if(p?.catch)p.catch(()=>{});}
+ }
+}
+document.addEventListener('visibilitychange',()=>{
+ if(document.hidden)introHiddenAt=Date.now();
+ else if(introHiddenAt){introHiddenAt=0;reconcileIntroOnTabReturn();}
+});
+window.addEventListener('pageshow',()=>{
+ if(introHiddenAt){introHiddenAt=0;reconcileIntroOnTabReturn();}
+});
+const replayIntroButton=document.getElementById('replay-intro');
+if(replayIntroButton)replayIntroButton.addEventListener('click',()=>{releaseTimedScrollHold();playIntro()});
+// ABOUT ME: self-contained 1-shot state controller (no legacy handlers).
+const aboutSection=document.getElementById('about');
+const contactSection=document.getElementById('contact');
+const carpetEl=document.getElementById('floor-carpet');
+const replayAbout=document.getElementById('about-replay');
+let aboutState='unseen', aboutRunId=0, aboutTimers=[],carpetFrame=0,carpetProgress=0,carpetShown=false;
+const aboutReduce=false; // Explicit user-requested animation; do not bypass it based on OS reduced-motion preference.
+const aboutTop=()=>Math.round(aboutSection.getBoundingClientRect().top+window.scrollY);
+const aboutSetProgress=p=>{
+ carpetProgress=Math.max(0,Math.min(1,p));
+ carpetEl.style.setProperty('--progress',carpetProgress.toFixed(5));
+ carpetEl.style.setProperty('--conceal',((1-carpetProgress)*100).toFixed(3)+'%');
+ carpetEl.style.setProperty('--roll-visible',carpetProgress>.03&&carpetProgress<.97?'1':'0');
+ carpetEl.classList.toggle('carpet-visible',carpetProgress>.002);
+};
+function aboutCarpetTween(end,ms,runId){
+ cancelAnimationFrame(carpetFrame);
+ const from=carpetProgress,t0=performance.now();
+ function step(t){if(runId!==aboutRunId)return;const q=Math.min(1,(t-t0)/ms);const ease=q<.5?4*q*q*q:1-Math.pow(-2*q+2,3)/2;aboutSetProgress(from+(end-from)*ease);if(q<1)carpetFrame=requestAnimationFrame(step)}
+ carpetFrame=requestAnimationFrame(step);
+}
+function aboutClearTimers(){aboutTimers.forEach(clearTimeout);aboutTimers=[];cancelAnimationFrame(carpetFrame)}
+function aboutAfter(ms,fn){aboutTimers.push(setTimeout(fn,ms))}
+// ABOUT runs in place: only its FIRST entrance briefly pauses scrolling.
+let aboutHasPlayedOnce=false;
+function aboutSnapAndLock(){}
+function aboutUnlock(){}
+function aboutPlay(){
+ if(aboutState==='playing')return;
+ const id=++aboutRunId;aboutClearTimers();
+ if(!aboutHasPlayedOnce){
+  aboutHasPlayedOnce=true;
+  beginTimedScrollHold(1000,aboutSection);
+ }
+ aboutState='playing';aboutSnapAndLock();
+ replayAbout.classList.remove('visible');
+ aboutSection.classList.remove('about-complete','about-running','about-show-tools','about-drop','in-view','motion-visible');
+ aboutSetProgress(0);
+ carpetShown=true;
+ void aboutSection.offsetWidth;
+
+ // Real velvet source is revealed ONLY inside the fixed photograph's floor strip.
+ aboutCarpetTween(1,1250,id);
+ aboutAfter(70,()=>{if(id===aboutRunId)aboutSection.classList.add('about-running')});
+ aboutAfter(1280,()=>{if(id===aboutRunId)aboutSection.classList.add('about-show-tools')});
+ aboutAfter(1380,()=>{if(id===aboutRunId)aboutSection.classList.add('about-drop')});
+ // The last logo's 1.05-second wobble starts 0.8s after the 1.38s drop trigger.
+ // Leave a margin before releasing scroll so every impact is complete.
+ aboutAfter(3750,()=>{if(id!==aboutRunId)return;aboutSetProgress(1);aboutSection.classList.remove('about-running','about-show-tools','about-drop');aboutSection.classList.add('about-complete');aboutState='complete';aboutUnlock();onAboutScroll()});
+}
+replayAbout.addEventListener('click',()=>{if(aboutState==='complete'){releaseTimedScrollHold();aboutPlay()}});
+let aboutWheelLocked=false;
+function onAboutScroll(){
+ if(aboutState==='playing'){
+  // The animation continues normally, but scrolling to CONTACT remains possible.
+  const cr=contactSection.getBoundingClientRect(),vh=window.innerHeight;
+  contactSection.classList.toggle('in-view',cr.top<vh*.77&&cr.bottom>vh*.2);
+  return;
+ }
+ const r=aboutSection.getBoundingClientRect(),vh=window.innerHeight;
+ const aboutVisible=r.top<vh*.92 && r.bottom>vh*.12;
+ replayAbout.classList.toggle('visible',aboutState==='complete'&&aboutVisible);
+ const c=contactSection.getBoundingClientRect();
+ contactSection.classList.toggle('in-view',c.top<vh*.77&&c.bottom>vh*.2);
+ // Begin the first ABOUT animation ONLY once the viewport has actually reached
+ // the top of section 03. Do not trigger halfway through the previous section.
+ const fullyArrived=r.top<=Math.max(6,vh*.015)&&r.top>=-Math.max(24,vh*.08)&&r.bottom>=vh*.85;
+ if(aboutState==='unseen'&&fullyArrived&&!document.documentElement.dataset.somangNavTarget){aboutPlay();return}
+ if(aboutState==='complete'){
+  // Keep the carpet ONLY while ABOUT is the dominant screen, not while
+  // CONTENTS is above or CONTACT is entering the center of the viewport.
+  // Retract once CONTACT crosses ~42% of the screen, well before its center.
+  const show=r.top<=vh*.16 && r.bottom>=vh*.58 && c.top>=vh*.58;
+  if(show!==carpetShown){
+    carpetShown=show;
+    aboutCarpetTween(show?1:0,show?600:480,++aboutRunId);
+  }
+ }
+}
+// V83: Natural wheel scrolling is never intercepted to trigger ABOUT.
+// onAboutScroll starts the animation when ABOUT enters the viewing region.
+window.addEventListener('scroll',onAboutScroll,{passive:true});
+window.addEventListener('resize',onAboutScroll);
+aboutSetProgress(0);onAboutScroll();
+
+// V38: floating museum guide, independent of V37 artwork/detail animation.
+(function installSomangWayfinding(){
+ const buttons=[...document.querySelectorAll('.somang-nav-btn')];
+ const ids=['intro','contents','about','contact'];
+ const sections=ids.map(id=>document.getElementById(id));
+ if(buttons.length!==4||sections.some(s=>!s))return;
+ let scrollFrame=0;
+ let navigationFrame=0, navigationToken=0;
+ const easeScroll=t=>t*t*(3-2*t);
+ function stopNavigation(){navigationToken++;if(navigationFrame)cancelAnimationFrame(navigationFrame);navigationFrame=0;document.documentElement.classList.remove('somang-nav-scrolling');delete document.documentElement.dataset.somangNavTarget;}
+ function navigateTo(id){
+  const section=document.getElementById(id);
+  if(!section)return;
+  stopNavigation();
+  const token=navigationToken;
+  const from=window.scrollY;
+  const dest=Math.max(0,Math.min(document.documentElement.scrollHeight-innerHeight,section.getBoundingClientRect().top+from));
+  const distance=dest-from;
+  activate(id);
+  if(Math.abs(distance)<2)return;
+  // V42: short, clearly visible navigation motion without slow multi-second travel.
+  // Travel time grows gently with distance and is capped to remain responsive.
+  const screens=Math.abs(distance)/Math.max(1,window.innerHeight);
+  const duration=Math.min(1100,Math.max(450,360+screens*165));
+  document.documentElement.classList.add('somang-nav-scrolling');
+  document.documentElement.dataset.somangNavTarget=id;
+  const start=performance.now();
+  function frame(now){
+   if(token!==navigationToken)return;
+   if(typeof portalState!=='undefined'&&portalState!=='idle'){stopNavigation();return;}
+   const t=Math.min(1,(now-start)/duration);
+   window.scrollTo({top:from+distance*easeScroll(t),behavior:'instant'});
+   if(t<1)navigationFrame=requestAnimationFrame(frame);
+   else {
+    navigationFrame=0;
+    document.documentElement.classList.remove('somang-nav-scrolling');
+    delete document.documentElement.dataset.somangNavTarget;
+    // ABOUT ME's existing entrance sequence begins only AFTER navigation has landed.
+    if(id==='about'&&typeof aboutState!=='undefined'&&aboutState==='unseen')aboutPlay();
+   }
+  }
+  navigationFrame=requestAnimationFrame(frame);
+ }
+ function activate(id){
+  buttons.forEach(button=>{
+   const active=button.dataset.navSection===id;
+   button.classList.toggle('is-active',active);
+   if(active)button.setAttribute('aria-current','location');
+   else button.removeAttribute('aria-current');
+  });
+ }
+ function update(){
+  scrollFrame=0;
+  // Center-of-viewport tracking works when CONTENTS becomes taller than 100vh.
+  const targetY=innerHeight*.48;
+  let target='intro',closest=Infinity;
+  sections.forEach((section,i)=>{
+   const r=section.getBoundingClientRect();
+   if(r.top<=targetY&&r.bottom>=targetY){target=ids[i];closest=-1;return;}
+   if(closest>=0){const d=Math.min(Math.abs(r.top-targetY),Math.abs(r.bottom-targetY));if(d<closest){closest=d;target=ids[i];}}
+  });
+  activate(target);
+ }
+ function requestUpdate(){if(!scrollFrame)scrollFrame=requestAnimationFrame(update);}
+ buttons.forEach(button=>button.addEventListener('click',()=>{
+  if(typeof portalState!=='undefined'&&portalState!=='idle')return;
+  if(typeof moving!=='undefined'&&moving)return;
+  navigateTo(button.dataset.navSection);
+ }));
+ // Manual user scroll/keyboard navigation takes priority over scripted navigation.
+ window.addEventListener('wheel',stopNavigation,{passive:true});
+ window.addEventListener('touchstart',stopNavigation,{passive:true});
+ window.addEventListener('keydown',e=>{if(['ArrowUp','ArrowDown','PageUp','PageDown','Home','End',' '].includes(e.key))stopNavigation();});
+ window.addEventListener('scroll',requestUpdate,{passive:true});
+ window.addEventListener('resize',requestUpdate,{passive:true});
+ requestUpdate();
+})();
+
+
+// V78: Measure the actual title position so the upper glass edge is 40px above it.
+// Only a CSS custom property is updated; gallery movement/timing logic is untouched.
+(()=>{
+  const galleryElement=document.getElementById('gallery');
+  const headerLabel=document.querySelector('#contents .section-head .eyebrow');
+  if(!galleryElement||!headerLabel)return;
+  const alignGlassTop=()=>{
+    const distance=galleryElement.getBoundingClientRect().top-headerLabel.getBoundingClientRect().top+40;
+    galleryElement.style.setProperty('--glass-head-offset',Math.max(0,distance)+'px');
+  };
+  alignGlassTop();
+  window.addEventListener('resize',alignGlassTop,{passive:true});
+  if(typeof ResizeObserver!=='undefined'){
+    const observer=new ResizeObserver(alignGlassTop);
+    observer.observe(headerLabel.parentElement);
+  }
+})();
+
+</script>
+</body></html>

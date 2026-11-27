@@ -1523,6 +1523,44 @@ html.somang-temporary-scroll-hold,body.somang-temporary-scroll-hold{
 }
 @keyframes somang-loading-spin{to{transform:rotate(360deg)}}
 
+
+/* V100 — 4:3 Meta Quest stills fill the landscape mat without side letterboxing.
+   Small vertical edge crop only, matching the LALASWEET framed artwork. */
+.gallery .art[data-index="2"] .art-media .art-slide{
+  object-fit:cover;
+  object-position:center center;
+}
+/* V102 — CHAPTER 03 needs a slightly taller visible opening for the new stills. */
+.gallery .art[data-index="2"] .art-media,
+.gallery .art[data-index="2"] .art-placeholder-label{
+  top:6.6%;
+  bottom:6.5%;
+}
+/* V98 — Meta Quest MR horror artwork & 4:3 video inside existing gold frame. */
+#video .gold-video-frame .gold-viewport .suno-player.player-metaquest{
+  object-fit:contain!important;background:#090909!important;transform:none!important;
+}
+
+
+/* V103: Meta Quest presentation PDF appears beside the planning document only. */
+.project-ppt-button[hidden],#project-ppt-view[hidden]{display:none!important}
+
+/* V104 — native page-based PPT presentation viewer, with fullscreen support. */
+.somang-slide-viewer[hidden]{display:none!important}
+.somang-slide-viewer{position:fixed;inset:0;z-index:2147483600;background:rgba(8,8,10,.97);color:#f3e8d9;display:flex;flex-direction:column;align-items:stretch;justify-content:stretch;overflow:hidden;font-family:inherit}
+.somang-slide-toolbar{display:flex;align-items:center;gap:12px;justify-content:space-between;padding:12px clamp(12px,2.5vw,32px);border-bottom:1px solid rgba(213,181,133,.35);background:#1b171b;min-height:58px;box-sizing:border-box;flex-wrap:wrap}
+.somang-slide-toolbar-title{font-weight:700;letter-spacing:.075em;font-size:13px;color:#e9d2ae}
+.somang-slide-toolbar-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.somang-slide-toolbar button,.somang-slide-toolbar a,.somang-slide-controls button{border:1px solid #ab8c61;color:#f2dfc3;background:#302925;min-height:36px;padding:7px 13px;cursor:pointer;font-size:12px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box}
+.somang-slide-toolbar button:hover,.somang-slide-toolbar a:hover,.somang-slide-controls button:hover:not(:disabled){background:#604734}
+.somang-slide-stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:16px;position:relative}
+.somang-slide-stage img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;aspect-ratio:1672 / 941;box-shadow:0 12px 36px #000a}
+.somang-slide-controls{display:flex;align-items:center;justify-content:center;gap:22px;background:#171418;padding:12px;min-height:63px;box-sizing:border-box;border-top:1px solid rgba(213,181,133,.25)}
+.somang-slide-controls button{min-width:110px}
+.somang-slide-controls button:disabled{opacity:.4;cursor:not-allowed}
+.somang-slide-counter{font-size:13px;letter-spacing:.13em;color:#e3c89f;min-width:72px;text-align:center}
+.somang-slide-viewer:fullscreen{background:#080809}
+@media(max-width:600px){.somang-slide-toolbar-title{font-size:11px}.somang-slide-toolbar{gap:8px}.somang-slide-toolbar button,.somang-slide-toolbar a{font-size:11px;min-height:32px;padding:6px 8px}.somang-slide-stage{padding:6px}.somang-slide-controls{gap:9px}.somang-slide-controls button{min-width:78px}}
 </style>
 </head>
 <body>
@@ -1569,7 +1607,7 @@ html.somang-temporary-scroll-hold,body.somang-temporary-scroll-hold{
    <div class="chapter-label" id="chapter">CHAPTER 01 — SUNO</div>
    <button class="art center" data-index="0" type="button"><span class="art-media" style="--placeholder:radial-gradient(circle at 50% 36%,#b57ee4,#6a359c 57%,#272038)"><img class="art-slide is-active" src="suno_scene_01.jpg" alt="" draggable="false" loading="eager"><img class="art-slide" src="suno_scene_02.jpg" alt="" draggable="false" loading="lazy"><img class="art-slide" src="suno_scene_03.jpg" alt="" draggable="false" loading="lazy"><img class="art-slide" src="suno_scene_04.jpg" alt="" draggable="false" loading="lazy"></span><span class="art-placeholder-label"><span class="num">01</span><span class="name">SUNO</span><span class="type">AI MUSIC AD</span></span></button>
    <button class="art right" data-index="1" type="button"><span class="art-media" style="--placeholder:radial-gradient(circle at 50% 38%,#ffd5de,#ba587f 57%,#4f2837)"><img class="art-slide is-active" src="lalasweet_scene_01.png" alt="" draggable="false" loading="eager"><img class="art-slide" src="lalasweet_scene_02.png" alt="" draggable="false" loading="eager"><img class="art-slide" src="lalasweet_scene_03.png" alt="" draggable="false" loading="eager"><img class="art-slide" src="lalasweet_scene_04.png" alt="" draggable="false" loading="eager"></span><span class="art-placeholder-label"><span class="num">02</span><span class="name">LALASWEET</span><span class="type">2D ANIMATION AD</span></span></button>
-   <button class="art gone-right" data-index="2" type="button"><span class="art-media" style="--placeholder:radial-gradient(circle at 48% 28%,#647b72,#273832 54%,#101717)"></span><span class="art-placeholder-label"><span class="num">03</span><span class="name">HORROR</span><span class="type">ESCAPE ROOM AD</span></span></button>
+   <button class="art gone-right" data-index="2" type="button"><span class="art-media" style="--placeholder:radial-gradient(circle at 48% 28%,#46532e,#182015 60%,#0a0b09)"><img class="art-slide is-active" src="metaquest_scene_01.jpg?v=101" alt="" draggable="false" loading="eager"><img class="art-slide" src="metaquest_scene_02.jpg?v=101" alt="" draggable="false" loading="eager"><img class="art-slide" src="metaquest_scene_03.jpg?v=101" alt="" draggable="false" loading="eager"><img class="art-slide" src="metaquest_scene_04.jpg?v=101" alt="" draggable="false" loading="eager"></span><span class="art-placeholder-label"><span class="num">03</span><span class="name">META QUEST</span><span class="type">MR HORROR CONCEPT AD</span></span></button>
   </div>
   <div class="gallery-actions"><button id="prev" type="button">← PREV</button><div class="counter" id="counter">01 / 03</div><button id="next" type="button">NEXT →</button></div>
   <p class="helper">중앙 작품 클릭 시 액자 속 상세 공간으로 진입합니다!</p>
@@ -1603,6 +1641,7 @@ html.somang-temporary-scroll-hold,body.somang-temporary-scroll-hold{
           <p class="project-overview-pdf-note" id="project-overview-pdf-note">아래 버튼으로 기획안 PDF를 확인할 수 있습니다.</p>
           <div class="project-overview-pdf-actions">
             <button type="button" id="project-pdf-view" class="project-pdf-button"><span aria-hidden="true">▤</span> 전체 기획안 PDF</button>
+            <button type="button" id="project-ppt-view" class="project-pdf-button project-pdf-button-outline" hidden><span aria-hidden="true">▤</span> 발표 PPT 슬라이드</button>
             <button type="button" id="project-pdf-large" class="project-pdf-button project-pdf-button-outline"><span aria-hidden="true">↗</span> PDF 크게 보기</button>
           </div>
           <p class="project-pdf-status" id="project-pdf-status" role="status" aria-live="polite"></p>
@@ -1621,7 +1660,7 @@ html.somang-temporary-scroll-hold,body.somang-temporary-scroll-hold{
       <button class="somang-side-page-arrow somang-side-page-prev" id="somang-side-page-prev" type="button" aria-label="이전 작품 상세보기" title="이전 작품" disabled><svg viewBox="0 0 26 36" width="22" height="32" aria-hidden="true" focusable="false"><path d="M19 5 7 18l12 13" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <button class="somang-side-page-arrow somang-side-page-next" id="somang-side-page-next" type="button" aria-label="다음 작품 상세보기" title="다음 작품"><svg viewBox="0 0 26 36" width="22" height="32" aria-hidden="true" focusable="false"><path d="M7 5l12 13L7 31" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <div class="project-pdf-embed" id="project-pdf-embed" hidden>
-        <div class="project-pdf-embed-top"><span>전체 기획안 PDF</span><button type="button" id="project-pdf-embed-close" aria-label="PDF 뷰어 닫기">× 닫기</button></div>
+        <div class="project-pdf-embed-top"><span id="project-pdf-embed-title">전체 기획안 PDF</span><button type="button" id="project-pdf-embed-close" aria-label="PDF 뷰어 닫기">× 닫기</button></div>
         <iframe id="project-pdf-iframe" title="프로젝트 기획안 PDF" loading="lazy"></iframe>
       </div>
     </div>
@@ -1654,9 +1693,16 @@ html.somang-temporary-scroll-hold,body.somang-temporary-scroll-hold{
   </div>
 </section>
 <section class="section contact" id="contact" aria-label="연락처"><div class="container"><div class="eyebrow reveal">04 / 04 — CONTACT</div><h2 class="reveal delay1">LET'S CREATE<br>TOGETHER.</h2><p class="reveal delay2">아이디어를 함께 이야기하고 새롭고 창의적인 영상을 만들어 가고 싶습니다.</p><span class="email reveal delay3">E-mail : yoogie123@naver.com</span></div><div class="footer-note">SOMANG © 2026 · PORTFOLIO CONCEPT TEST</div></section>
+<!-- V106 Meta Quest PPTX fullscreen slideshow — all eight slides from the revised presentation -->
+<div id="somang-slide-viewer" class="somang-slide-viewer" role="dialog" aria-modal="true" aria-label="메타 퀘스트 발표 슬라이드쇼" hidden>
+ <div class="somang-slide-toolbar"><div class="somang-slide-toolbar-title">META QUEST 3·3S · PRESENTATION</div>
+ <div class="somang-slide-toolbar-actions"><a href="메타퀘스트_공포테마_광고_발표ppt.pptx" target="_blank" rel="noopener" download>↧ PPTX 원본</a><button id="somang-slide-fullscreen" type="button">⛶ 전체화면</button><button id="somang-slide-close" type="button">× 닫기</button></div></div>
+ <div class="somang-slide-stage"><img id="somang-slide-image" alt="메타 퀘스트 발표 슬라이드 1 / 8" src="metaquest_presentation_slide_01.jpg?v=106"></div>
+ <div class="somang-slide-controls"><button type="button" id="somang-slide-prev">← 이전</button><span class="somang-slide-counter" id="somang-slide-counter">01 / 07</span><button type="button" id="somang-slide-next">다음 →</button></div>
+</div>
 <script>
 const sunoVideoData='somang_suno_ad_web.mp4';
-const works=[{name:'SUNO',label:'SUNO'},{name:'LALASWEET',label:'라라스윗'},{name:'HORROR ESCAPE ROOM',label:'공포 방탈출'}];
+const works=[{name:'SUNO',label:'SUNO'},{name:'LALASWEET',label:'라라스윗'},{name:'META QUEST 3·3S',label:'메타 퀘스트 3·3S'}];
 const gallery=document.getElementById('gallery'),cards=[...document.querySelectorAll('.art')],prev=document.getElementById('prev'),next=document.getElementById('next');
 let active=0; // CHAPTER 01 SUNO가 처음부터 중앙에 전시됩니다.
 let moving=false,hoverTimer=null;
@@ -1709,12 +1755,12 @@ function detail(){
  // Stop and release previous media when switching projects.
  const prevVideo=host.querySelector('video');if(prevVideo){prevVideo.pause();if(typeof releaseVideoMusic==='function')releaseVideoMusic();prevVideo.removeAttribute('src');prevVideo.load();}
  host.replaceChildren();
- const videoSource=active===0?'somang_suno_ad_web.mp4':active===1?'lalasweet_ad.mp4':null;
+ const videoSource=['somang_suno_ad_web.mp4','lalasweet_ad.mp4','metaquest_horror_ad.mp4'][active]||null;
  if(videoSource){
   const frame=document.createElement('div');frame.className='gold-video-frame';
   const viewport=document.createElement('div');viewport.className='gold-viewport';
   const player=document.createElement('video');player.className='suno-player';
-  player.classList.add(active===0?'player-suno':'player-lalasweet');
+  player.classList.add(active===0?'player-suno':active===1?'player-lalasweet':'player-metaquest');
   player.controls=true;player.playsInline=true;player.preload='metadata';
   player.src=videoSource;
   player.setAttribute('aria-label',selected.label+' 광고 영상 재생 및 전체화면');
@@ -1724,11 +1770,10 @@ function detail(){
   decoration.src='gold_frame_transparent.png';decoration.alt='';decoration.setAttribute('aria-hidden','true');
   frame.appendChild(decoration);host.appendChild(frame);
   player.addEventListener('error',()=>{
-    // The Lalasweet video has not been supplied as a mounted file yet.
-    if(active!==1)return;
+    // Show a friendly message if an advertisement media file is missing.
     host.replaceChildren();
     const inner=document.createElement('div');inner.className='empty-player';
-    inner.innerHTML='<b>▶</b>라라스윗 광고 영상<br><small>이 폴더에 lalasweet_ad.mp4 파일을 추가하면 재생할 수 있습니다.</small>';
+    inner.innerHTML='<b>▶</b>'+selected.label+' 광고 영상<br><small>광고 영상 파일을 확인해 주세요.</small>';
     host.appendChild(inner);
   },{once:true});
  }else{
@@ -1801,6 +1846,17 @@ function select(index){
 // V29: Individual work hover slideshows. Only run when all four assets loaded.
 // Reset when the pointer leaves, when a work moves, and when a different card is selected.
 const previewState=new Map();
+function getLoadedSlideIndices(st){
+ return st.slides.map((img,idx)=>(img.complete&&img.naturalWidth>0)?idx:-1).filter(idx=>idx!==-1);
+}
+function paintPreviewFrame(st,loadedPos){
+ const loaded=getLoadedSlideIndices(st);
+ if(!loaded.length)return 0;
+ st.index=((loadedPos%loaded.length)+loaded.length)%loaded.length;
+ const activeRealIndex=loaded[st.index];
+ st.slides.forEach((img,n)=>img.classList.toggle('is-active',n===activeRealIndex));
+ return loaded.length;
+}
 function stopPreview(i){
  const st=previewState.get(i);if(!st)return;
  clearTimeout(st.delay);clearInterval(st.interval);st.delay=null;st.interval=null;st.index=0;
@@ -1815,8 +1871,8 @@ function initPreview(i){
  const slides=[...media.querySelectorAll('.art-slide')];if(slides.length<2)return;
  const st={card,media,slides,index:0,delay:null,interval:null,ready:false};previewState.set(i,st);
  const verify=()=>{
-  st.ready=slides.every(img=>img.complete&&img.naturalWidth>0);
-  // Show the first image as soon as it loads; do not hide all four while later slides load.
+  const loadedCount=getLoadedSlideIndices(st).length;
+  st.ready=loadedCount>=2;
   card.classList.toggle('has-preview',slides[0].complete&&slides[0].naturalWidth>0);
  };
  slides.forEach(img=>{img.addEventListener('load',verify);img.addEventListener('error',verify)});
@@ -1826,12 +1882,10 @@ function initPreview(i){
   stopPreview(i);
   st.delay=setTimeout(()=>{
    if(!card.matches(':hover')||moving||portalState!=='idle'||!st.ready)return;
-   st.index=1;
-   st.slides.forEach((img,n)=>img.classList.toggle('is-active',n===st.index));
+   if(paintPreviewFrame(st,1)<2)return;
    st.interval=setInterval(()=>{
     if(moving||portalState!=='idle'||!card.matches(':hover')){stopPreview(i);return;}
-    st.index=(st.index+1)%st.slides.length;
-    st.slides.forEach((img,n)=>img.classList.toggle('is-active',n===st.index));
+    if(paintPreviewFrame(st,st.index+1)<2){stopPreview(i);return;}
    },800);
   },350);
  });
@@ -1839,6 +1893,7 @@ function initPreview(i){
 }
 initPreview(0);
 initPreview(1);
+initPreview(2); // CHAPTER 03 — four-image hover preview, same timing as other works
 cards.forEach((el,i)=>el.addEventListener('click',()=>select(i)));
 prev.addEventListener('click',()=>select(active-1));next.addEventListener('click',()=>select(active+1));
 // Hover for ~0.65s to change once; staying on a button never auto-advances repeatedly.
@@ -1852,8 +1907,9 @@ const projectPageContent=document.getElementById('project-expansion-content');
 const projectCloseButton=document.getElementById('project-expansion-close');
 const projectPDFView=document.getElementById('project-pdf-view');
 const projectPDFLarge=document.getElementById('project-pdf-large');
+const projectPPTView=document.getElementById('project-ppt-view');
 const projectPDFStatus=document.getElementById('project-pdf-status');
-const projectPDFSources=['수노 기획안 포토폴리오-박소망.pdf','라라스윗 기획안 포트폴리오-박소망.pdf',null]; // CHAPTER 03 PDF pending.
+const projectPDFSources=['수노 기획안 포토폴리오-박소망.pdf','라라스윗 기획안 포트폴리오-박소망.pdf','MetaQuest_공포테마_광고_기획안.pdf'];
 const projectOverviews=[
  {
   title:'SUNO',
@@ -1870,11 +1926,11 @@ const projectOverviews=[
   impact:'시청자가 브랜드에 친밀감과 즐거움을 느끼고, 캐릭터와 메시지를 기억하도록 한다.'
  },
  {
-  title:'공포 방탈출',
-  scenario:'익숙한 공간에서 조금씩 이상 현상이 발견되고, 마지막에 예상하지 못한 반전이 드러나는 공포 방탈출 광고. 상세 시나리오는 추후 추가.',
-  concept:'낮은 화질의 캠코더 영상과 아날로그 호러·드림코어 분위기를 활용한 점진적 불안감.',
-  intent:'갑작스러운 점프스케어보다는 작은 이상 징후와 반전으로 방탈출 테마에 대한 호기심을 유도한다.',
-  impact:'섬뜩함과 긴장, 반전에서 오는 놀라움이 실제 체험에 대한 기대감으로 이어지도록 한다.'
+  title:'META QUEST 3·3S',
+  scenario:'도윤과 서아는 폐쇄된 해바라기 놀이학교에 갇힌다. 발밑의 해바라기 트랩으로 철창이 내려오고, 두 사람은 출구를 찾아 갈라진다. 서아 뒤로 다가오는 해바라기 빌런, 구멍 너머 볼풀장, 끝없이 이어지는 탈출. 가까스로 재회한 순간 두 사람의 그림자가 손으로 변해 덮치고 GAME OVER가 뜬다. 도윤이 헤드셋을 올리자 같은 자리는 밝은 MR 체험관으로 바뀐다. 공포는 가상이었지만, 출구로 나가는 마지막 순간 도윤 옆의 서아가 사라지며 섬뜩한 여운을 남긴다.',
+  concept:'“헤드셋을 벗기 전까지, 공포는 진짜였다.” 익숙한 놀이학교를 공포 게임으로 뒤집고, GAME OVER에서 현실로 전환하는 반전형 Meta Quest 3·3S 혼합현실 콘셉트 광고.',
+  intent:'기능을 길게 설명하지 않고 관객까지 공포 게임에 몰입시킨 뒤, 게임 공간이 현실의 MR 체험관과 겹쳐 보이는 순간으로 혼합현실의 현장감과 몰입력을 체감시키고자 했다. 팀 프로젝트에서 공포 파트 연출과 음악을 담당했다.',
+  impact:'탈출 과정의 긴장, 현실로 돌아왔을 때의 안도와 웃음, 마지막 쿠키의 반전을 차례로 경험하게 한다. “우리도 해볼까?”라는 호기심이 Quest 3·3S 체험에 대한 관심으로 이어지도록 구성했다.'
  }
 ];
 function renderProjectPage(){
@@ -1885,7 +1941,8 @@ function renderProjectPage(){
  document.getElementById('project-overview-concept').textContent=project.concept;
  document.getElementById('project-overview-intent').textContent=project.intent;
  document.getElementById('project-overview-impact').textContent=project.impact;
- document.getElementById('project-overview-pdf-note').textContent=projectPDFSources[active]?'아래 버튼으로 기획안 PDF를 확인할 수 있습니다.':'전체 기획안 PDF는 추후 연결될 예정입니다.';
+ document.getElementById('project-overview-pdf-note').textContent=active===2?'전체 기획안 PDF와 발표 PPT 슬라이드쇼를 아래에서 확인할 수 있습니다.':projectPDFSources[active]?'아래 버튼으로 기획안 PDF를 확인할 수 있습니다.':'전체 기획안 PDF는 추후 연결될 예정입니다.';
+ projectPPTView.hidden=active!==2;
  projectPDFStatus.textContent='';
  closeProjectPDFEmbed();
  changeProjectPage(0);
@@ -1939,18 +1996,29 @@ function projectPDFStartURL(path){
  const separator=path.includes('?')?'&':'?';
  return `${path}${separator}somang_pdf_open=${++projectPDFOpenSequence}#page=1`;
 }
+const projectPDFEmbedTitle=document.getElementById('project-pdf-embed-title');
+const metaQuestPresentationPPTX='메타퀘스트_공포테마_광고_발표ppt.pptx';
+let projectPDFReturnFocus=projectPDFView;
 function closeProjectPDFEmbed(){projectPDFEmbed.hidden=true;projectPDFIframe.removeAttribute('src');}
-function handleProjectPDF(openLarge){
- const path=projectPDFSources[active];
- if(!path){projectPDFStatus.textContent='PDF 기획안은 추후 추가될 예정입니다.';return;}
- if(openLarge){window.open(projectPDFStartURL(path),'_blank','noopener,noreferrer');return;}
+function openProjectPDF(path,label,trigger){
+ if(!path){projectPDFStatus.textContent='PDF 파일을 찾을 수 없습니다.';return;}
+ projectPDFReturnFocus=trigger||projectPDFView;
+ projectPDFEmbedTitle.textContent=label;
+ projectPDFIframe.title=label;
  projectPDFIframe.src=projectPDFStartURL(path);
  projectPDFEmbed.hidden=false;
  projectPDFEmbedClose.focus({preventScroll:true});
 }
-projectPDFEmbedClose.addEventListener('click',()=>{closeProjectPDFEmbed();projectPDFView.focus({preventScroll:true})});
+function handleProjectPDF(openLarge){
+ const path=projectPDFSources[active];
+ if(!path){projectPDFStatus.textContent='PDF 기획안은 추후 추가될 예정입니다.';return;}
+ if(openLarge){window.open(projectPDFStartURL(path),'_blank','noopener,noreferrer');return;}
+ openProjectPDF(path,'전체 기획안 PDF',projectPDFView);
+}
+projectPDFEmbedClose.addEventListener('click',()=>{closeProjectPDFEmbed();projectPDFReturnFocus.focus({preventScroll:true})});
 projectPDFView.addEventListener('click',()=>handleProjectPDF(false));
 projectPDFLarge.addEventListener('click',()=>handleProjectPDF(true));
+projectPPTView.addEventListener('click',()=>{if(active===2)openPresentationSlides()});
 projectCloseButton.addEventListener('click',closeProjectPortal);
 // V34: the frame is created ONCE and remains the visible panel until closing completes.
 const cinematicEase=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
@@ -2557,19 +2625,26 @@ async function ensureIntroPrepared(){
  setIntroMediaStatus('');
  return true;
 }
+// V99: fail OPEN, never leave visitors trapped behind a permanently stalled invite.
+// Full buffering remains the preferred path for the existing smooth Intro sequence.
+// The deadline is per visit and is independent of media errors/range-support issues.
 (async()=>{
  audioGate.classList.add('is-visible');
  if(introLoadingLabel)introLoadingLabel.textContent='전시관을 준비하고 있습니다…';
- for(let attempt=0;attempt<3;attempt++){
-  await waitForVisibleIntroTab();
-  if(await ensureIntroPrepared()){
-   if(introLoadingLabel)introLoadingLabel.textContent='전시관 입장을 시작합니다…';
-   await bootIntroWithSound();
-   return;
-  }
-  if(attempt<2)await new Promise(resolve=>setTimeout(resolve,1500));
+ await waitForVisibleIntroTab();
+ const loaded=await Promise.race([
+  ensureIntroPrepared().catch(()=>false),
+  new Promise(resolve=>setTimeout(()=>resolve(false),7500))
+ ]);
+ if(!loaded){
+  // Avoid presenting a failed state while we enter with the built-in
+  // curtain (8s) and title (12s max) media-failure recovery paths.
+  setIntroMediaStatus('');
+  console.warn('[SOMANG] Intro media did not finish preloading; continuing with fallback.');
  }
- setIntroMediaStatus('영상 연결이 지연되고 있습니다. 잠시 후 페이지를 새로고침해 주세요.');
+ await waitForVisibleIntroTab();
+ if(introLoadingLabel)introLoadingLabel.textContent='전시관 입장을 시작합니다…';
+ await bootIntroWithSound();
 })();
 // V97 — Background tabs may throttle rAF, timers, and transparent WebM decoding.
 // Do not restart or pause the cinematic timeline on tab hide. On tab return,
@@ -2814,5 +2889,52 @@ aboutSetProgress(0);onAboutScroll();
   }
 })();
 
+
+// V106 — Present all eight slides from the revised PPTX as extracted images.
+const somangSlideViewer=document.getElementById('somang-slide-viewer');
+const somangSlideImage=document.getElementById('somang-slide-image');
+const somangSlideCounter=document.getElementById('somang-slide-counter');
+const somangSlidePrev=document.getElementById('somang-slide-prev');
+const somangSlideNext=document.getElementById('somang-slide-next');
+const somangSlideFullscreen=document.getElementById('somang-slide-fullscreen');
+const somangSlideClose=document.getElementById('somang-slide-close');
+const somangSlidePaths=Array.from({length:8},(_,i)=>'metaquest_presentation_slide_'+String(i+1).padStart(2,'0')+'.jpg?v=106');
+let somangSlideIndex=0;
+function renderPresentationSlide(){
+ somangSlideImage.src=somangSlidePaths[somangSlideIndex];
+ somangSlideImage.alt='메타 퀘스트 발표 슬라이드 '+(somangSlideIndex+1)+' / '+somangSlidePaths.length;
+ somangSlideCounter.textContent=String(somangSlideIndex+1).padStart(2,'0')+' / '+String(somangSlidePaths.length).padStart(2,'0');
+ somangSlidePrev.disabled=somangSlideIndex===0;
+ somangSlideNext.disabled=somangSlideIndex===somangSlidePaths.length-1;
+}
+function openPresentationSlides(){
+ somangSlideIndex=0;renderPresentationSlide();somangSlideViewer.hidden=false;
+ somangSlideClose.focus({preventScroll:true});
+ somangSlidePaths.forEach(path=>{const img=new Image();img.src=path});
+}
+function closePresentationSlides(){
+ if(document.fullscreenElement===somangSlideViewer&&document.exitFullscreen){document.exitFullscreen().catch(()=>{});}
+ somangSlideViewer.hidden=true;
+ somangSlideFullscreen.textContent='⛶ 전체화면';
+ if(projectPPTView&&!projectPPTView.hidden)projectPPTView.focus({preventScroll:true});
+}
+function movePresentationSlide(step){somangSlideIndex=Math.max(0,Math.min(somangSlidePaths.length-1,somangSlideIndex+step));renderPresentationSlide()}
+somangSlidePrev.addEventListener('click',()=>movePresentationSlide(-1));
+somangSlideNext.addEventListener('click',()=>movePresentationSlide(1));
+somangSlideClose.addEventListener('click',closePresentationSlides);
+somangSlideFullscreen.addEventListener('click',async()=>{
+ try{
+  if(document.fullscreenElement===somangSlideViewer){await document.exitFullscreen();}
+  else if(somangSlideViewer.requestFullscreen){await somangSlideViewer.requestFullscreen();}
+ }catch(e){projectPDFStatus.textContent='브라우저에서 전체화면을 허용하지 않았습니다.';}
+});
+document.addEventListener('fullscreenchange',()=>{somangSlideFullscreen.textContent=document.fullscreenElement===somangSlideViewer?'⛶ 전체화면 종료':'⛶ 전체화면'});
+document.addEventListener('keydown',e=>{
+ if(somangSlideViewer.hidden)return;
+ if(e.key==='Escape'){e.preventDefault();closePresentationSlides();}
+ else if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();e.stopImmediatePropagation();movePresentationSlide(1);}
+ else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();e.stopImmediatePropagation();movePresentationSlide(-1);}
+},true);
 </script>
+
 </body></html>

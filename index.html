@@ -1561,6 +1561,23 @@ html.somang-temporary-scroll-hold,body.somang-temporary-scroll-hold{
 .somang-slide-counter{font-size:13px;letter-spacing:.13em;color:#e3c89f;min-width:72px;text-align:center}
 .somang-slide-viewer:fullscreen{background:#080809}
 @media(max-width:600px){.somang-slide-toolbar-title{font-size:11px}.somang-slide-toolbar{gap:8px}.somang-slide-toolbar button,.somang-slide-toolbar a{font-size:11px;min-height:32px;padding:6px 8px}.somang-slide-stage{padding:6px}.somang-slide-controls{gap:9px}.somang-slide-controls button{min-width:78px}}
+
+/* V108 — 2×4 toolkit: preserve the panel footprint and reduce inner cards only. */
+#about .tools-panel{width:100%;}
+#about .tools-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(7px,.85vw,12px);}
+#about .tool-card{min-height:140px;gap:10px;padding:13px 3px 10px;justify-content:center;}
+#about .tool-icon{height:clamp(50px,4.7vw,72px);padding:3px;}
+#about .tool-icon img{max-width:86%;max-height:100%;}
+#about .kling-card .tool-icon img{max-width:99%;max-height:62%;}
+#about .photoshop-card .tool-icon img{max-width:92%;max-height:100%;border-radius:14px;}
+#about .seedance-card .tool-icon img{max-width:92%;max-height:100%;border-radius:14px;}
+#about .tool-card > span{font-size:clamp(10px,.75vw,12px);white-space:nowrap;}
+#about .tool-icon .tool-brand-tile{width:min(70px,86%);aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:12px;font-family:Arial,sans-serif;font-weight:700;line-height:1;box-shadow:0 5px 10px rgba(0,0,0,.24);position:relative;flex-shrink:0;}
+#about .tool-brand-photoshop{background:#001e36;border:1px solid #063f6e;color:#31a8ff;font-size:36px;letter-spacing:-.08em;padding-right:4px;}
+#about .tool-brand-seedance{background:linear-gradient(145deg,#242b3b,#1a1b29 65%,#353447);border:1px solid #77748c;color:#faf4ff;font-size:36px;font-style:italic;}
+#about .tool-brand-seedance .tool-seedance-glow{position:absolute;right:10%;top:12%;font-size:16px;color:#b8a0ff;}
+@media(max-width:800px){#about .tools-grid{gap:7px;}#about .tool-card{min-height:110px;padding:10px 2px 8px;gap:7px;}#about .tool-icon{height:56px;}#about .tool-icon .tool-brand-tile{width:50px;border-radius:9px;font-size:28px;}#about .tool-card > span{font-size:clamp(9px,2vw,11px);}}
+
 </style>
 </head>
 <body>
@@ -1679,14 +1696,16 @@ html.somang-temporary-scroll-hold,body.somang-temporary-scroll-hold{
       <div class="skills reveal delay3"><span>아이디어 발상</span><span>체계적인 기획</span><span>명확한 스토리텔링</span><span>트렌드 분석</span><span>디테일한 장면 설계</span></div>
     </div>
     <div class="tools-panel reveal delay2" aria-label="사용하는 제작 프로그램 및 AI 도구">
-      <div class="tools-header"><div class="eyebrow">TOOLS &amp; CREATIVE AI</div><small>MY CREATIVE TOOLKIT / 06</small></div>
+      <div class="tools-header"><div class="eyebrow">TOOLS &amp; CREATIVE AI</div><small>MY CREATIVE TOOLKIT / 08</small></div>
       <div class="tools-grid">
         <div class="tool-card" style="--item:0"><div class="tool-icon"><img src="logo_ae.png" alt="" loading="lazy"></div><span>After Effects</span></div>
         <div class="tool-card" style="--item:1"><div class="tool-icon"><img src="logo_pr.png" alt="" loading="lazy"></div><span>Premiere Pro</span></div>
-        <div class="tool-card" style="--item:2"><div class="tool-icon"><img src="logo_cubase.png" alt="" loading="lazy"></div><span>Cubase</span></div>
-        <div class="tool-card" style="--item:3"><div class="tool-icon"><img src="logo_suno.png" alt="" loading="lazy"></div><span>Suno</span></div>
-        <div class="tool-card kling-card" style="--item:4"><div class="tool-icon"><img src="logo_kling.png" alt="" loading="lazy"></div><span>Kling AI</span></div>
-        <div class="tool-card" style="--item:5"><div class="tool-icon"><img src="logo_openai.png" alt="" loading="lazy"></div><span>OpenAI</span></div>
+        <div class="tool-card photoshop-card" style="--item:2"><div class="tool-icon"><img src="logo_photoshop.png" alt="" loading="lazy"></div><span>Photoshop</span></div>
+        <div class="tool-card" style="--item:3"><div class="tool-icon"><img src="logo_higgsfield.jpg" alt="" loading="lazy"></div><span>Higgsfield</span></div>
+        <div class="tool-card" style="--item:4"><div class="tool-icon"><img src="logo_suno.png" alt="" loading="lazy"></div><span>Suno</span></div>
+        <div class="tool-card kling-card" style="--item:5"><div class="tool-icon"><img src="logo_kling.png" alt="" loading="lazy"></div><span>Kling AI</span></div>
+        <div class="tool-card" style="--item:6"><div class="tool-icon"><img src="logo_openai.png" alt="" loading="lazy"></div><span>OpenAI</span></div>
+        <div class="tool-card seedance-card" style="--item:7"><div class="tool-icon"><img src="logo_seedance.webp" alt="" loading="lazy"></div><span>Seedance</span></div>
       </div>
       <div class="tools-footer">VIDEO EDITING <span>·</span> SOUND <span>·</span> GENERATIVE AI</div>
     </div>
